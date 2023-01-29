@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const CopyPlugin = require('copy-webpack-plugin');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 //const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const EslintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
@@ -28,12 +27,8 @@ const baseConfig = {
                 type: 'asset/resource',
             },
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
-            },
-            {
-                test: /\.s[ac]ss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                test: /\.(scss|css)$/i,
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
             },
             {
                 test: /\.ts$/i,
@@ -49,7 +44,7 @@ const baseConfig = {
         path: path.resolve(__dirname, 'dist'),
         assetModuleFilename: 'images/[name][ext]',
         clean: true,
-        publicPath: '/',
+        // publicPath: './',
     },
     plugins: [
         new HtmlWebpackPlugin({
