@@ -7,6 +7,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'prettier',
         'airbnb-base',
+        'airbnb-typescript/base',
     ],
     parserOptions: {
         ecmaVersion: 2020,
