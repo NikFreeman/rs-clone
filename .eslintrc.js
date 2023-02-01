@@ -27,5 +27,7 @@ module.exports = {
         'class-methods-use-this': 'off',
         '@typescript-eslint/no-explicit-any': 2,
         '@typescript-eslint/no-var-requires': 0,
+        'indent': 'off',
+        '@typescript-eslint/indent': 'off',
     },
 };
