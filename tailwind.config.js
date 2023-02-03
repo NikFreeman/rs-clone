@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {},
         minHeight: {
-            '160': '40rem',
+            '120': '30rem',
           }
     },
     plugins: [],

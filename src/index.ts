@@ -1,7 +1,8 @@
 import './style.css';
-import getUnsplashLinkToImage from './components/start-page/wall';
-import { categories, renderCart } from './components/start-page/categories';
+import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall';
+import { categories, renderCard } from './components/start-page/categories';
 
-categories.forEach((category) => renderCart(category));
+getRandomWallpaper();
+categories.forEach((category) => renderCard(category));
 
-document.body.addEventListener('click', getUnsplashLinkToImage);
+document.body.addEventListener('click', getLinkToImage);
