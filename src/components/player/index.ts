@@ -1,13 +1,33 @@
 import { Howl, Howler } from 'howler';
-import ambience from "../../audio/ambience";
+import ambienceCollection from '../../audio/ambience';
 
-function play() {
-    console.log(ambience);
+// const playersSrc: Howl[] = [];
+const song = new Howl({
+    src: ambienceCollection[0] as unknown as string,
+    preload: false,
+});
 
-    const sound = new Howl({
-        src: ['sound.mp3'],
-    });
-    Howler.volume(0.5);
-    sound.play();
+export function play() {
+    // ambienceCollection.forEach((elem) => {
+    //     const song = new Howl({
+    //         src: [elem as unknown as string],
+    //     });
+    //     playersSrc.push(song);
+    // });
+    // playersSrc.forEach((song) => {
+    //     song.load();
+    //     song.on('load', function test() {
+    //         // eslint-disable-next-line prefer-rest-params
+    //         console.log(...arguments);
+    //     });
+    // });
+    song.play();
+    Howler.volume(1);
 }
-export default play;
+song.on('load', function test() {
+    console.log('loading complete');
+});
+
+export function load() {
+    song.load();
+}
