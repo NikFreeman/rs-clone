@@ -19,6 +19,13 @@ const baseConfig: Configuration = {
                 // },
             },
             {
+                test: /\.(mp3)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/audio/[name][ext]',
+                },
+            },
+            {
                 test: /\.(png)$/,
                 type: 'asset/resource',
             },
