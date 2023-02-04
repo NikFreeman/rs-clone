@@ -26,12 +26,14 @@ async function getAvatarAndVideo(category: string) {
     const avatarUrl = `https://pixabay.com/api/?key=33252685-38611dc0fea1785cc68501bc5&q=${category.toLowerCase()}&image_type=photo&orientation=vertical`;
     const res = await fetch(avatarUrl);
     const data = await res.json();
-    const imgSrc = `${data.hits[0].previewURL}`;
+    const randomImg = Math.floor(Math.random() * data.hits.length);
+    const imgSrc = `${data.hits[randomImg].previewURL}`;
 
     const videoUrl = `https://pixabay.com/api/videos/?key=33252685-38611dc0fea1785cc68501bc5&q=${category.toLowerCase()}`;
     const vidRes = await fetch(videoUrl);
     const vidData = await vidRes.json();
-    const vidSrc = `${vidData.hits[0].videos.tiny.url}`;
+    const randomVid = Math.floor(Math.random() * vidData.hits.length);
+    const vidSrc = `${vidData.hits[randomVid].videos.tiny.url}`;
     return [imgSrc, vidSrc];
 }
 
@@ -69,11 +71,12 @@ export async function renderCard(category: string) {
         <div blur-shadow-image="true">
             <video
             class="w-auto rounded-lg" loop preload="auto"
+            muted="true"
             src=${urls[1]}
             alt="card video"/>
         </div>
     </div>
-    <div class="text-secondary flex-1 p-6">
+    <div class="presets-block text-secondary flex-1 p-6 hidden">
         <h5 class="mt-2 font-medium">Presets</h5>
         ${getPresetTags(category)}
     </div>
@@ -83,9 +86,41 @@ export async function renderCard(category: string) {
     }
     card.addEventListener('mouseover', function play() {
         this.querySelector('video')?.play();
+        this.querySelector('.presets-block')?.classList.remove('hidden');
     });
 
     card.addEventListener('mouseleave', function stop() {
         this.querySelector('video')?.pause();
+        if (!this.classList.contains('active-card')) {
+            this.querySelector('.presets-block')?.classList.add('hidden');
+        }
     });
 }
+
+function applyMood(target: HTMLElement) {
+    const rangeArea = document.querySelector('.preset-name');
+    const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
+    const preset = target.classList.contains('preset') ? ` / ${target.textContent}` : '';
+    if (rangeArea && mood) {
+        rangeArea.textContent = mood + preset;
+    }
+}
+
+function activateMoodCard(e: Event) {
+    const cardList = document.querySelectorAll('.category-card');
+    cardList.forEach((card) => {
+        card.classList.remove('active-card');
+        card.querySelector('.presets-block')?.classList.add('hidden');
+    });
+    if (e.target instanceof HTMLElement) {
+        const card = e.target.closest('.category-card');
+        if (card instanceof HTMLElement) {
+            card.classList.add('active-card');
+            card.querySelector('.presets-block')?.classList.remove('hidden');
+            applyMood(e.target);
+        }
+    }
+}
+
+const wrapper = document.querySelector('.card-wrapper');
+wrapper?.addEventListener('click', activateMoodCard);
