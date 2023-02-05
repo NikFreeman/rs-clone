@@ -1,3 +1,6 @@
+import getRandomDigit from '../../models/utils';
+
+const API_KEY = '33252685-38611dc0fea1785cc68501bc5';
 /* eslint-disable prettier/prettier */
 export const categories: string[] = ['Nature', 'Sport', 'Weather', 'Chill', 'Lounge', 'Guitar', 'City', 'Orchestra'];
 const categoryPresets = new Map([
@@ -23,16 +26,16 @@ const categoryDescriptions = new Map([
 ]);
 
 async function getAvatarAndVideo(category: string) {
-    const avatarUrl = `https://pixabay.com/api/?key=33252685-38611dc0fea1785cc68501bc5&q=${category.toLowerCase()}&image_type=photo&orientation=vertical`;
+    const avatarUrl = `https://pixabay.com/api/?key=${API_KEY}&q=${category.toLowerCase()}&image_type=photo&orientation=vertical`;
     const res = await fetch(avatarUrl);
     const data = await res.json();
-    const randomImg = Math.floor(Math.random() * data.hits.length);
+    const randomImg = getRandomDigit(data.hits.length);
     const imgSrc = `${data.hits[randomImg].previewURL}`;
 
-    const videoUrl = `https://pixabay.com/api/videos/?key=33252685-38611dc0fea1785cc68501bc5&q=${category.toLowerCase()}`;
+    const videoUrl = `https://pixabay.com/api/videos/?key=${API_KEY}&q=${category.toLowerCase()}`;
     const vidRes = await fetch(videoUrl);
     const vidData = await vidRes.json();
-    const randomVid = Math.floor(Math.random() * vidData.hits.length);
+    const randomVid = getRandomDigit(vidData.hits.length);
     const vidSrc = `${vidData.hits[randomVid].videos.tiny.url}`;
     return [imgSrc, vidSrc];
 }

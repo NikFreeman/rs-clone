@@ -1,13 +1,13 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    plugins: ['prettier', 'import', '@typescript-eslint'],
+    plugins: ['import', '@typescript-eslint', 'prettier'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
-        'prettier',
         'airbnb-base',
         'airbnb-typescript/base',
+        'plugin:prettier/recommended',
+        'prettier',
     ],
     parserOptions: {
         ecmaVersion: 2020,

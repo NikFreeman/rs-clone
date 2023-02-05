@@ -2,7 +2,7 @@ import './style.css';
 import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall';
 import { categories, renderCard } from './components/start-page/categories';
 import './components/volume-control';
-import { play, load } from './components/player';
+import { load } from './components/player';
 import playMusic from './components/start-page/music';
 
 getRandomWallpaper();
@@ -15,6 +15,6 @@ div?.append(volume);
 console.log('start');
 const btnPlay = document.querySelector('.play');
 const btnLoad = document.querySelector('.load');
-btnPlay?.addEventListener('click', play);
+// btnPlay?.addEventListener('click', play);
 btnLoad?.addEventListener('click', load);
 btnPlay?.addEventListener('click', playMusic);

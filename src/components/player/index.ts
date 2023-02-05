@@ -22,7 +22,15 @@ const song4 = new Howl({
     src: ambienceCollection[4] as unknown as string,
     preload: false,
 });
-export const songs = [song, song1, song2, song3, song4];
+const song5 = new Howl({
+    src: ambienceCollection[5] as unknown as string,
+    preload: false,
+});
+const song6 = new Howl({
+    src: ambienceCollection[6] as unknown as string,
+    preload: false,
+});
+export const songs = [song, song1, song2, song3, song4, song5, song6];
 
 export function play() {
     // ambienceCollection.forEach((elem) => {

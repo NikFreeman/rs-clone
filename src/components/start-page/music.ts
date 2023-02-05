@@ -1,28 +1,33 @@
 import { songs } from '../player';
-/* eslint-disable global-require */
-/* eslint-disable no-param-reassign */
+
 const melodySrcs = [...songs];
 
 const volumes = document.querySelectorAll('.slider');
+let isPlay = false;
 
-function playMusic() {
+function playMusic(this: HTMLButtonElement) {
     melodySrcs.forEach((aud, index) => {
-        aud.play();
+        if (isPlay) {
+            aud.stop();
+            this.textContent = 'Play';
+        } else {
+            aud.play();
+            this.textContent = 'Stop';
+        }
         aud.loop(true);
-        aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value / 100);
-        console.log(aud);
+        aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
+    isPlay = !isPlay;
 }
 
 function changeVolume(this: HTMLInputElement) {
     const index = +this.id.slice(7);
-    melodySrcs[index].volume(+this.value / 100);
-    console.log('this.value', this.value);
+    melodySrcs[index].volume(+this.value);
 }
 
 volumes.forEach((input) => {
     if (input instanceof HTMLInputElement) {
-        input.addEventListener('change', changeVolume);
+        input.addEventListener('input', changeVolume);
     }
 });
 
