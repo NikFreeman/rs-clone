@@ -33,10 +33,6 @@ const baseConfig: Configuration = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
-            // {
-            //     test: /\.mp3$/,
-            //     loader: 'file-loader',
-            // },
             {
                 test: /\.(scss|css)$/i,
                 use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],

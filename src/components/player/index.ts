@@ -6,6 +6,23 @@ const song = new Howl({
     src: ambienceCollection[0] as unknown as string,
     preload: false,
 });
+const song1 = new Howl({
+    src: ambienceCollection[1] as unknown as string,
+    preload: false,
+});
+const song2 = new Howl({
+    src: ambienceCollection[2] as unknown as string,
+    preload: false,
+});
+const song3 = new Howl({
+    src: ambienceCollection[3] as unknown as string,
+    preload: false,
+});
+const song4 = new Howl({
+    src: ambienceCollection[4] as unknown as string,
+    preload: false,
+});
+export const songs = [song, song1, song2, song3, song4];
 
 export function play() {
     // ambienceCollection.forEach((elem) => {
@@ -29,5 +46,5 @@ song.on('load', function test() {
 });
 
 export function load() {
-    song.load();
+    songs.forEach((melody) => melody.load());
 }

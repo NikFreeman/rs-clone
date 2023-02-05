@@ -3,6 +3,7 @@ import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall
 import { categories, renderCard } from './components/start-page/categories';
 import './components/volume-control';
 import { play, load } from './components/player';
+import playMusic from './components/start-page/music';
 
 getRandomWallpaper();
 categories.forEach((category) => renderCard(category));
@@ -16,3 +17,4 @@ const btnPlay = document.querySelector('.play');
 const btnLoad = document.querySelector('.load');
 btnPlay?.addEventListener('click', play);
 btnLoad?.addEventListener('click', load);
+btnPlay?.addEventListener('click', playMusic);
