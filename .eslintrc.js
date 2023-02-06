@@ -1,13 +1,13 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    plugins: ['prettier', 'import', '@typescript-eslint'],
+    plugins: ['import', '@typescript-eslint', 'prettier'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
-        'prettier',
         'airbnb-base',
         'airbnb-typescript/base',
+        'prettier',
     ],
     parserOptions: {
         ecmaVersion: 2020,
@@ -27,9 +27,5 @@ module.exports = {
         'class-methods-use-this': 'off',
         '@typescript-eslint/no-explicit-any': 2,
         '@typescript-eslint/no-var-requires': 0,
-        indent: 'off',
-        '@typescript-eslint/indent': 'off',
-        'arrow-body-style': 'off',
-        'prefer-arrow-callback': 'off',
     },
 };

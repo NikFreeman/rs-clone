@@ -1,7 +1,7 @@
 import path from 'path';
 import merge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-//const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 //const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 import { Configuration } from 'webpack';
 import EslintPlugin from 'eslint-webpack-plugin';
@@ -62,8 +62,8 @@ const baseConfig: Configuration = {
         //new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: ['ts'] }),
         // new CopyPlugin({
-        //     patterns: [{ from: './src/assets/static', to: './' }],
-        // }),
+        //      patterns: [{ from: './src/audio', to: './audio' }],
+        //  }),
     ],
 };
 
