@@ -10,15 +10,16 @@ class SoundPlayer {
             const howl = new Howl({
                 src: [src],
                 preload: false,
+                loop: true,
             });
             this.players.push(howl);
         });
         this.played = false;
     }
 
-    getHowl() {
-        return this.players;
-    }
+    // getHowl() {
+    //     return this.players;
+    // }
 
     loadAll() {
         if (this.players.length > 0) {
@@ -62,8 +63,18 @@ class SoundPlayer {
         Howler.volume(value);
     }
 
-    getStatus() {
-        return this.players.map((song) => song.state());
+    getVisualizationData() {
+        const analyser = Howler.ctx.createAnalyser();
+        Howler.masterGain.connect(analyser);
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        analyser.getByteFrequencyData(dataArray);
+        return dataArray;
     }
+
+    // getStatus() {
+    //     return this.players.map((song) => song.state());
+    // }
 }
 export default SoundPlayer;
