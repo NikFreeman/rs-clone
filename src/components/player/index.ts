@@ -9,6 +9,7 @@ class SoundPlayer {
         songSrc.forEach((src) => {
             const howl = new Howl({
                 src: [src],
+                loop: true,
                 preload: false,
             });
             this.players.push(howl);

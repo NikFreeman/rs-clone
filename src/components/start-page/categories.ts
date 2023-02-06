@@ -1,5 +1,7 @@
 import getRandomDigit from '../../models/utils';
 import API_KEY from '../../models/constan';
+// import aboveAndBelow from '../../audio/audio-moods/above-and-below-the-waterline/index';
+// import cityVibes from '../../audio/audio-moods/city-vibes/index';
 
 export const categoryArray = [
     {
@@ -77,7 +79,7 @@ export const categoryArray = [
         src: [],
     },
     {
-        categoryName: 'village',
+        categoryName: 'country',
         mood: 'Welcome to the Village',
         moodRu: '',
         description:
@@ -90,13 +92,13 @@ export const categoryArray = [
 ];
 
 async function getAvatarAndVideo(category: string) {
-    const avatarUrl = `https://pixabay.com/api/?key=${API_KEY}&q=${category}&image_type=photo&orientation=vertical`; // ${category.toLowerCase()}
+    const avatarUrl = `https://pixabay.com/api/?key=${API_KEY}&q=${category}&image_type=photo&orientation=vertical`;
     const res = await fetch(avatarUrl);
     const data = await res.json();
     const randomImg = getRandomDigit(data.hits.length);
     const imgSrc = `${data.hits[randomImg].previewURL}`;
 
-    const videoUrl = `https://pixabay.com/api/videos/?key=${API_KEY}&q=${category}`; // ${category.toLowerCase()}
+    const videoUrl = `https://pixabay.com/api/videos/?key=${API_KEY}&q=${category}`;
     const vidRes = await fetch(videoUrl);
     const vidData = await vidRes.json();
     const randomVid = getRandomDigit(vidData.hits.length);
@@ -158,8 +160,12 @@ export async function renderCard(index: number) {
         wrapper.append(card);
     }
     card.addEventListener('mouseover', function play() {
-        this.querySelector('video')?.play();
-        this.querySelector('.presets-block')?.classList.remove('hidden');
+        try {
+            this.querySelector('video')?.play();
+            this.querySelector('.presets-block')?.classList.remove('hidden');
+        } catch {
+            console.log('something get wrong');
+        }
     });
 
     card.addEventListener('mouseleave', function stop() {

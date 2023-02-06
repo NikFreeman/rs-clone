@@ -1,20 +1,22 @@
-import { songs } from '../player';
+import SoundPlayer from '../player';
+import ambienceCollection from '../../audio/ambience/index';
 
-const melodySrcs = [...songs];
+export const player = new SoundPlayer(ambienceCollection);
+const melodySrcs = player.getHowl();
+player.loadAll();
 
 const volumes = document.querySelectorAll('.slider');
 let isPlay = false;
 
-function playMusic(this: HTMLButtonElement) {
+export function playMusic(this: HTMLButtonElement) {
+    if (isPlay) {
+        player.stopAll();
+        this.textContent = 'Play';
+    } else {
+        player.playAll();
+        this.textContent = 'Stop';
+    }
     melodySrcs.forEach((aud, index) => {
-        if (isPlay) {
-            aud.stop();
-            this.textContent = 'Play';
-        } else {
-            aud.play();
-            this.textContent = 'Stop';
-        }
-        aud.loop(true);
         aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
     isPlay = !isPlay;
@@ -25,10 +27,11 @@ function changeVolume(this: HTMLInputElement) {
     melodySrcs[index].volume(+this.value);
 }
 
-volumes.forEach((input) => {
+volumes.forEach((input, ind) => {
     if (input instanceof HTMLInputElement) {
+        const filePath = ambienceCollection[ind];
+        const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
+        input.setAttribute('title', title);
         input.addEventListener('input', changeVolume);
     }
 });
-
-export default playMusic;
