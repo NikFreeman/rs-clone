@@ -1,33 +1,45 @@
 import { Howl, Howler } from 'howler';
-import ambienceCollection from '../../audio/ambience';
 
-// const playersSrc: Howl[] = [];
-const song = new Howl({
-    src: ambienceCollection[0] as unknown as string,
-    preload: false,
-});
+class SoundPlayer {
+    players: Howl[] = [];
 
-export function play() {
-    // ambienceCollection.forEach((elem) => {
-    //     const song = new Howl({
-    //         src: [elem as unknown as string],
-    //     });
-    //     playersSrc.push(song);
-    // });
-    // playersSrc.forEach((song) => {
-    //     song.load();
-    //     song.on('load', function test() {
-    //         // eslint-disable-next-line prefer-rest-params
-    //         console.log(...arguments);
-    //     });
-    // });
-    song.play();
-    Howler.volume(1);
+    constructor(songSrc: string[]) {
+        songSrc.forEach((src) => {
+            const howl = new Howl({
+                src: [src],
+                preload: false,
+            });
+            console.log('howl ->', howl);
+            this.players.push(howl);
+        });
+    }
+
+    getHowl() {
+        return this.players;
+    }
+
+    loadAll() {
+        this.players.forEach((song) => {
+            song.load();
+        });
+    }
+
+    playAll() {
+        if (this.players.length > 0) {
+            this.players.forEach((song) => song.play());
+        }
+    }
+
+    setVolumeId(id: number, value: number) {
+        this.players[id].volume(value);
+    }
+
+    setVolume(value: number) {
+        Howler.volume(value);
+    }
+
+    getStatus() {
+        return this.players.map((song) => song.state());
+    }
 }
-song.on('load', function test() {
-    console.log('loading complete');
-});
-
-export function load() {
-    song.load();
-}
+export default SoundPlayer;
