@@ -1,5 +1,5 @@
 import ocean from './Ocean.mp3';
-import riverAndBirds from './River and Birds.mp3.mp3';
+import riverAndBirds from './River and Birds.mp3';
 import riverHeavy from './River Heavy.mp3';
 import riverLight from './River Light.mp3';
 import riverMedium from './River Medium.mp3';
