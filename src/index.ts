@@ -11,11 +11,10 @@ const btnLoad = document.querySelector('.load');
 const btnPlay = document.querySelector('.play');
 
 const player = new SoundPlayer(ambienceCollection);
-console.log(player.getHowl());
+
 btnLoad?.addEventListener('click', () => {
     player.loadAll();
 });
 btnPlay?.addEventListener('click', () => {
     player.playAll();
 });
-console.log(player.getHowl());
