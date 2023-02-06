@@ -8,6 +8,37 @@ import waves from './Waves.mp3';
 
 const waterSounds: string[] = [ocean, riverAndBirds, riverHeavy, riverLight, riverMedium, waterfall, waves];
 
+const waterSoundsLinks = [
+    {
+        soundName: 'Ocean',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1TwdACjpAdWWetCMEnxFtSkrWBRRYoFvn',
+    },
+    {
+        soundName: 'River and Birds',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1L89OiGD_dvClLZAihSgY9cl69YhLIMRQ',
+    },
+    {
+        soundName: 'River Heavy',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1GT0UALxqcbR7iOwHAQ1zL6PBOLy9vMKA',
+    },
+    {
+        soundName: 'River Light',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1D64Bunz6tNuZJsbup74pRdxNoGsSWpDK',
+    },
+    {
+        soundName: 'River Medium',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1PWXJ1psDgV5huXF-JroDZH2qLhm6x1pi',
+    },
+    {
+        soundName: 'Waterfall',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1woENw77DWFg3tCHxIRUXHNp8K0bevcm3',
+    },
+    {
+        soundName: 'Waves',
+        soundSrc: 'https://docs.google.com/uc?export=download&id=1bPoe5lurguDIlI7Vx_E4yvTwWp12hktV',
+    },
+];
+
 export const categoryArray = [
     {
         categoryName: 'water',
@@ -16,7 +47,7 @@ export const categoryArray = [
         description:
             'Sea waves, rain and beautiful birds - the perfect natural soundscape to block out a noisy office.',
         descriptionRu:
-            'Волны, дождь и птицы — прекрасное звуковое сопровождение, которое поможет сосередоточиться и забыть об окружающем мире.',
+            'Волны, дождь и птицы — прекрасное звуковое сопровождение, которое поможет сосредоточиться и забыть об окружающем мире.',
         presets: [
             {
                 presetName: 'The Waterfall',
@@ -61,6 +92,7 @@ export const categoryArray = [
                 presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
             },
         ],
-        sounds: waterSounds,
+        soundsDirect: waterSounds,
+        soundsLinks: waterSoundsLinks
     },
 ];
