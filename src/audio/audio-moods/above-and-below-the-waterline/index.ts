@@ -39,7 +39,7 @@ const waterSoundsLinks = [
     },
 ];
 
-export const categoryArray = [
+export const waterSoundsPack = [
     {
         categoryName: 'water',
         mood: 'Above and below the Waterline',
