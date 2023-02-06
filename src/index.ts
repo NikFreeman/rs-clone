@@ -1,12 +1,12 @@
 import './style.css';
 import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall';
-import { categories, renderCard } from './components/start-page/categories';
+import { categoryArray, renderCard } from './components/start-page/categories';
 import './components/volume-control';
 import { load } from './components/player';
 import playMusic from './components/start-page/music';
 
 getRandomWallpaper();
-categories.forEach((category) => renderCard(category));
+categoryArray.forEach((_, i) => renderCard(i));
 document.body.addEventListener('click', getLinkToImage);
 
 const volume = document.createElement('volume-control');

@@ -5,6 +5,9 @@ module.exports = {
         extend: {
             rotate: {
                 '270': '270deg',
+            },
+            margin: {
+                '18': '4.5rem',
             }
         },        
         minHeight: {

@@ -1,38 +1,102 @@
 import getRandomDigit from '../../models/utils';
+import API_KEY from '../../models/constan';
 
-const API_KEY = '33252685-38611dc0fea1785cc68501bc5';
-/* eslint-disable prettier/prettier */
-export const categories: string[] = ['Nature', 'Sport', 'Weather', 'Chill', 'Lounge', 'Guitar', 'City', 'Orchestra'];
-const categoryPresets = new Map([
-    [categories[0], ['Quiet Forest Tone', 'Singing Tree', 'Only Birds', 'Light Hail', 'Windy Day']],
-    [categories[1], ['Running', 'Stadium', 'Fight', 'Athletics', 'Swimming']],
-    [categories[2], ['Thunder', 'Storm', 'Rain', 'Wind', 'Snow']],
-    [categories[3], ['Relax', 'Dream', 'Calm', 'Garden', 'Summer']],
-    [categories[4], ['Preset One', 'Preset Two', 'Preset Three', 'Preset Four', 'Preset Five']],
-    [categories[5], ['Rock', 'Acoustic', 'Song', 'Spanish melody', 'Bass']],
-    [categories[6], ['Cars', 'Road', 'Voice', 'Office', 'Street']],
-    [categories[7], ['Violin', 'Viola', 'Cello', 'Double Bass', 'Harp']],
-]);
-
-const categoryDescriptions = new Map([
-    [categories[0], 'Instead of listening to synthetic white noise, have you tried the sound of insects, singing at night. You\'re welcome!'],
-    [categories[1], 'Noise offers role play gamers dedicated soundscapes to help them create the perfect ambience for their games.'],
-    [categories[2], 'Background sounds can be used in order to help reduce distractions and improve focus.'],
-    [categories[3], 'Peace for the mind and the soul. Discover the calming effect of Gregorian vocals.'],
-    [categories[4], 'This soundscape recreates both the quieter ambience of a small village, as well as the busier atmosphere of a bigger town.'],
-    [categories[5], 'Our custom audio engine creates music tracks that never repeat exactly.'],
-    [categories[6], 'You\'re sitting in a cafe, where a band is playing a down-tempo song. Meanwhile, you hear kids playing across the street. Life is good; right here, right now.'],
-    [categories[7], 'The moment it starts playing, it will make you smile. Play it in the background to keep your mind tuned in to creative, inspired, and positive vibes.'],
-]);
+export const categoryArray = [
+    {
+        categoryName: 'water',
+        mood: 'Above and below the Waterline',
+        moodRu: '',
+        description: 'Sea waves, rain and wind - the perfect natural soundscape to block out a noisy office.',
+        descriptionRu: '',
+        presets: ['The Watermill', 'By the River', 'Seashore', 'Underwater', 'Ocean'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'city',
+        mood: 'City Vibes',
+        moodRu: '',
+        description:
+            "You're sitting in a cafe, where a band is playing a down-tempo song. Meanwhile, you hear kids playing across the street. Life is good; right here, right now.",
+        descriptionRu: '',
+        presets: ['Cars', 'Road', 'Voice', 'Office', 'Street'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'nature',
+        mood: 'Close To Nature',
+        moodRu: '',
+        description:
+            "Instead of listening to synthetic white noise, have you tried the sound of insects, singing at night. You're welcome!",
+        descriptionRu: '',
+        presets: ['Quiet Forest Tone', 'Singing Tree', 'Only Birds', 'Light Hail', 'Windy Day'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'darkness',
+        mood: 'Darkness Within',
+        moodRu: '',
+        description:
+            'Embrace that darkness. Close your eyes, breathe deeply. Let the unknown envelop you. Let your subconscious run wild into oblivion.',
+        descriptionRu: '',
+        presets: ['Night', 'Empty Space', 'Thriller', 'Fear', 'Darkness'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'meditate',
+        mood: 'Meditate Me',
+        moodRu: '',
+        description: 'A sonic bath to rejuvenate the mind and the soul.',
+        descriptionRu: '',
+        presets: ['Relax', 'Dream', 'Calm', 'Garden', 'Summer'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'sci-fi',
+        mood: 'Sci-Fi',
+        moodRu: '',
+        description:
+            'In the middle of the interstellar void, alone in your vessel, you are heading to a black hole that absorbs matter... and time!',
+        descriptionRu: '',
+        presets: ['Preset One', 'Preset Two', 'Preset Three', 'Preset Four', 'Preset Five'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'weather',
+        mood: 'Weather for All',
+        moodRu: '',
+        description: 'Background sounds can be used in order to help reduce distractions and improve focus.',
+        descriptionRu: '',
+        presets: ['Thunder', 'Storm', 'Rain', 'Wind', 'Snow'],
+        presetsRu: [''],
+        src: [],
+    },
+    {
+        categoryName: 'village',
+        mood: 'Welcome to the Village',
+        moodRu: '',
+        description:
+            'This soundscape recreates both the quieter ambience of a small village, as well as the busier atmosphere of a bigger town.',
+        descriptionRu: '',
+        presets: ['The Market', 'Meet the Blacksmith', 'Wedding Bells', 'War Times', 'Troubadours'],
+        presetsRu: [''],
+        src: [],
+    },
+];
 
 async function getAvatarAndVideo(category: string) {
-    const avatarUrl = `https://pixabay.com/api/?key=${API_KEY}&q=${category.toLowerCase()}&image_type=photo&orientation=vertical`;
+    const avatarUrl = `https://pixabay.com/api/?key=${API_KEY}&q=${category}&image_type=photo&orientation=vertical`; // ${category.toLowerCase()}
     const res = await fetch(avatarUrl);
     const data = await res.json();
     const randomImg = getRandomDigit(data.hits.length);
     const imgSrc = `${data.hits[randomImg].previewURL}`;
 
-    const videoUrl = `https://pixabay.com/api/videos/?key=${API_KEY}&q=${category.toLowerCase()}`;
+    const videoUrl = `https://pixabay.com/api/videos/?key=${API_KEY}&q=${category}`; // ${category.toLowerCase()}
     const vidRes = await fetch(videoUrl);
     const vidData = await vidRes.json();
     const randomVid = getRandomDigit(vidData.hits.length);
@@ -40,20 +104,26 @@ async function getAvatarAndVideo(category: string) {
     return [imgSrc, vidSrc];
 }
 
-function getPresetTags(category: string) {
-    const presets = categoryPresets.get(category);
+function getPresetTags(index: number) {
+    const { presets } = categoryArray[index];
     if (presets) {
-        const tags = presets.map((preset, index) => `<span class="preset preset-${index} text-base rounded hover:bg-sky-600 hover:text-yellow-200">${preset}</span>`);
+        const tags = presets.map(
+            (preset, ind) =>
+                `<span class="preset preset-${ind} text-base rounded hover:bg-sky-600 hover:text-yellow-200">${preset}</span>`
+        );
         return tags.join(' • ');
     }
     return '';
 }
 
-export async function renderCard(category: string) {
+export async function renderCard(index: number) {
+    const { categoryName } = categoryArray[index];
+    const { mood } = categoryArray[index];
     const wrapper = document.querySelector('.card-wrapper');
-    const urls: string[] = await getAvatarAndVideo(category);
+    const urls: string[] = await getAvatarAndVideo(categoryName);
     const card = document.createElement('div');
-    card.className = 'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl';
+    card.className =
+        'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl';
     card.innerHTML = `
     <div class="bg-transparent p-6 pt-0 mt-4">
         <div class="flex ">
@@ -65,8 +135,8 @@ export async function renderCard(category: string) {
                 />
             </div>
             <div class="ml-3">
-                <span class="category-name mb-0 font-bold text-blue-gray-700">${category}</span>
-                <p class="mb-0 text-xs">${categoryDescriptions.get(category)}</p>
+                <span class="category-name mb-0 font-bold text-blue-gray-700">${mood}</span>
+                <p class="mb-0 text-xs">${categoryArray[index].description}</p>
             </div>
         </div>
     </div>
@@ -81,7 +151,7 @@ export async function renderCard(category: string) {
     </div>
     <div class="presets-block text-secondary flex-1 p-6 hidden">
         <h5 class="mt-2 font-medium">Presets</h5>
-        ${getPresetTags(category)}
+        ${getPresetTags(index)}
     </div>
     `;
     if (wrapper) {

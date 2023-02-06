@@ -1,6 +1,5 @@
 import getRandomDigit from '../../models/utils';
-
-const API_KEY = '33252685-38611dc0fea1785cc68501bc5';
+import API_KEY from '../../models/constan';
 
 export async function getRandomWallpaper() {
     document.body.style.transition = 'background 1s ease-in-out';
