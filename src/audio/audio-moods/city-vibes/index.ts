@@ -51,32 +51,21 @@ export const citySoundsPack = [
         presets: [
             {
                 presetName: 'Walk in the park',
+                presetNameRu: 'Прогулка в парке',
                 presetValues: [0, 0, 0, 0.85, 0.75, 0, 0.6],
             },
             {
                 presetName: 'Down the street',
+                presetNameRu: 'Вдоль дороги',
                 presetValues: [0.9, 0, 0, 0, 0, 0.95, 0],
             },
             {
                 presetName: 'Night City',
-                presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
-            },
-        ],
-        presetsRu: [
-            {
-                presetName: 'Прогулка в парке',
-                presetValues: [0, 0, 0, 0.85, 0.75, 0, 0.6],
-            },
-            {
-                presetName: 'Вдоль дороги',
-                presetValues: [0.9, 0, 0, 0, 0, 0.95, 0],
-            },
-            {
-                presetName: 'Ночной город',
+                presetNameRu: 'Ночной город',
                 presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
             },
         ],
         soundsDirect: citySounds,
-        soundsLinks: citySoundsLinks
+        soundsLinks: citySoundsLinks,
     },
 ];

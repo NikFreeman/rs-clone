@@ -51,48 +51,31 @@ export const waterSoundsPack = [
         presets: [
             {
                 presetName: 'The Waterfall',
+                presetNameRu: 'Водопад',
                 presetValues: [0, 0, 0.3, 0.4, 0.2, 0.85, 0],
             },
             {
                 presetName: 'By the River',
+                presetNameRu: 'Вниз по реке',
                 presetValues: [0, 0.8, 0.5, 0.4, 0.8, 0, 0],
             },
             {
                 presetName: 'Seashore',
+                presetNameRu: 'Молчаливое побережье',
                 presetValues: [0.8, 0, 0, 0.45, 0, 0, 0.65],
             },
             {
                 presetName: 'Water Around Us',
+                presetNameRu: 'В окружении воды',
                 presetValues: [0.5, 0, 0, 0.45, 0.3, 0.2, 0.6],
             },
             {
                 presetName: 'Ocean',
-                presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
-            },
-        ],
-        presetsRu: [
-            {
-                presetName: 'Водопад',
-                presetValues: [0, 0, 0.3, 0.4, 0.2, 0.85, 0],
-            },
-            {
-                presetName: 'Вниз по реке',
-                presetValues: [0, 0.8, 0.5, 0.4, 0.8, 0, 0],
-            },
-            {
-                presetName: 'Молчаливое побережье',
-                presetValues: [0.8, 0, 0, 0.45, 0, 0, 0.65],
-            },
-            {
-                presetName: 'В окружении воды',
-                presetValues: [0.5, 0, 0, 0.45, 0.3, 0.2, 0.6],
-            },
-            {
-                presetName: 'Бездонный океан',
+                presetNameRu: 'Бездонный океан',
                 presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
             },
         ],
         soundsDirect: waterSounds,
-        soundsLinks: waterSoundsLinks
+        soundsLinks: waterSoundsLinks,
     },
 ];
