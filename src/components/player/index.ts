@@ -1,58 +1,69 @@
 import { Howl, Howler } from 'howler';
-import ambienceCollection from '../../audio/ambience';
 
-// const playersSrc: Howl[] = [];
-const song = new Howl({
-    src: ambienceCollection[0] as unknown as string,
-    preload: false,
-});
-const song1 = new Howl({
-    src: ambienceCollection[1] as unknown as string,
-    preload: false,
-});
-const song2 = new Howl({
-    src: ambienceCollection[2] as unknown as string,
-    preload: false,
-});
-const song3 = new Howl({
-    src: ambienceCollection[3] as unknown as string,
-    preload: false,
-});
-const song4 = new Howl({
-    src: ambienceCollection[4] as unknown as string,
-    preload: false,
-});
-const song5 = new Howl({
-    src: ambienceCollection[5] as unknown as string,
-    preload: false,
-});
-const song6 = new Howl({
-    src: ambienceCollection[6] as unknown as string,
-    preload: false,
-});
-export const songs = [song, song1, song2, song3, song4, song5, song6];
+class SoundPlayer {
+    players: Howl[] = [];
 
-export function play() {
-    // ambienceCollection.forEach((elem) => {
-    //     const song = new Howl({
-    //         src: [elem as unknown as string],
-    //     });
-    //     playersSrc.push(song);
-    // });
-    // playersSrc.forEach((song) => {
-    //     song.load();
-    //     song.on('load', function test() {
-    //         // eslint-disable-next-line prefer-rest-params
-    //         console.log(...arguments);
-    //     });
-    // });
-    song.play();
-    Howler.volume(1);
+    played: boolean;
+
+    constructor(songSrc: string[]) {
+        songSrc.forEach((src) => {
+            const howl = new Howl({
+                src: [src],
+                preload: false,
+            });
+            this.players.push(howl);
+        });
+        this.played = false;
+    }
+
+    getHowl() {
+        return this.players;
+    }
+
+    loadAll() {
+        if (this.players.length > 0) {
+            this.players.forEach((song) => {
+                if (song.state() === 'unloaded') {
+                    song.load();
+                }
+            });
+        }
+    }
+
+    playAll() {
+        if (this.players.length > 0) {
+            if (this.isLoaded()) {
+                this.players.forEach((song) => song.play());
+            }
+            this.played = true;
+        }
+    }
+
+    stopAll() {
+        if (this.isPlayed()) {
+            this.players.forEach((song) => song.stop());
+            this.played = false;
+        }
+    }
+
+    isLoaded() {
+        return this.players.every((howl) => howl.state() === 'loaded');
+    }
+
+    isPlayed() {
+        return this.played;
+    }
+
+    setVolumeId(id: number, value: number) {
+        this.players[id].volume(value);
+    }
+
+    setVolume(value: number) {
+        Howler.volume(value);
+    }
+
+    getStatus() {
+        return this.players.map((song) => song.state());
+    }
 }
-song.on('load', function test() {
-    console.log('loading complete');
-});
-
-export function load() {
-    songs.forEach((melody) => melody.load());
-}
+export default SoundPlayer;
