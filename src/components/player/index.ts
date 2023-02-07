@@ -13,6 +13,7 @@ class SoundPlayer {
         songSrc.forEach((src) => {
             const howl = new Howl({
                 src: [src],
+                loop: true,
                 preload: false,
                 loop: true,
             });

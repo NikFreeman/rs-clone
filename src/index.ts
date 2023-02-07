@@ -1,42 +1,20 @@
 import './style.css';
-
-import SoundPlayer from './components/player';
-import ambienceCollection from './audio/ambience';
+import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall';
+import { categoryArray, renderCard } from './components/start-page/categories';
+// import SoundPlayer from './components/player';
+// import ambienceCollection from './audio/ambience';
 import createVisual from './components/visualization';
+import playMusic from './components/start-page/music';
 
-const btnLoad = document.querySelector('.load');
+getRandomWallpaper();
+categoryArray.forEach((_, i) => renderCard(i));
+document.body.addEventListener('click', getLinkToImage);
+
+const volume = document.createElement('volume-control');
+const div = document.querySelector('.test');
+div?.append(volume);
+// const btnLoad = document.querySelector('.load');
 const btnPlay = document.querySelector('.play');
+// const player = new SoundPlayer(ambienceCollection);
 
-const player = new SoundPlayer(ambienceCollection);
-
-btnLoad?.addEventListener('click', () => {
-    player.loadAll();
-});
-btnPlay?.addEventListener('click', () => {
-    player.playAll();
-    createVisual();
-    const canvas = document.querySelector('canvas');
-
-    function animate() {
-        let x = 0;
-        if (canvas) {
-            const canvasCtx = canvas.getContext('2d');
-            if (canvasCtx) {
-                canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-
-                const bufferLength = player.getBufferLength();
-                const dataArray = player.getVisualizationData();
-                const barWidth = canvas.width / bufferLength;
-                for (let i = 0; i < bufferLength; i += 1) {
-                    const barHeight = dataArray[i];
-                    canvasCtx.fillStyle = 'white';
-                    canvasCtx?.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-                    x += barWidth;
-                }
-                requestAnimationFrame(animate);
-            }
-        }
-    }
-
-    animate();
-});
+btnPlay?.addEventListener('click', playMusic);
