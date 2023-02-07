@@ -1,13 +1,9 @@
 import './style.css';
 
-import './components/volume-control';
 import SoundPlayer from './components/player';
 import ambienceCollection from './audio/ambience';
 import createVisual from './components/visualization';
 
-const volume = document.createElement('volume-control');
-const div = document.querySelector('.test');
-div?.append(volume);
 const btnLoad = document.querySelector('.load');
 const btnPlay = document.querySelector('.play');
 
@@ -18,5 +14,29 @@ btnLoad?.addEventListener('click', () => {
 });
 btnPlay?.addEventListener('click', () => {
     player.playAll();
-    createVisual(player.getVisualizationData());
+    createVisual();
+    const canvas = document.querySelector('canvas');
+
+    function animate() {
+        let x = 0;
+        if (canvas) {
+            const canvasCtx = canvas.getContext('2d');
+            if (canvasCtx) {
+                canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const bufferLength = player.getBufferLength();
+                const dataArray = player.getVisualizationData();
+                const barWidth = canvas.width / bufferLength;
+                for (let i = 0; i < bufferLength; i += 1) {
+                    const barHeight = dataArray[i];
+                    canvasCtx.fillStyle = 'white';
+                    canvasCtx?.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+                    x += barWidth;
+                }
+                requestAnimationFrame(animate);
+            }
+        }
+    }
+
+    animate();
 });

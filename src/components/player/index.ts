@@ -5,6 +5,10 @@ class SoundPlayer {
 
     played: boolean;
 
+    analyser: AnalyserNode;
+
+    bufferLength: number;
+
     constructor(songSrc: string[]) {
         songSrc.forEach((src) => {
             const howl = new Howl({
@@ -15,11 +19,13 @@ class SoundPlayer {
             this.players.push(howl);
         });
         this.played = false;
+        this.analyser = Howler.ctx.createAnalyser();
+        this.bufferLength = 0;
     }
 
-    // getHowl() {
-    //     return this.players;
-    // }
+    getHowl() {
+        return this.players;
+    }
 
     loadAll() {
         if (this.players.length > 0) {
@@ -64,17 +70,16 @@ class SoundPlayer {
     }
 
     getVisualizationData() {
-        const analyser = Howler.ctx.createAnalyser();
-        Howler.masterGain.connect(analyser);
-        analyser.fftSize = 256;
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-        analyser.getByteFrequencyData(dataArray);
+        Howler.masterGain.connect(this.analyser);
+        this.analyser.fftSize = 128;
+        this.bufferLength = this.analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(this.bufferLength);
+        this.analyser.getByteFrequencyData(dataArray);
         return dataArray;
     }
 
-    // getStatus() {
-    //     return this.players.map((song) => song.state());
-    // }
+    getBufferLength() {
+        return this.bufferLength;
+    }
 }
 export default SoundPlayer;

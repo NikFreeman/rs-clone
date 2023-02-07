@@ -1,14 +1,15 @@
 const container = document.createElement('div');
+container.className = 'border w-64 h-30 bg-slate-800';
+
 const canvas = document.createElement('canvas');
-const canvasCtx = canvas.getContext('2d');
+canvas.className = '';
 
 container.append(canvas);
+const div = document.querySelector('.test');
+div?.append(container);
 
-function createVisual(dataArray: Uint8Array) {
-    const WIDTH = 250;
-    const HEIGHT = 250;
-    console.log(dataArray);
-    canvasCtx?.clearRect(0, 0, WIDTH, HEIGHT);
+function createVisual() {
+    div?.append(container);
 }
 
 export default createVisual;

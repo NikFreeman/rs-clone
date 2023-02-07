@@ -51,7 +51,7 @@ const baseConfig: Configuration = {
         path: path.resolve(__dirname, 'dist'),
         assetModuleFilename: 'images/[name][ext]',
         clean: true,
-        // publicPath: './',
+        publicPath: '/',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -62,8 +62,8 @@ const baseConfig: Configuration = {
         //new CleanWebpackPlugin(),
         new EslintPlugin({ extensions: ['ts'] }),
         // new CopyPlugin({
-        //      patterns: [{ from: './src/audio', to: './audio' }],
-        //  }),
+        //     patterns: [{ from: './audio', to: './audio' }],
+        // }),
     ],
 };
 
