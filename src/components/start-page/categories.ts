@@ -1,7 +1,13 @@
 import getRandomDigit from '../../models/utils';
 import API_KEY from '../../models/constan';
-// import aboveAndBelow from '../../audio/audio-moods/above-and-below-the-waterline/index';
-// import cityVibes from '../../audio/audio-moods/city-vibes/index';
+import aboveAndBelow from '../../audio/audio-moods/above-and-below-the-waterline/index';
+import cityVibes from '../../audio/audio-moods/city-vibes/index';
+import closeToNature from '../../audio/audio-moods/close-to-nature/index';
+import darknessWithin from '../../audio/audio-moods/darkness-within/index';
+import meditateMe from '../../audio/audio-moods/meditate-me/index';
+import sciFi from '../../audio/audio-moods/sci-fi/index';
+import weatherForAll from '../../audio/audio-moods/weather-for-all/index';
+import welcomeToTheVillage from '../../audio/audio-moods/welcome-to-the-village/index';
 
 export const categoryArray = [
     {
@@ -12,7 +18,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['The Watermill', 'By the River', 'Seashore', 'Underwater', 'Ocean'],
         presetsRu: [''],
-        src: [],
+        src: aboveAndBelow,
     },
     {
         categoryName: 'city',
@@ -23,7 +29,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Cars', 'Road', 'Voice', 'Office', 'Street'],
         presetsRu: [''],
-        src: [],
+        src: cityVibes,
     },
     {
         categoryName: 'nature',
@@ -34,7 +40,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Quiet Forest Tone', 'Singing Tree', 'Only Birds', 'Light Hail', 'Windy Day'],
         presetsRu: [''],
-        src: [],
+        src: closeToNature,
     },
     {
         categoryName: 'darkness',
@@ -45,7 +51,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Night', 'Empty Space', 'Thriller', 'Fear', 'Darkness'],
         presetsRu: [''],
-        src: [],
+        src: darknessWithin,
     },
     {
         categoryName: 'meditate',
@@ -55,7 +61,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Relax', 'Dream', 'Calm', 'Garden', 'Summer'],
         presetsRu: [''],
-        src: [],
+        src: meditateMe,
     },
     {
         categoryName: 'sci-fi',
@@ -66,7 +72,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Preset One', 'Preset Two', 'Preset Three', 'Preset Four', 'Preset Five'],
         presetsRu: [''],
-        src: [],
+        src: sciFi,
     },
     {
         categoryName: 'weather',
@@ -76,10 +82,10 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['Thunder', 'Storm', 'Rain', 'Wind', 'Snow'],
         presetsRu: [''],
-        src: [],
+        src: weatherForAll,
     },
     {
-        categoryName: 'country',
+        categoryName: 'village',
         mood: 'Welcome to the Village',
         moodRu: '',
         description:
@@ -87,7 +93,7 @@ export const categoryArray = [
         descriptionRu: '',
         presets: ['The Market', 'Meet the Blacksmith', 'Wedding Bells', 'War Times', 'Troubadours'],
         presetsRu: [''],
-        src: [],
+        src: welcomeToTheVillage,
     },
 ];
 
@@ -160,12 +166,8 @@ export async function renderCard(index: number) {
         wrapper.append(card);
     }
     card.addEventListener('mouseover', function play() {
-        try {
-            this.querySelector('video')?.play();
-            this.querySelector('.presets-block')?.classList.remove('hidden');
-        } catch {
-            console.log('something get wrong');
-        }
+        this.querySelector('video')?.play();
+        this.querySelector('.presets-block')?.classList.remove('hidden');
     });
 
     card.addEventListener('mouseleave', function stop() {
@@ -175,31 +177,3 @@ export async function renderCard(index: number) {
         }
     });
 }
-
-function applyMood(target: HTMLElement) {
-    const rangeArea = document.querySelector('.preset-name');
-    const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
-    const preset = target.classList.contains('preset') ? ` / ${target.textContent}` : '';
-    if (rangeArea && mood) {
-        rangeArea.textContent = mood + preset;
-    }
-}
-
-function activateMoodCard(e: Event) {
-    const cardList = document.querySelectorAll('.category-card');
-    cardList.forEach((card) => {
-        card.classList.remove('active-card');
-        card.querySelector('.presets-block')?.classList.add('hidden');
-    });
-    if (e.target instanceof HTMLElement) {
-        const card = e.target.closest('.category-card');
-        if (card instanceof HTMLElement) {
-            card.classList.add('active-card');
-            card.querySelector('.presets-block')?.classList.remove('hidden');
-            applyMood(e.target);
-        }
-    }
-}
-
-const wrapper = document.querySelector('.card-wrapper');
-wrapper?.addEventListener('click', activateMoodCard);

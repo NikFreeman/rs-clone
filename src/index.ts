@@ -4,7 +4,7 @@ import { categoryArray, renderCard } from './components/start-page/categories';
 import './components/volume-control';
 // import SoundPlayer from './components/player';
 // import ambienceCollection from './audio/ambience';
-import { playMusic } from './components/start-page/music';
+import playMusic from './components/start-page/music';
 
 getRandomWallpaper();
 categoryArray.forEach((_, i) => renderCard(i));
