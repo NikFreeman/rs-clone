@@ -3,7 +3,6 @@ import { getLinkToImage, getRandomWallpaper } from './components/start-page/wall
 import { categoryArray, renderCard } from './components/start-page/categories';
 // import SoundPlayer from './components/player';
 // import ambienceCollection from './audio/ambience';
-import createVisual from './components/visualization';
 import playMusic from './components/start-page/music';
 
 getRandomWallpaper();

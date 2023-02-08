@@ -15,7 +15,6 @@ class SoundPlayer {
                 src: [src],
                 loop: true,
                 preload: false,
-                loop: true,
             });
             this.players.push(howl);
         });
