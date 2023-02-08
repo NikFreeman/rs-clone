@@ -1,11 +1,13 @@
 import SoundPlayer from '../player';
 import ambienceCollection from '../../audio/ambience/index';
+// import defaultSounds from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 
 let player = new SoundPlayer(ambienceCollection);
 
 const volumes = document.querySelectorAll('.slider');
 let isPlay = false;
+const playButton = document.querySelector('.play');
 
 function changeVolume(this: HTMLInputElement) {
     const index = +this.id.slice(7);
@@ -17,6 +19,9 @@ function applyMood(target: HTMLElement) {
     const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
     const moodObj = categoryArray.find((obj) => obj.mood === mood);
     if (moodObj) {
+        player.stopAll();
+        isPlay = false;
+        (playButton as HTMLButtonElement).textContent = 'Play';
         player = new SoundPlayer(moodObj.src);
         player.loadAll();
         volumes.forEach((input, ind) => {
