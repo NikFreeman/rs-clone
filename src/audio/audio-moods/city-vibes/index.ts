@@ -39,33 +39,33 @@ const citySoundsLinks = [
     },
 ];
 
-export const citySoundsPack = [
-    {
-        categoryName: 'city',
-        mood: 'City Vibes',
-        moodRu: 'Дух города',
-        description:
-            'Do you miss busy streets and noisy highways? Do you miss the atmosphere of a big city bustling with life? Then "City Vibes" is exactly what you need!',
-        descriptionRu:
-            'Скучаете по шумным улицам и оживленным шоссе? Вам не достает атмосферы большого города в котором кипит жизнь? Тогда "City Vibes" именно то, что вам нужно!',
-        presets: [
-            {
-                presetName: 'Walk in the park',
-                presetNameRu: 'Прогулка в парке',
-                presetValues: [0, 0, 0, 0.85, 0.75, 0, 0.6],
-            },
-            {
-                presetName: 'Down the street',
-                presetNameRu: 'Вдоль дороги',
-                presetValues: [0.9, 0, 0, 0, 0, 0.95, 0],
-            },
-            {
-                presetName: 'Night City',
-                presetNameRu: 'Ночной город',
-                presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
-            },
-        ],
-        soundsDirect: citySounds,
-        soundsLinks: citySoundsLinks,
-    },
-];
+const citySoundsPack = {
+    categoryName: 'city',
+    mood: 'City Vibes',
+    moodRu: 'Дух города',
+    description:
+        'Do you miss busy streets and noisy highways? Do you miss the atmosphere of a big city bustling with life? Then "City Vibes" is exactly what you need!',
+    descriptionRu:
+        'Скучаете по шумным улицам и оживленным шоссе? Вам не достает атмосферы большого города в котором кипит жизнь? Тогда "City Vibes" именно то, что вам нужно!',
+    presets: [
+        {
+            presetName: 'Walk in the park',
+            presetNameRu: 'Прогулка в парке',
+            presetValues: [0, 0, 0, 0.85, 0.75, 0, 0.6],
+        },
+        {
+            presetName: 'Down the street',
+            presetNameRu: 'Вдоль дороги',
+            presetValues: [0.9, 0, 0, 0, 0, 0.95, 0],
+        },
+        {
+            presetName: 'Night City',
+            presetNameRu: 'Ночной город',
+            presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
+        },
+    ],
+    soundsDirect: citySounds,
+    soundsLinks: citySoundsLinks,
+};
+
+export default citySoundsPack;

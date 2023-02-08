@@ -6,7 +6,15 @@ import hopeStillHere from './Hope still here.mp3';
 import marimba from './Marimba.mp3';
 import mindCleaner from './Mind Cleaner.mp3';
 
-const meditationSounds: string[] = [calmMelody, deepChakra, distantSky, heartOfGold, hopeStillHere, marimba, mindCleaner];
+const meditationSounds: string[] = [
+    calmMelody,
+    deepChakra,
+    distantSky,
+    heartOfGold,
+    hopeStillHere,
+    marimba,
+    mindCleaner,
+];
 
 const meditationSoundsLinks = [
     {
@@ -39,43 +47,43 @@ const meditationSoundsLinks = [
     },
 ];
 
-export const meditationSoundsPack = [
-    {
-        categoryName: 'meditation',
-        mood: 'Meditate me',
-        moodRu: 'Время медитации',
-        description:
-            'Desires make people run in circles, just as mirages attract thirsty doe. When a new desire is born, it is based on the light of knowledge.',
-        descriptionRu:
-            'Желания заставляют людей бегать по кругу, как миражи притягивают лань, изнывающую от жажды. Когда зарождается новое желание, в его основе лежит свет знания.',
-        presets: [
-            {
-                presetName: 'Deep Inside',
-                presetNameRu: 'Глубоко внутри',
-                presetValues: [0, 0.9, 0.65, 0, 0, 0, 0.8],
-            },
-            {
-                presetName: 'Free Yourself',
-                presetNameRu: 'Освободи себя',
-                presetValues: [0, 0, 0, 0.9, 0.8, 0.45, 0.55],
-            },
-            {
-                presetName: 'High in the mountains of Tibet',
-                presetNameRu: 'В горах Тибета',
-                presetValues: [0.5, 0, 0.85, 0.4, 0, 0.8, 0],
-            },
-            {
-                presetName: 'Soul Resurrection',
-                presetNameRu: 'Воскрешение души',
-                presetValues: [0, 0.6, 0, 0.9, 0.35, 0, 0.85],
-            },
-            {
-                presetName: 'Light of knowledge',
-                presetNameRu: 'Свет знания',
-                presetValues: [0, 0, 0.75 , 0.95, 0.75, 0, 0],
-            },
-        ],
-        soundsDirect: meditationSounds,
-        soundsLinks: meditationSoundsLinks,
-    },
-];
+const meditationSoundsPack = {
+    categoryName: 'meditation',
+    mood: 'Meditate me',
+    moodRu: 'Время медитации',
+    description:
+        'Desires make people run in circles, just as mirages attract thirsty doe. When a new desire is born, it is based on the light of knowledge.',
+    descriptionRu:
+        'Желания заставляют людей бегать по кругу, как миражи притягивают лань, изнывающую от жажды. Когда зарождается новое желание, в его основе лежит свет знания.',
+    presets: [
+        {
+            presetName: 'Deep Inside',
+            presetNameRu: 'Глубоко внутри',
+            presetValues: [0, 0.9, 0.65, 0, 0, 0, 0.8],
+        },
+        {
+            presetName: 'Free Yourself',
+            presetNameRu: 'Освободи себя',
+            presetValues: [0, 0, 0, 0.9, 0.8, 0.45, 0.55],
+        },
+        {
+            presetName: 'High in the mountains of Tibet',
+            presetNameRu: 'В горах Тибета',
+            presetValues: [0.5, 0, 0.85, 0.4, 0, 0.8, 0],
+        },
+        {
+            presetName: 'Soul Resurrection',
+            presetNameRu: 'Воскрешение души',
+            presetValues: [0, 0.6, 0, 0.9, 0.35, 0, 0.85],
+        },
+        {
+            presetName: 'Light of knowledge',
+            presetNameRu: 'Свет знания',
+            presetValues: [0, 0, 0.75, 0.95, 0.75, 0, 0],
+        },
+    ],
+    soundsDirect: meditationSounds,
+    soundsLinks: meditationSoundsLinks,
+};
+
+export default meditationSoundsPack;

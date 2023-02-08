@@ -22,11 +22,11 @@ function applyMood(target: HTMLElement) {
         player.stopAll();
         isPlay = false;
         (playButton as HTMLButtonElement).textContent = 'Play';
-        player = new SoundPlayer(moodObj.src);
+        player = new SoundPlayer(moodObj.soundsDirect);
         player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
-                const filePath = moodObj.src[ind];
+                const filePath = moodObj.soundsDirect[ind];
                 const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
                 input.setAttribute('title', title);
                 input.addEventListener('input', changeVolume);
