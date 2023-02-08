@@ -1,100 +1,23 @@
 import getRandomDigit from '../../models/utils';
 import API_KEY from '../../models/constan';
-import aboveAndBelow from '../../audio/audio-moods/above-and-below-the-waterline/index';
-import cityVibes from '../../audio/audio-moods/city-vibes/index';
-import closeToNature from '../../audio/audio-moods/close-to-nature/index';
-import darknessWithin from '../../audio/audio-moods/darkness-within/index';
-import meditateMe from '../../audio/audio-moods/meditate-me/index';
-import sciFi from '../../audio/audio-moods/sci-fi/index';
-import weatherForAll from '../../audio/audio-moods/weather-for-all/index';
-import welcomeToTheVillage from '../../audio/audio-moods/welcome-to-the-village/index';
+import waterSoundsPack from '../../audio/audio-moods/above-and-below-the-waterline/index';
+import citySoundsPack from '../../audio/audio-moods/city-vibes/index';
+import natureSoundsPack from '../../audio/audio-moods/close-to-nature/index';
+import darknessSoundsPack from '../../audio/audio-moods/darkness-within/index';
+import meditationSoundsPack from '../../audio/audio-moods/meditate-me/index';
+import sciFiSoundsPack from '../../audio/audio-moods/sci-fi/index';
+import weatherSoundsPack from '../../audio/audio-moods/weather-for-all/index';
+import villageSoundsPack from '../../audio/audio-moods/welcome-to-the-village/index';
 
 export const categoryArray = [
-    {
-        categoryName: 'water',
-        mood: 'Above and below the Waterline',
-        moodRu: '',
-        description: 'Sea waves, rain and wind - the perfect natural soundscape to block out a noisy office.',
-        descriptionRu: '',
-        presets: ['The Watermill', 'By the River', 'Seashore', 'Underwater', 'Ocean'],
-        presetsRu: [''],
-        src: aboveAndBelow,
-    },
-    {
-        categoryName: 'city',
-        mood: 'City Vibes',
-        moodRu: '',
-        description:
-            "You're sitting in a cafe, where a band is playing a down-tempo song. Meanwhile, you hear kids playing across the street. Life is good; right here, right now.",
-        descriptionRu: '',
-        presets: ['Cars', 'Road', 'Voice', 'Office', 'Street'],
-        presetsRu: [''],
-        src: cityVibes,
-    },
-    {
-        categoryName: 'nature',
-        mood: 'Close To Nature',
-        moodRu: '',
-        description:
-            "Instead of listening to synthetic white noise, have you tried the sound of insects, singing at night. You're welcome!",
-        descriptionRu: '',
-        presets: ['Quiet Forest Tone', 'Singing Tree', 'Only Birds', 'Light Hail', 'Windy Day'],
-        presetsRu: [''],
-        src: closeToNature,
-    },
-    {
-        categoryName: 'darkness',
-        mood: 'Darkness Within',
-        moodRu: '',
-        description:
-            'Embrace that darkness. Close your eyes, breathe deeply. Let the unknown envelop you. Let your subconscious run wild into oblivion.',
-        descriptionRu: '',
-        presets: ['Night', 'Empty Space', 'Thriller', 'Fear', 'Darkness'],
-        presetsRu: [''],
-        src: darknessWithin,
-    },
-    {
-        categoryName: 'meditate',
-        mood: 'Meditate Me',
-        moodRu: '',
-        description: 'A sonic bath to rejuvenate the mind and the soul.',
-        descriptionRu: '',
-        presets: ['Relax', 'Dream', 'Calm', 'Garden', 'Summer'],
-        presetsRu: [''],
-        src: meditateMe,
-    },
-    {
-        categoryName: 'sci-fi',
-        mood: 'Sci-Fi',
-        moodRu: '',
-        description:
-            'In the middle of the interstellar void, alone in your vessel, you are heading to a black hole that absorbs matter... and time!',
-        descriptionRu: '',
-        presets: ['Preset One', 'Preset Two', 'Preset Three', 'Preset Four', 'Preset Five'],
-        presetsRu: [''],
-        src: sciFi,
-    },
-    {
-        categoryName: 'weather',
-        mood: 'Weather for All',
-        moodRu: '',
-        description: 'Background sounds can be used in order to help reduce distractions and improve focus.',
-        descriptionRu: '',
-        presets: ['Thunder', 'Storm', 'Rain', 'Wind', 'Snow'],
-        presetsRu: [''],
-        src: weatherForAll,
-    },
-    {
-        categoryName: 'village',
-        mood: 'Welcome to the Village',
-        moodRu: '',
-        description:
-            'This soundscape recreates both the quieter ambience of a small village, as well as the busier atmosphere of a bigger town.',
-        descriptionRu: '',
-        presets: ['The Market', 'Meet the Blacksmith', 'Wedding Bells', 'War Times', 'Troubadours'],
-        presetsRu: [''],
-        src: welcomeToTheVillage,
-    },
+    waterSoundsPack,
+    citySoundsPack,
+    natureSoundsPack,
+    darknessSoundsPack,
+    meditationSoundsPack,
+    sciFiSoundsPack,
+    weatherSoundsPack,
+    villageSoundsPack,
 ];
 
 async function getAvatarAndVideo(category: string) {
@@ -113,7 +36,7 @@ async function getAvatarAndVideo(category: string) {
 }
 
 function getPresetTags(index: number) {
-    const { presets } = categoryArray[index];
+    const presets = categoryArray[index].presets.map((preset) => preset.presetName);
     if (presets) {
         const tags = presets.map(
             (preset, ind) =>
@@ -157,8 +80,8 @@ export async function renderCard(index: number) {
             alt="card video"/>
         </div>
     </div>
-    <div class="presets-block text-secondary flex-1 p-6 hidden">
-        <h5 class="mt-2 font-medium">Presets</h5>
+    <div class="presets-block text-secondary flex-1 px-6 py-4 hidden">
+        <h5 class="font-medium">Presets</h5>
         ${getPresetTags(index)}
     </div>
     `;
