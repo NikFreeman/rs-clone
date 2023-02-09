@@ -2,6 +2,7 @@ import SoundPlayer from '../player';
 import ambienceCollection from '../../audio/ambience/index';
 // import defaultSounds from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
+import renderVisualization from '../visualization';
 
 let player = new SoundPlayer(ambienceCollection);
 
@@ -11,7 +12,7 @@ const playButton = document.querySelector('.play');
 
 function changeVolume(this: HTMLInputElement) {
     const index = +this.id.slice(7);
-    player.getHowl()[index].volume(+this.value);
+    player.setVolumeId(index, +this.value);
 }
 
 function applyMood(target: HTMLElement) {
@@ -47,6 +48,7 @@ function playMusic(this: HTMLButtonElement) {
         player.playAll();
         this.textContent = 'Stop';
     }
+    renderVisualization(player);
     player.getHowl().forEach((aud, index) => {
         aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
