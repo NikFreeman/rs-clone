@@ -71,7 +71,7 @@ export async function renderCard(index: number) {
             </div>
         </div>
     </div>
-    <div class="mx-4 mt-4 translate-y-0">
+    <div class="mx-4 translate-y-0">
         <div blur-shadow-image="true">
             <video
             class="w-auto rounded-lg" loop preload="auto"
@@ -80,7 +80,7 @@ export async function renderCard(index: number) {
             alt="card video"/>
         </div>
     </div>
-    <div class="presets-block text-secondary flex-1 px-6 py-4 hidden ease-in duration-200">
+    <div class="presets-block text-secondary flex-1 px-6 py-3 hidden ease-in duration-200">
         <h5 class="font-medium">Presets</h5>
         ${getPresetTags(index)}
     </div>

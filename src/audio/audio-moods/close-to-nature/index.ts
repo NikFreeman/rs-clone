@@ -49,7 +49,7 @@ const natureSoundsPack = {
         'Забудь про суету не стихающего города. Оставь позади давящие стены огромных небоскребов. Вернись к своим корням и почувствуй Мать-Природу.',
     presets: [
         {
-            presetName: 'Сampfire Пathering',
+            presetName: 'Сampfire Gathering',
             presetNameRu: 'Посиделки у костра',
             presetValues: [0.9, 0.4, 0, 0.55, 0.7, 0, 0],
         },
