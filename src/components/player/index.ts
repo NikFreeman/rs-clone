@@ -5,6 +5,10 @@ class SoundPlayer {
 
     played: boolean;
 
+    analyser: AnalyserNode;
+
+    bufferLength: number;
+
     constructor(songSrc: string[]) {
         songSrc.forEach((src) => {
             const howl = new Howl({
@@ -15,6 +19,8 @@ class SoundPlayer {
             this.players.push(howl);
         });
         this.played = false;
+        this.analyser = Howler.ctx.createAnalyser();
+        this.bufferLength = 0;
     }
 
     getHowl() {
@@ -63,8 +69,17 @@ class SoundPlayer {
         Howler.volume(value);
     }
 
-    getStatus() {
-        return this.players.map((song) => song.state());
+    getVisualizationData() {
+        Howler.masterGain.connect(this.analyser);
+        this.analyser.fftSize = 128;
+        this.bufferLength = this.analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(this.bufferLength);
+        this.analyser.getByteFrequencyData(dataArray);
+        return dataArray;
+    }
+
+    getBufferLength() {
+        return this.bufferLength;
     }
 }
 export default SoundPlayer;
