@@ -56,7 +56,7 @@ export async function renderCard(index: number) {
     card.className =
         'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl';
     card.innerHTML = `
-    <div class="bg-transparent p-6 pt-0 mt-4">
+    <div class="bg-transparent p-6 pt-0 mt-4 ease-in duration-200">
         <div class="flex ">
             <div class="inline-flex h-20 w-20 shrink-0">
                 <img
@@ -80,7 +80,7 @@ export async function renderCard(index: number) {
             alt="card video"/>
         </div>
     </div>
-    <div class="presets-block text-secondary flex-1 px-6 py-4 hidden">
+    <div class="presets-block text-secondary flex-1 px-6 py-4 hidden ease-in duration-200">
         <h5 class="font-medium">Presets</h5>
         ${getPresetTags(index)}
     </div>
