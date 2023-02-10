@@ -9,7 +9,19 @@ class SoundPlayer {
 
     bufferLength: number;
 
-    constructor(songSrc: string[]) {
+    constructor() {
+        this.played = false;
+        this.analyser = Howler.ctx.createAnalyser();
+        this.bufferLength = 0;
+    }
+
+    setSrc(songSrc: string[]) {
+        if (this.players.length > 0) {
+            this.players.forEach((song) => {
+                song.unload();
+            });
+        }
+        this.players.length = 0;
         songSrc.forEach((src) => {
             const howl = new Howl({
                 src: [src],
@@ -18,9 +30,6 @@ class SoundPlayer {
             });
             this.players.push(howl);
         });
-        this.played = false;
-        this.analyser = Howler.ctx.createAnalyser();
-        this.bufferLength = 0;
     }
 
     getHowl() {
@@ -74,6 +83,7 @@ class SoundPlayer {
         this.analyser.fftSize = 128;
         this.bufferLength = this.analyser.frequencyBinCount;
         const dataArray = new Uint8Array(this.bufferLength);
+        this.analyser.connect(Howler.ctx.destination); // add connect source
         this.analyser.getByteFrequencyData(dataArray);
         return dataArray;
     }
