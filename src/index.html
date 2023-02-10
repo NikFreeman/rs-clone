@@ -7,6 +7,35 @@
         <title>RS-clone</title>
     </head>
     <body class="ease-in select-none">
+        <header class="header-container rounded-xl bg-white/30 backdrop-blur-sm m-2">
+            <div class="header-wrapper flex mx-auto my-2 justify-around p-1 sm:p-4">
+                <div class="header-content grid grid-cols-3 w-full justify-items-stretch items-center">
+                    <div class="logo flex">
+                        <img class="header-logo flex w-auto h-16" src="https://i.ibb.co/hVdz8MX/logo-no-background.png" alt="project logo"></img>
+                    </div>
+                    <nav class="navbar flex justify-self-center">
+                        <ul class="flex">
+                            <li class="mr-6">
+                              <a class="font-bold text-violet-900 ease-in duration-200 hover:drop-shadow-md pointer-events-none" href="#">Player</a>
+                            </li>
+                            <li class="mr-6">
+                              <a class="font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md" href="#">About</a>
+                            </li>
+                            <li class="mr-6">
+                              <a class="font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md" href="#">Favorites</a>
+                            </li>
+                          </ul>
+                    </nav>
+                    <div class="burger-container flex justify-self-end">
+                        <div class="burger space-y-2 cursor-pointer">
+                            <span class="block w-8 h-0.5 bg-gray-600"></span>
+                            <span class="block w-8 h-0.5 bg-gray-600"></span>
+                            <span class="block w-8 h-0.5 bg-gray-600"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="test"></div>
         <div class="page-wrapper flex min-h-screen flex-col justify-center">
             <div
@@ -112,7 +141,7 @@
             <div class="wrapper flex mx-auto my-2 justify-around p-1 sm:p-4">
                 <div class="footer-content grid grid-cols-3 w-full justify-items-stretch items-center">
                   <a href="https://rs.school/js/">
-                    <img class="footer-logo flex w-auto h-16 hover:scale-105 ease-in duration-200" src="https://rs.school/images/rs_school_js.svg"></img>
+                    <img class="footer-logo flex w-auto h-16 hover:scale-105 ease-in duration-200" src="https://rs.school/images/rs_school_js.svg" alt="rs school logo"></img>
                   </a>
                   <div class="font-bold text-blue-gray-700 justify-self-center">Winter 2023</div>
                   <div class="authors-links flex flex-col gap-1 justify-self-end">
