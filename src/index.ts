@@ -4,6 +4,7 @@ import { categoryArray, renderCard } from './components/start-page/categories';
 // import SoundPlayer from './components/player';
 // import ambienceCollection from './audio/ambience';
 import playMusic from './components/start-page/music';
+import './components/burger-menu/burger';
 
 getRandomWallpaper();
 categoryArray.forEach((_, i) => renderCard(i));
