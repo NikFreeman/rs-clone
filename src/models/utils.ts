@@ -1,6 +1,6 @@
 import { DomClassManipulation } from './enums';
 
-function getRandomDigit(max: number) {
+export function getRandomDigit(max: number) {
     return Math.floor(Math.random() * max);
 }
 
@@ -19,5 +19,3 @@ export function addRemoveDomClass(element: Element, classToManipulate: string, a
         element.classList.remove(classToManipulate);
     }
 }
-
-export default getRandomDigit;
