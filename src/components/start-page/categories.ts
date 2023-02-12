@@ -1,4 +1,4 @@
-import getRandomDigit from '../../models/utils';
+import { getRandomDigit } from '../../models/utils';
 import API_KEY from '../../models/constan';
 import waterSoundsPack from '../../audio/audio-moods/above-and-below-the-waterline/index';
 import citySoundsPack from '../../audio/audio-moods/city-vibes/index';

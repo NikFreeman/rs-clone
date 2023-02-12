@@ -1,4 +1,4 @@
-import getRandomDigit from '../../models/utils';
+import { getRandomDigit } from '../../models/utils';
 import { categoryArray } from './categories';
 import API_KEY from '../../models/constan';
 
