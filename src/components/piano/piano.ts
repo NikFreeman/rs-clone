@@ -1,32 +1,41 @@
-const piano: HTMLDivElement | null = document.querySelector('.piano');
+import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
 
-if (piano) {
-    piano.onmousedown = function takePiano(event: MouseEvent) {
-        const shiftX = event.clientX - piano.getBoundingClientRect().left;
-        const shiftY = event.clientY - piano.getBoundingClientRect().top;
+const piano = getNullCheckedElement(document, '.piano') as HTMLDivElement;
 
-        function moveAt(pageX: number, pageY: number) {
-            if (piano) {
-                piano.style.left = `${pageX - shiftX}px`;
-                piano.style.top = `${pageY - shiftY}px`;
-            }
-        }
+const pianoButton = getNullCheckedElement(document, '.piano-btn') as HTMLButtonElement;
 
-        moveAt(event.pageX, event.pageY);
+pianoButton.addEventListener('click', () => addRemoveDomClass(piano, 'hidden', 'toggle'));
 
-        function onMouseMove(e: MouseEvent) {
-            moveAt(e.pageX, e.pageY);
-        }
+// drag and drop
+piano.onmousedown = function takePiano(event: MouseEvent) {
+    const volumeRange = piano.querySelector('.piano-volume');
+    if (event.target === volumeRange) {
+        return;
+    }
+    addRemoveDomClass(piano, 'cursor-grabbing', 'add');
+    const shiftX = event.clientX - piano.getBoundingClientRect().left;
+    const shiftY = event.clientY - piano.getBoundingClientRect().top;
 
-        document.addEventListener('mousemove', onMouseMove);
+    function moveAt(pageX: number, pageY: number) {
+        piano.style.left = `${pageX - shiftX}px`;
+        piano.style.top = `${pageY - shiftY}px`;
+    }
 
-        piano.onmouseup = function upMouse() {
-            document.removeEventListener('mousemove', onMouseMove);
-            piano.onmouseup = null;
-        };
+    moveAt(event.pageX, event.pageY);
+
+    function onMouseMove(e: MouseEvent) {
+        moveAt(e.pageX, e.pageY);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+
+    piano.onmouseup = function upMouse() {
+        addRemoveDomClass(piano, 'cursor-grabbing', 'remove');
+        document.removeEventListener('mousemove', onMouseMove);
+        piano.onmouseup = null;
     };
+};
 
-    piano.ondragstart = function startDrag() {
-        return false;
-    };
-}
+piano.ondragstart = function startDrag() {
+    return false;
+};
