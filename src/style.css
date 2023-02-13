@@ -29,7 +29,10 @@
       @apply shadow-inner-x bg-gradient-to-b from-gray-50 to-gray-200 last:shadow-inner-r first:shadow-inner-l;
     }
     .key-black {
-      @apply select-none cursor-pointer relative h-36 w-12 -mx-6 z-10 rounded-b-md bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 shadow-outer hover:shadow-outer-press hover:from-gray-900 hover:to-gray-800 peer-hover:shadow-outer-press-sib-l;
+      @apply select-none cursor-pointer relative h-36 w-12 -mx-6 z-10 rounded-b-md bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 shadow-outer peer-hover:shadow-outer-press-sib-l;
+    }
+    .key-black.pressed {
+      @apply shadow-outer-press from-gray-900 to-gray-800;
     }
     .key-text {
       @apply absolute bottom-2 w-full text-center uppercase;
