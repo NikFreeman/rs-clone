@@ -6,30 +6,18 @@ const html = document.getElementById('theme-switcher') as Element;
 const rsLogo = getNullCheckedElement(document, '.footer-logo');
 
 function invertLogoColor(activeTheme: string): void {
-    if (activeTheme === ThemeName.light) {
-        if (rsLogo.classList.contains('invert')) {
-            rsLogo.classList.remove('invert');
-            rsLogo.classList.add('invert-0');
-        }
-    } else if (activeTheme === ThemeName.dark) {
-        if (!rsLogo.classList.contains('invert') || rsLogo.classList.contains('invert-0')) {
-            rsLogo.classList.remove('invert-0');
-            rsLogo.classList.add('invert');
-        }
+    if (activeTheme === ThemeName.light && rsLogo.classList.contains('invert')) {
+        rsLogo.classList.remove('invert');
+    } else {
+        rsLogo.classList.add('invert');
     }
 }
 
 function switchHtmlTheme(activeTheme: string): void {
     if (activeTheme === ThemeName.light) {
-        if (html.classList.contains('dark')) {
-            html.classList.remove('dark');
-            html.classList.add('light');
-        }
-    } else if (activeTheme === ThemeName.dark) {
-        if (!html.classList.contains('dark')) {
-            html.classList.remove('light');
-            html.classList.add('dark');
-        }
+        html.className = '';
+    } else {
+        html.className = 'dark';
     }
 }
 
