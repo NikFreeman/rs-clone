@@ -94,13 +94,13 @@ function activateMoodCard(e: Event) {
     const cardList = document.querySelectorAll('.category-card');
     cardList.forEach((card) => {
         card.classList.remove('active-card');
-        card.querySelector('.presets-block')?.classList.add('hidden');
+        card.querySelector('.presets-block')?.classList.add('opacity-0');
     });
     if (e.target instanceof HTMLElement) {
         const card = e.target.closest('.category-card');
         if (card instanceof HTMLElement) {
             card.classList.add('active-card');
-            card.querySelector('.presets-block')?.classList.remove('hidden');
+            card.querySelector('.presets-block')?.classList.remove('opacity-0');
             applyMood(e.target);
         }
     }

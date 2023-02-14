@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/**/*.*'],
+    darkMode: 'class',
     theme: {
         extend: {
             rotate: {
@@ -18,7 +19,7 @@ module.exports = {
                 'outer-press-sib-r': '-4px 5px 6px 0px rgba(0, 0, 0, 0.30), 5px 6px 7px 1px rgba(0, 0, 0, 0.30)',
                 'outer-press-sib-l': '-5px 6px 7px 1px rgba(0, 0, 0, 0.30), 4px 5px 6px 0px rgba(0, 0, 0, 0.30)',
             }
-        },        
+        },
         minHeight: {
             '120': '30rem',
         },

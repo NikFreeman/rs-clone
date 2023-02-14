@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="theme-switcher" class="light">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
 </head>
 
 <body class="ease-in select-none">
-    <header class="header-container rounded-xl bg-white/30 backdrop-blur-sm m-2">
+    <header class="header-container rounded-xl bg-white/30 backdrop-blur-sm m-2 dark:bg-black/40">
         <div class="header-wrapper flex mx-auto my-2 justify-around p-1 sm:p-4">
             <div class="header-content grid grid-cols-3 w-full justify-items-stretch items-center">
                 <div class="logo flex">
@@ -19,24 +19,24 @@
                 <nav class="navbar flex justify-self-center">
                     <ul class="flex gap-3">
                         <li>
-                            <a class="text-2xl font-bold text-violet-900 ease-in duration-200 hover:drop-shadow-md pointer-events-none"
+                            <a class="text-2xl font-bold text-violet-900 ease-in duration-200 hover:drop-shadow-md pointer-events-none dark:text-violet-400"
                                 href="#">Player</a>
                         </li>
                         <li>
-                            <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md"
+                            <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400"
                                 href="#">About</a>
                         </li>
                         <li>
-                            <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md"
+                            <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400"
                                 href="#">Favorites</a>
                         </li>
                     </ul>
                 </nav>
                 <div class="burger-container flex justify-self-end">
                     <div class="burger space-y-2 cursor-pointer">
-                        <span class="line1 block w-8 h-0.5 bg-gray-900 ease-in duration-200"></span>
-                        <span class="line2 block w-8 h-0.5 bg-gray-900 ease-in duration-200"></span>
-                        <span class="line3 block w-8 h-0.5 bg-gray-900 ease-in duration-200"></span>
+                        <span class="line1 block w-8 h-0.5 bg-gray-900 ease-in duration-200 dark:bg-slate-100"></span>
+                        <span class="line2 block w-8 h-0.5 bg-gray-900 ease-in duration-200 dark:bg-slate-100"></span>
+                        <span class="line3 block w-8 h-0.5 bg-gray-900 ease-in duration-200 dark:bg-slate-100"></span>
                     </div>
                 </div>
             </div>
@@ -45,20 +45,20 @@
     <div class="test"></div>
     <div class="page-wrapper flex min-h-screen flex-col justify-center overflow-hidden relative">
         <div
-            class="burger-modal border-grey-dark bg-white/30 absolute -right-96 top-2 m-2 flex w-60 flex-col gap-4 rounded-lg border p-4 backdrop-blur-sm duration-100 ease-in z-50">
+            class="burger-modal border-grey-dark bg-white/30 absolute -right-96 top-2 m-2 flex w-60 flex-col gap-4 rounded-lg border p-4 backdrop-blur-sm duration-100 ease-in z-50 dark:bg-black/40">
             <button
-                class="border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700">Theme:
+                class="themeButton border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700 dark:text-white">Theme:
                 Light</button>
             <button
-                class="border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700">Language:
+                class="border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700 dark:text-white">Language:
                 Eng</button>
         </div>
         <div
-            class="preset-name rounded-xl bg-white/30 backdrop-blur text-lg font-bold text-neutral-900 text-center bg-clip-border shadow-card w-1/3 min-w-max mx-auto my-2">
+            class="preset-name rounded-xl bg-white/30 backdrop-blur text-lg font-bold text-neutral-900 text-center bg-clip-border shadow-card w-1/3 min-w-max mx-auto my-2 dark:text-white dark:bg-black/40">
             Keep Calm & Listen To Music
         </div>
         <div
-            class="flex items-center ranges-block rounded-xl bg-white/30 backdrop-blur text-neutral-900 bg-clip-border shadow-card w-1/3 min-w-max mx-auto drop-shadow-lg h-60">
+            class="flex items-center ranges-block rounded-xl bg-white/30 backdrop-blur text-neutral-900 bg-clip-border shadow-card w-1/3 min-w-max mx-auto drop-shadow-lg h-60 dark:bg-black/40">
             <canvas class="canvas-left m-3 py-3 w-14 h-full"></canvas>
             <div class="relative flex justify-center min-h-full w-full">
                 <input type="range" class="slider slider-thumb sound-volume" id="volume-0" min="0" max="1" step="0.01"
@@ -80,21 +80,17 @@
         </div>
         <div class="flex mx-auto my-2 gap-4">
             <button
-                class="play middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                data-ripple-light="true">
-                Play
-            </button>
+                class="play border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true">Play</button>
             <button
-                class="load middle none center rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                data-ripple-light="true">
-                Load
-            </button>
-            <button class="btn-primary" data-ripple-dark="true">Save</button>
+                class="load border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true">Load</button>
             <button
-                class="piano-btn middle none center border rounded-lg py-3 px-6 font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 hover:shadow-inner active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                data-ripple-dark="true">
-                Piano
-            </button>
+                class="save border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true">Save</button>
+            <button
+            class="piano-btn border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            data-ripple-light="true">Piano</button>
         </div>
         <div class="card-wrapper flex flex-wrap justify-center ease-in duration-200"></div>
     </div>
@@ -164,17 +160,17 @@
         <div class="wrapper flex mx-auto my-2 justify-around p-1 sm:p-4">
             <div class="footer-content grid grid-cols-3 w-full justify-items-stretch items-center">
                 <a href="https://rs.school/js/">
-                    <img class="footer-logo flex w-auto h-14 hover:scale-105 ease-in duration-200"
+                    <img class="footer-logo flex w-auto h-16 hover:scale-105 ease-in duration-200 invert-0"
                         src="https://rs.school/images/rs_school_js.svg" alt="rs school logo"/>
                 </a>
-                <div class="font-bold text-blue-gray-700 justify-self-center">Winter 2023</div>
+                <div class="font-bold text-blue-gray-700 justify-self-center dark:text-white">Winter 2023</div>
                 <div class="authors-links flex flex-col gap-1 justify-self-end">
                     <a href="https://github.com/NikFreeman"
-                        class="link font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md">NikFreeman</a>
+                        class="link font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400">NikFreeman</a>
                     <a href="https://github.com/Bonus156"
-                        class="link font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md">Bonus156</a>
+                        class="link font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400">Bonus156</a>
                     <a href="https://github.com/rockmonolit"
-                        class="link font-bold text-blue-gray-700 hover:text-violet-900   active:text-violet-700 ease-in duration-200 hover:drop-shadow-md">Rockmonolit</a>
+                        class="link font-bold text-blue-gray-700 hover:text-violet-900   active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400">Rockmonolit</a>
                 </div>
             </div>
         </div>

@@ -4,6 +4,11 @@ export enum DomClassManipulation {
     toggle = 'toggle',
 }
 
+export enum ThemeName {
+    dark = 'Dark',
+    light = 'Light',
+}
+
 export enum SelectedLangugage {
     eng = 'english',
     rus = 'русский',
