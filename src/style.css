@@ -16,20 +16,17 @@
     .slider:hover {
       @apply opacity-60;
     }
-    /* .key-white.pressed + .key-black {
-      @apply shadow-outer; /* peer-hover:shadow-outer */
-    /* }  */
     .key-white.pressed + .key-black {
       @apply shadow-outer-press-sib-l;
     }
     .key-white {
-      @apply select-none cursor-pointer relative w-[4.375rem] h-56 rounded-b-lg bg-gradient-to-b from-white to-gray-50 border border-black border-solid text-gray-500; /* hover:shadow-inner-x hover:from-gray-50 hover:to-gray-200 first:hover:shadow-inner-l last:hover:shadow-inner-r */
+      @apply select-none cursor-pointer relative w-[4.375rem] h-56 rounded-b-lg bg-gradient-to-b from-white to-gray-50 border border-solid border-white text-gray-500 dark:border-black;
     }
     .key-white.pressed {
       @apply shadow-inner-x bg-gradient-to-b from-gray-50 to-gray-200 last:shadow-inner-r first:shadow-inner-l;
     }
     .key-black {
-      @apply select-none cursor-pointer relative h-36 w-12 -mx-6 z-10 rounded-b-md bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 shadow-outer; /* peer-hover:shadow-outer-press-sib-l */
+      @apply select-none cursor-pointer relative h-36 w-12 -mx-6 z-10 rounded-b-md bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 shadow-outer;
     }
     .key-black.pressed {
       @apply shadow-outer-press from-gray-900 to-gray-800;
