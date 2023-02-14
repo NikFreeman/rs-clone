@@ -1,4 +1,4 @@
-import getRandomDigit from '../../models/utils';
+import { getRandomDigit } from '../../models/utils';
 import API_KEY from '../../models/constan';
 import waterSoundsPack from '../../audio/audio-moods/above-and-below-the-waterline/index';
 import citySoundsPack from '../../audio/audio-moods/city-vibes/index';
@@ -40,7 +40,7 @@ function getPresetTags(index: number) {
     if (presets) {
         const tags = presets.map(
             (preset, ind) =>
-                `<span class="preset preset-${ind} text-base rounded hover:bg-sky-600 hover:text-yellow-200">${preset}</span>`
+                `<span class="preset preset-${ind} text-base rounded px-1 hover:bg-sky-600 hover:text-stone-200 ease-in duration-100">${preset}</span>`
         );
         return tags.join(' • ');
     }
@@ -54,9 +54,9 @@ export async function renderCard(index: number) {
     const urls: string[] = await getAvatarAndVideo(categoryName);
     const card = document.createElement('div');
     card.className =
-        'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl';
+        'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl dark:bg-black/40 ease-in duration-200';
     card.innerHTML = `
-    <div class="bg-transparent p-6 pt-0 mt-4">
+    <div class="bg-transparent p-6 pt-0 mt-4 ease-in duration-200">
         <div class="flex ">
             <div class="inline-flex h-20 w-20 shrink-0">
                 <img
@@ -66,12 +66,12 @@ export async function renderCard(index: number) {
                 />
             </div>
             <div class="ml-3">
-                <span class="category-name mb-0 font-bold text-blue-gray-700">${mood}</span>
-                <p class="mb-0 text-xs">${categoryArray[index].description}</p>
+                <span class="category-name mb-0 font-bold text-blue-gray-700 dark:text-white">${mood}</span>
+                <p class="mb-0 text-xs dark:text-white">${categoryArray[index].description}</p>
             </div>
         </div>
     </div>
-    <div class="mx-4 mt-4 translate-y-0">
+    <div class="mx-4 translate-y-0">
         <div blur-shadow-image="true">
             <video
             class="w-auto rounded-lg" loop preload="auto"
@@ -80,7 +80,7 @@ export async function renderCard(index: number) {
             alt="card video"/>
         </div>
     </div>
-    <div class="presets-block text-secondary flex-1 px-6 py-4 hidden">
+    <div class="presets-block text-secondary flex-1 px-6 py-3 opacity-0 ease-in duration-200 dark:text-white">
         <h5 class="font-medium">Presets</h5>
         ${getPresetTags(index)}
     </div>
@@ -90,13 +90,13 @@ export async function renderCard(index: number) {
     }
     card.addEventListener('mouseover', function play() {
         this.querySelector('video')?.play();
-        this.querySelector('.presets-block')?.classList.remove('hidden');
+        this.querySelector('.presets-block')?.classList.remove('opacity-0');
     });
 
     card.addEventListener('mouseleave', function stop() {
         this.querySelector('video')?.pause();
         if (!this.classList.contains('active-card')) {
-            this.querySelector('.presets-block')?.classList.add('hidden');
+            this.querySelector('.presets-block')?.classList.add('opacity-0');
         }
     });
 }
