@@ -9,20 +9,25 @@ class SoundPlayer {
 
     bufferLength: number;
 
-    constructor() {
+    constructor(soundSrc: string[]) {
         this.played = false;
-        this.analyser = Howler.ctx.createAnalyser();
         this.bufferLength = 0;
+        this.loadSrc(soundSrc);
+        this.analyser = Howler.ctx.createAnalyser();
     }
 
-    setSrc(songSrc: string[]) {
+    setSrc(soundSrc: string[]) {
         if (this.players.length > 0) {
             this.players.forEach((song) => {
                 song.unload();
             });
         }
         this.players.length = 0;
-        songSrc.forEach((src) => {
+        this.loadSrc(soundSrc);
+    }
+
+    private loadSrc(soundSrc: string[]) {
+        soundSrc.forEach((src) => {
             const howl = new Howl({
                 src: [src],
                 loop: true,
