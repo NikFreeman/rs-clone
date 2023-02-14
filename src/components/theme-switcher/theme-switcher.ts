@@ -49,7 +49,6 @@ function initLocalStorage(): void {
     } else {
         switchHtmlTheme(JSON.parse(storageContent));
         invertLogoColor(JSON.parse(storageContent));
-        console.log(JSON.parse(storageContent));
         if (JSON.parse(storageContent) === ThemeName.light) {
             themeButton.innerHTML = `Theme: ${ThemeName.light}`;
         } else if (JSON.parse(storageContent) === ThemeName.dark) {
