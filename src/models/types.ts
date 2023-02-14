@@ -19,3 +19,7 @@ export interface Mood {
     soundsDirect: string[];
     soundsLinks: SLink[];
 }
+
+export interface PianoKey extends HTMLLIElement {
+    key: string;
+}

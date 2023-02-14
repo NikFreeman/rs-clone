@@ -1,12 +1,17 @@
 import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
 import notes from '../../audio/audio-piano-notes/index';
 import SoundPlayer from '../player';
+import { PianoKey } from '../../models/types';
 
 const piano = getNullCheckedElement(document, '.piano') as HTMLDivElement;
 
 const pianoButton = getNullCheckedElement(document, '.piano-btn') as HTMLButtonElement;
+let isPianoVisible = false;
 
-pianoButton.addEventListener('click', () => addRemoveDomClass(piano, 'hidden', 'toggle'));
+pianoButton.addEventListener('click', () => {
+    addRemoveDomClass(piano, 'hidden', 'toggle');
+    isPianoVisible = !isPianoVisible;
+});
 
 // drag and drop
 piano.onmousedown = function takePiano(event: MouseEvent) {
@@ -63,7 +68,16 @@ piano.ondragstart = function startDrag() {
     return false;
 };
 
-const pianoKeys = document.querySelectorAll('.key');
+// play
+let isMouseDown = false;
+document.addEventListener('pointerdown', () => {
+    isMouseDown = true;
+});
+document.addEventListener('pointerup', () => {
+    isMouseDown = false;
+});
+
+const pianoKeys: NodeListOf<PianoKey> = document.querySelectorAll('.key');
 const pianoNotes = new SoundPlayer(notes.slice(3, 28));
 pianoNotes.loadAll();
 const notesArr = pianoNotes.getHowl();
@@ -74,6 +88,12 @@ pianoKeys.forEach((key, index) => {
         key.classList.add('pressed');
         notesArr[index].play();
     });
+    key.addEventListener('pointerover', () => {
+        if (isMouseDown) {
+            key.classList.add('pressed');
+            notesArr[index].play();
+        }
+    });
     key.addEventListener('pointerout', () => {
         key.classList.remove('pressed');
         notesArr[index].stop();
@@ -83,3 +103,37 @@ pianoKeys.forEach((key, index) => {
         notesArr[index].stop();
     });
 });
+
+// key events for piano keys
+window.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (!isPianoVisible) return;
+    e.preventDefault();
+    pianoKeys.forEach((key, index) => {
+        if (key.dataset.key === e.code && !e.repeat) {
+            key.classList.add('pressed');
+            notesArr[index].play();
+        }
+    });
+});
+window.addEventListener('keyup', (e: KeyboardEvent) => {
+    // if (!isPianoVisible) return;
+    pianoKeys.forEach((key, index) => {
+        if (key.dataset.key === e.code) {
+            key.classList.remove('pressed');
+            notesArr[index].stop();
+        }
+    });
+});
+
+// show keys
+const keysSwitcher = piano.querySelector('#show-keys');
+const keyLetters = piano.querySelectorAll('.key-text');
+if (keysSwitcher instanceof HTMLInputElement) {
+    keysSwitcher.addEventListener('change', () => {
+        if (keysSwitcher.checked) {
+            keyLetters.forEach((key) => key.classList.remove('hidden'));
+        } else {
+            keyLetters.forEach((key) => key.classList.add('hidden'));
+        }
+    });
+}
