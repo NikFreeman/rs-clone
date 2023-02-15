@@ -11,15 +11,18 @@ const natureSounds: string[] = [campfire, birds, leaves, forest, bard, tree, win
 const natureSoundsLinks = [
     {
         soundName: 'Campfire',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/campfire.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/campfire.mp3',
     },
     {
         soundName: 'Cute Birds',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/cute-birds.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/cute-birds.mp3',
     },
     {
         soundName: 'Feel the Leaves',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/feel-the-leaves.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/feel-the-leaves.mp3',
     },
     {
         soundName: 'Forest',
@@ -27,15 +30,18 @@ const natureSoundsLinks = [
     },
     {
         soundName: 'Lonely Bard',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/lonely-bard.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/lonely-bard.mp3',
     },
     {
         soundName: 'Tree Soul',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/tree-soul.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/tree-soul.mp3',
     },
     {
         soundName: 'Wind inside my head',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/wind-inside-my-head.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/wind-inside-my-head.mp3',
     },
 ];
 

@@ -31,11 +31,13 @@ const meditationSoundsLinks = [
     },
     {
         soundName: 'Heart of gold',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/heart-of-gold.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/heart-of-gold.mp3',
     },
     {
         soundName: 'Hope still here',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/hope-still-here.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/hope-still-here.mp3',
     },
     {
         soundName: 'Marimba',
@@ -43,7 +45,8 @@ const meditationSoundsLinks = [
     },
     {
         soundName: 'Mind Cleaner',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/mind-cleaner.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/mind-cleaner.mp3',
     },
 ];
 

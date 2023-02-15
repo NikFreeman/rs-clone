@@ -11,31 +11,38 @@ const waterSounds: string[] = [ocean, riverAndBirds, riverHeavy, riverLight, riv
 const waterSoundsLinks = [
     {
         soundName: 'Ocean',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/ocean.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/ocean.mp3',
     },
     {
         soundName: 'River and Birds',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-and-birds.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-and-birds.mp3',
     },
     {
         soundName: 'River Heavy',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-heavy.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-heavy.mp3',
     },
     {
         soundName: 'River Light',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-light.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-light.mp3',
     },
     {
         soundName: 'River Medium',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-medium.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-medium.mp3',
     },
     {
         soundName: 'Waterfall',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waterfall.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waterfall.mp3',
     },
     {
         soundName: 'Waves',
-        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waves.mp3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waves.mp3',
     },
 ];
 

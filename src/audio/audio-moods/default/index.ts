@@ -38,4 +38,3 @@ export const defaultSoundsLinks = [
         soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/default/river.mp3',
     },
 ];
-
