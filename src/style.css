@@ -34,6 +34,9 @@
     .key-text {
       @apply absolute bottom-2 w-full text-center uppercase;
     }
+    .key-note {
+      @apply absolute bottom-10 w-full text-center uppercase;
+    }
   }
 
   @layer utilities {

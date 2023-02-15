@@ -95,7 +95,10 @@
         <div class="card-wrapper flex flex-wrap justify-center ease-in duration-200"></div>
     </div>
     <div class="piano absolute hidden z-50 top-1/2 left-24 cursor-grab p-6 rounded-2xl w-min backdrop-blur-md bg-white/70 dark:bg-black/80">
-        <div class="flex items-center justify-between mb-3 text-grey-darkest dark:text-gray-200">        
+        <div class="flex items-center justify-between mb-3 text-grey-darkest dark:text-gray-200">
+            <button
+            class="octave-left border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            data-ripple-light="true">lower</button>
             <div class="flex items-center volume-slider">
                 <label
                     for="vulume-keys"
@@ -103,8 +106,8 @@
                 >
                     Volume
                 </label>
-                <div class="relative inline-block h-6 w-8 cursor-pointer rounded-full">
-                    <input id="volume-keys" class="piano-volume slider slider-thumb rotate-0 mx-0" type="range" min="0" max="1" value="0.5" step="any">
+                <div class="relative inline-block h-6 w-52 cursor-pointer rounded-full">
+                    <input id="volume-keys" class="piano-volume slider slider-thumb rotate-0 mx-0" type="range" min="0" max="1" value="0.5" step="0.01">
                 </div>
             </div>
             <div class="inline-flex items-center">
@@ -127,32 +130,55 @@
                     </label>
                 </div>
             </div>
+            <div class="inline-flex items-center">
+                <label
+                    for="show-notes"
+                    class="mt-px mr-6 mb-0 cursor-pointer select-none text-lg font-medium">
+                    Show Notes
+                </label>
+                <div class="relative inline-block h-2 w-8 mr-4 cursor-pointer rounded-full">
+                    <input
+                    id="show-notes"
+                    type="checkbox"
+                    class="peer absolute h-2 w-8 cursor-pointer appearance-none bg-gray-300 opacity-40 rounded transition-colors duration-300 checked:bg-gray-600 peer-checked:border-gray-600 peer-checked:before:bg-gray-600 hover:opacity-60"
+                    checked
+                    />
+                    <label
+                    for="show-notes"
+                    class="before:content[''] absolute top-2/4 -left-4 -translate-y-2/4 cursor-pointer rounded-full bg-gray-900 opacity-60 border-gray-600 shadow-md transition-all duration-300 before:absolute before:top-2/4 before:left-2/4 before:block before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10 peer-checked:translate-x-full peer-checked:border-gray-600 peer-checked:before:bg-gray-600 appearance-none w-8 h-8 border-2 border-solid hover:border-gray-500 dark:opacity-40 hover:opacity-80 dark:hover:opacity-60"
+                    >
+                    </label>
+                </div>
+            </div>
+            <button
+            class="octave-right border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            data-ripple-light="true">higher</button>
         </div>
         <ul class="piano-keys flex mt-3xl list-none">
-            <li class="key key-white peer" data-key="Tab"><span class="key-text">tab</span></li>
-            <li class="key key-black" data-key="Digit1"><span class="key-text">1</span></li>
-            <li class="key key-white peer" data-key="KeyQ"><span class="key-text">q</span></li>
-            <li class="key key-black" data-key="Digit2"><span class="key-text">2</span></li>
-            <li class="key key-white peer" data-key="KeyW"><span class="key-text">w</span></li>
-            <li class="key key-white peer" data-key="KeyE"><span class="key-text">e</span></li>
-            <li class="key key-black" data-key="Digit4"><span class="key-text">4</span></li>
-            <li class="key key-white peer" data-key="KeyR"><span class="key-text">r</span></li>
-            <li class="key key-black" data-key="Digit5"><span class="key-text">5</span></li>
-            <li class="key key-white peer" data-key="KeyT"><span class="key-text">t</span></li>
-            <li class="key key-black" data-key="Digit6"><span class="key-text">6</span></li>
-            <li class="key key-white peer" data-key="KeyY"><span class="key-text">y</span></li>
-            <li class="key key-white peer" data-key="KeyU"><span class="key-text">u</span></li>
-            <li class="key key-black" data-key="Digit8"><span class="key-text">8</span></li>
-            <li class="key key-white peer" data-key="KeyI"><span class="key-text">i</span></li>
-            <li class="key key-black" data-key="Digit9"><span class="key-text">9</span></li>
-            <li class="key key-white peer" data-key="KeyO"><span class="key-text">o</span></li>
-            <li class="key key-white peer" data-key="KeyP"><span class="key-text">p</span></li>
-            <li class="key key-black" data-key="Minus"><span class="key-text">-</span></li>
-            <li class="key key-white peer" data-key="BracketLeft"><span class="key-text">[</span></li>
-            <li class="key key-black" data-key="Equal"><span class="key-text">=</span></li>
-            <li class="key key-white peer" data-key="BracketRight"><span class="key-text">]</span></li>
-            <li class="key key-black" data-key="Backspace"><span class="key-text">bsp</span></li>
-            <li class="key key-white peer" data-key="Backslash"><span class="key-text">\</span></li>
+            <li class="key key-white peer" data-key="Tab"><span class="key-note"></span><span class="key-text">tab</span></li>
+            <li class="key key-black" data-key="Digit1"><span class="key-note"></span><span class="key-text">1</span></li>
+            <li class="key key-white peer" data-key="KeyQ"><span class="key-note"></span><span class="key-text">q</span></li>
+            <li class="key key-black" data-key="Digit2"><span class="key-note"></span><span class="key-text">2</span></li>
+            <li class="key key-white peer" data-key="KeyW"><span class="key-note"></span><span class="key-text">w</span></li>
+            <li class="key key-white peer" data-key="KeyE"><span class="key-note"></span><span class="key-text">e</span></li>
+            <li class="key key-black" data-key="Digit4"><span class="key-note"></span><span class="key-text">4</span></li>
+            <li class="key key-white peer" data-key="KeyR"><span class="key-note"></span><span class="key-text">r</span></li>
+            <li class="key key-black" data-key="Digit5"><span class="key-note"></span><span class="key-text">5</span></li>
+            <li class="key key-white peer" data-key="KeyT"><span class="key-note"></span><span class="key-text">t</span></li>
+            <li class="key key-black" data-key="Digit6"><span class="key-note"></span><span class="key-text">6</span></li>
+            <li class="key key-white peer" data-key="KeyY"><span class="key-note"></span><span class="key-text">y</span></li>
+            <li class="key key-white peer" data-key="KeyU"><span class="key-note"></span><span class="key-text">u</span></li>
+            <li class="key key-black" data-key="Digit8"><span class="key-note"></span><span class="key-text">8</span></li>
+            <li class="key key-white peer" data-key="KeyI"><span class="key-note"></span><span class="key-text">i</span></li>
+            <li class="key key-black" data-key="Digit9"><span class="key-note"></span><span class="key-text">9</span></li>
+            <li class="key key-white peer" data-key="KeyO"><span class="key-note"></span><span class="key-text">o</span></li>
+            <li class="key key-white peer" data-key="KeyP"><span class="key-note"></span><span class="key-text">p</span></li>
+            <li class="key key-black" data-key="Minus"><span class="key-note"></span><span class="key-text">-</span></li>
+            <li class="key key-white peer" data-key="BracketLeft"><span class="key-note"></span><span class="key-text">[</span></li>
+            <li class="key key-black" data-key="Equal"><span class="key-note"></span><span class="key-text">=</span></li>
+            <li class="key key-white peer" data-key="BracketRight"><span class="key-note"></span><span class="key-text">]</span></li>
+            <li class="key key-black" data-key="Backspace"><span class="key-note"></span><span class="key-text">bsp</span></li>
+            <li class="key key-white peer" data-key="Backslash"><span class="key-note"></span><span class="key-text">\</span></li>
         </ul>
     </div>
     <footer class="footer-container rounded-xl bg-white/30 backdrop-blur-sm m-2">

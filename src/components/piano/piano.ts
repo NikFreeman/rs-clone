@@ -78,10 +78,61 @@ document.addEventListener('pointerup', () => {
 });
 
 const pianoKeys: NodeListOf<PianoKey> = document.querySelectorAll('.key');
-const pianoNotes = new SoundPlayer(notes.slice(3, 28));
+let firstNoteNumber = 4;
+let pianoNotes = new SoundPlayer(notes.slice(firstNoteNumber - 1, firstNoteNumber + pianoKeys.length));
 pianoNotes.loadAll();
-const notesArr = pianoNotes.getHowl();
+let notesArr = pianoNotes.getHowl();
 notesArr.forEach((note) => note.loop(false));
+const keyNotes = piano.querySelectorAll('.key-note');
+
+function applyNotes(first: number) {
+    const pathArr = notes.slice(first - 1, first + pianoKeys.length);
+    pianoNotes = new SoundPlayer(pathArr);
+    pianoNotes.loadAll();
+    notesArr = pianoNotes.getHowl();
+    notesArr.forEach((note) => note.loop(false));
+    keyNotes.forEach((note, ind) => {
+        if (note instanceof HTMLSpanElement) {
+            const filePath = pathArr[ind];
+            // eslint-disable-next-line no-param-reassign
+            note.textContent = filePath.slice(filePath.indexOf('_') + 1, filePath.lastIndexOf('.')).replace('_', '#');
+        }
+    });
+}
+
+applyNotes(firstNoteNumber);
+
+// prev, next octave
+const lower = getNullCheckedElement(piano, '.octave-left');
+const higher = getNullCheckedElement(piano, '.octave-right');
+
+if (firstNoteNumber <= 4) {
+    lower.setAttribute('disabled', 'disabled');
+    higher.removeAttribute('disabled');
+} else if (firstNoteNumber >= 64) {
+    higher.setAttribute('disabled', 'disabled');
+    lower.removeAttribute('disabled');
+}
+
+function moveOctaveLower() {
+    higher.removeAttribute('disabled');
+    firstNoteNumber -= 12;
+    if (firstNoteNumber <= 4) {
+        lower.setAttribute('disabled', 'disabled');
+    }
+    applyNotes(firstNoteNumber);
+}
+lower.addEventListener('click', moveOctaveLower);
+
+function moveOctaveHigher() {
+    lower.removeAttribute('disabled');
+    firstNoteNumber += 12;
+    if (firstNoteNumber >= 64) {
+        higher.setAttribute('disabled', 'disabled');
+    }
+    applyNotes(firstNoteNumber);
+}
+higher.addEventListener('click', moveOctaveHigher);
 
 // volume piano
 const volumeRange = getNullCheckedElement(piano, '.piano-volume') as HTMLInputElement;
@@ -144,6 +195,17 @@ if (keysSwitcher instanceof HTMLInputElement) {
             keyLetters.forEach((key) => key.classList.remove('hidden'));
         } else {
             keyLetters.forEach((key) => key.classList.add('hidden'));
+        }
+    });
+}
+// show notes
+const notesSwitcher = piano.querySelector('#show-notes');
+if (notesSwitcher instanceof HTMLInputElement) {
+    notesSwitcher.addEventListener('change', () => {
+        if (notesSwitcher.checked) {
+            keyNotes.forEach((key) => key.classList.remove('hidden'));
+        } else {
+            keyNotes.forEach((key) => key.classList.add('hidden'));
         }
     });
 }
