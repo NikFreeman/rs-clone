@@ -42,14 +42,14 @@ function applyMood(target: HTMLElement) {
         player.stopAll();
         isPlay = false;
         (playButton as HTMLButtonElement).textContent = 'Play';
-        player = new SoundPlayer(moodObj.soundsDirect);
-        // player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
+        // player = new SoundPlayer(moodObj.soundsDirect);
+        player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
         player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
-                const filePath = moodObj.soundsDirect[ind];
-                const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
-                // const title = moodObj.soundsLinks[ind].soundName;
+                // const filePath = moodObj.soundsDirect[ind];
+                // const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
+                const title = moodObj.soundsLinks[ind].soundName;
                 input.setAttribute('title', title);
                 input.addEventListener('input', changeVolume);
             }
