@@ -11,31 +11,31 @@ const natureSounds: string[] = [campfire, birds, leaves, forest, bard, tree, win
 const natureSoundsLinks = [
     {
         soundName: 'Campfire',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1X8nSVM71PGmanab9dpq9ReBI_jv3ogtC',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/campfire.mp3',
     },
     {
         soundName: 'Cute Birds',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1rLGMGz1C4A83LgHXqNf9KgDn7Uh_wKLW',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/cute-birds.mp3',
     },
     {
         soundName: 'Feel the Leaves',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1yWQQscXQes9NYRcogGmIbdl7Gkrh31AC',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/feel-the-leaves.mp3',
     },
     {
         soundName: 'Forest',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1O9P0s6bs9qe5OVgoE4ms0qBRdd53vOp7',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/forest.mp3',
     },
     {
         soundName: 'Lonely Bard',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1C7EgqkyR4Yzd1sCAkDHbZcCZcggRvveo',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/lonely-bard.mp3',
     },
     {
         soundName: 'Tree Soul',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1x0NAC0s4BNwXvgdVykvijVxoOI_EOWBJ',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/tree-soul.mp3',
     },
     {
         soundName: 'Wind inside my head',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1UA4ldF_pmeqgd22HdgUkoIbu6MiwPbTV',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/close-to-nature/wind-inside-my-head.mp3',
     },
 ];
 

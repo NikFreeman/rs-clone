@@ -9,6 +9,6 @@ export enum ThemeName {
 }
 
 export enum SelectedLangugage {
-    eng = 'english',
-    rus = 'русский',
+    english = 'ENG',
+    russian = 'RU',
 }

@@ -1,7 +1,7 @@
 import { Mood } from '../../models/types';
 import SoundPlayer from '../player';
 import ambienceCollection from '../../audio/ambience/index';
-// import defaultSounds from '../../audio/audio-moods/default/index';
+// import { defaultSounds } from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
 
