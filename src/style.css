@@ -11,10 +11,10 @@
       @apply py-2 px-6 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
     .slider {
-      @apply relative appearance-none -mx-18 w-52 h-2 bg-gray-300 opacity-40 rounded outline-none rotate-270;
+      @apply relative appearance-none -mx-18 w-52 h-2 bg-gray-300 opacity-60 rounded outline-none rotate-270 dark:opacity-40;
     }
     .slider:hover {
-      @apply opacity-60;
+      @apply opacity-80 dark:opacity-60;
     }
     .key-white.pressed + .key-black {
       @apply shadow-outer-press-sib-l;

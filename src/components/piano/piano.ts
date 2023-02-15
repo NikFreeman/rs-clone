@@ -83,6 +83,15 @@ pianoNotes.loadAll();
 const notesArr = pianoNotes.getHowl();
 notesArr.forEach((note) => note.loop(false));
 
+// volume piano
+const volumeRange = getNullCheckedElement(piano, '.piano-volume') as HTMLInputElement;
+pianoNotes.setVolume(+volumeRange.value);
+
+volumeRange.addEventListener('input', () => {
+    pianoNotes.setVolume(+volumeRange.value);
+});
+
+// keypress listeners
 pianoKeys.forEach((key, index) => {
     key.addEventListener('pointerdown', () => {
         key.classList.add('pressed');
@@ -107,16 +116,17 @@ pianoKeys.forEach((key, index) => {
 // key events for piano keys
 window.addEventListener('keydown', (e: KeyboardEvent) => {
     if (!isPianoVisible) return;
-    e.preventDefault();
     pianoKeys.forEach((key, index) => {
-        if (key.dataset.key === e.code && !e.repeat) {
-            key.classList.add('pressed');
-            notesArr[index].play();
+        if (key.dataset.key === e.code) {
+            e.preventDefault();
+            if (!e.repeat) {
+                key.classList.add('pressed');
+                notesArr[index].play();
+            }
         }
     });
 });
 window.addEventListener('keyup', (e: KeyboardEvent) => {
-    // if (!isPianoVisible) return;
     pianoKeys.forEach((key, index) => {
         if (key.dataset.key === e.code) {
             key.classList.remove('pressed');
