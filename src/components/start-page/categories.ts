@@ -53,6 +53,7 @@ export async function renderCard(index: number) {
     const wrapper = document.querySelector('.card-wrapper');
     const urls: string[] = await getAvatarAndVideo(categoryName);
     const card = document.createElement('div');
+    card.setAttribute('id', `${categoryArray[index].mood}`);
     card.className =
         'category-card flex flex-col cursor-pointer rounded-xl bg-white/30 backdrop-blur-sm text-neutral-900 bg-clip-border shadow-card max-w-sm drop-shadow-lg m-2 min-h-120 hover:backdrop-blur hover:drop-shadow-xl dark:bg-black/40 ease-in duration-200';
     card.innerHTML = `
@@ -66,7 +67,7 @@ export async function renderCard(index: number) {
                 />
             </div>
             <div class="ml-3">
-                <span class="category-name mb-0 font-bold text-blue-gray-700 dark:text-white">${mood}</span>
+                <span class="category-name mb-0 font-bold text-blue-gray-700 dark:text-white" localization-key="${mood}">${mood}</span>
                 <p class="mb-0 text-xs dark:text-white">${categoryArray[index].description}</p>
             </div>
         </div>
@@ -81,7 +82,7 @@ export async function renderCard(index: number) {
         </div>
     </div>
     <div class="presets-block text-secondary flex-1 px-6 py-3 opacity-0 ease-in duration-200 dark:text-white">
-        <h5 class="font-medium">Presets</h5>
+        <h5 class="font-medium" localization-key="presets">Presets</h5>
         ${getPresetTags(index)}
     </div>
     `;

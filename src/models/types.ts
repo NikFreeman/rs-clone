@@ -23,3 +23,7 @@ export interface Mood {
 export interface PianoKey extends HTMLLIElement {
     key: string;
 }
+
+export interface Localization {
+    [key: string]: string;
+}

@@ -1,7 +1,24 @@
 import { getNullCheckedElement } from '../../models/utils';
 import { SelectedLanguage } from '../../models/enums';
+import { Localization } from '../../models/types';
+import { localizationEng, localizationRu } from './vocabulary';
 
 const languageButton = getNullCheckedElement(document, '.language-button');
+
+function translatePage(language: string) {
+    let translation: Localization;
+    if (language === SelectedLanguage.russian) {
+        translation = localizationRu;
+    } else if (language === SelectedLanguage.english) {
+        translation = localizationEng;
+    }
+    document.querySelectorAll('[localization-key]').forEach((element) => {
+        const key = element.getAttribute('localization-key');
+        if (key && translation[key]) {
+            element.innerHTML = translation[key]; // eslint-disable-line no-param-reassign
+        }
+    });
+}
 
 function switchLanguageOnClick(): void {
     let currentLanguage = localStorage.getItem('Active Language');
@@ -11,10 +28,12 @@ function switchLanguageOnClick(): void {
             localStorage.setItem('Active Language', JSON.stringify(`${SelectedLanguage.russian}`));
             languageButton.innerHTML = `Язык: ${SelectedLanguage.russian}`;
             currentLanguage = localStorage.getItem('Active Language') as string;
+            translatePage(SelectedLanguage.russian);
         } else if (activeTheme === SelectedLanguage.russian) {
             localStorage.setItem('Active Language', JSON.stringify(`${SelectedLanguage.english}`));
             languageButton.innerHTML = `Language: ${SelectedLanguage.english}`;
             currentLanguage = localStorage.getItem('Active Language') as string;
+            translatePage(SelectedLanguage.english);
         }
     }
 }
@@ -26,8 +45,10 @@ function initLanguageStorage(): void {
         languageButton.innerHTML = `Language: ${SelectedLanguage.english}`;
     } else if (JSON.parse(storageContent) === SelectedLanguage.english) {
         languageButton.innerHTML = `Language: ${SelectedLanguage.english}`;
+        translatePage(SelectedLanguage.english);
     } else if (JSON.parse(storageContent) === SelectedLanguage.russian) {
         languageButton.innerHTML = `Язык: ${SelectedLanguage.russian}`;
+        translatePage(SelectedLanguage.russian);
     }
 }
 

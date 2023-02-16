@@ -11,7 +11,7 @@
 <body class="ease-in select-none">
     <header class="header-container rounded-xl bg-white/30 backdrop-blur-sm m-2 dark:bg-black/40">
         <div class="header-wrapper flex mx-auto my-2 justify-around p-1 sm:p-4">
-            <div class="header-content grid grid-cols-3 w-full justify-items-stretch items-center">
+            <div class="header-content flex w-full justify-between items-center">
                 <div class="logo flex">
                     <img class="header-logo flex w-auto h-16" src="https://i.ibb.co/hVdz8MX/logo-no-background.png"
                         alt="project logo"/>
@@ -20,15 +20,15 @@
                     <ul class="flex gap-3">
                         <li>
                             <a class="text-2xl font-bold text-violet-900 ease-in duration-200 hover:drop-shadow-md pointer-events-none dark:text-violet-400"
-                                href="#">Player</a>
+                                href="#" localization-key="playerTab">Player</a>
                         </li>
                         <li>
                             <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400"
-                                href="#">About</a>
+                                href="#" localization-key="aboutTab">About</a>
                         </li>
                         <li>
                             <a class="text-2xl font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400"
-                                href="#">Favorites</a>
+                                href="#" localization-key="favoritesTab">Favorites</a>
                         </li>
                     </ul>
                 </nav>
@@ -54,7 +54,7 @@
                 Eng</button>
         </div>
         <div
-            class="preset-name rounded-xl bg-white/30 backdrop-blur text-lg font-bold text-neutral-900 text-center bg-clip-border shadow-card w-1/3 min-w-max mx-auto my-2 dark:text-white dark:bg-black/40">
+            class="preset-name rounded-xl bg-white/30 backdrop-blur text-lg font-bold text-neutral-900 text-center bg-clip-border shadow-card w-1/3 min-w-max mx-auto my-2 dark:text-white dark:bg-black/40" localization-key="tagline">
             Keep Calm & Listen To Music
         </div>
         <div
@@ -80,17 +80,17 @@
         </div>
         <div class="flex mx-auto my-2 gap-4">
             <button
-                class="play border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-                data-ripple-light="true">Play</button>
+                class="play border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true" localization-key="play-button">Play</button>
             <button
-                class="load border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-                data-ripple-light="true">Load</button>
+                class="load border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true" localization-key="load-button">Load</button>
             <button
-                class="save border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-                data-ripple-light="true">Save</button>
+                class="save border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+                data-ripple-light="true" localization-key="save-button">Save</button>
             <button
-            class="piano-btn border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-            data-ripple-light="true">Piano</button>
+            class="piano-btn border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            data-ripple-light="true" localization-key="piano-button">Piano</button>
         </div>
         <div class="card-wrapper flex flex-wrap justify-center ease-in duration-200"></div>
     </div>
@@ -98,11 +98,12 @@
         <div class="flex items-center justify-between mb-3 text-grey-darkest dark:text-gray-200">
             <button
             class="octave-left border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-            data-ripple-light="true">lower</button>
+            data-ripple-light="true" localization-key="piano-lower">lower</button>
             <div class="flex items-center volume-slider">
                 <label
                     for="vulume-keys"
                     class="mt-px mr-3 mb-0 cursor-pointer select-none text-lg font-medium"
+                    localization-key="piano-volume"
                 >
                     Volume
                 </label>
@@ -113,7 +114,7 @@
             <div class="inline-flex items-center">
                 <label
                     for="show-keys"
-                    class="mt-px mr-6 mb-0 cursor-pointer select-none text-lg font-medium">
+                    class="mt-px mr-6 mb-0 cursor-pointer select-none text-lg font-medium" localization-key="piano-keys">
                     Show Keys
                 </label>
                 <div class="relative inline-block h-2 w-8 mr-4 cursor-pointer rounded-full">
@@ -133,7 +134,7 @@
             <div class="inline-flex items-center">
                 <label
                     for="show-notes"
-                    class="mt-px mr-6 mb-0 cursor-pointer select-none text-lg font-medium">
+                    class="mt-px mr-6 mb-0 cursor-pointer select-none text-lg font-medium" localization-key="piano-notes">
                     Show Notes
                 </label>
                 <div class="relative inline-block h-2 w-8 mr-4 cursor-pointer rounded-full">
@@ -152,7 +153,7 @@
             </div>
             <button
             class="octave-right border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
-            data-ripple-light="true">higher</button>
+            data-ripple-light="true" localization-key="piano-higher">higher</button>
         </div>
         <ul class="piano-keys flex mt-3xl list-none">
             <li class="key key-white peer" data-key="Tab"><span class="key-note"></span><span class="key-text">tab</span></li>
@@ -188,7 +189,7 @@
                     <img class="footer-logo flex w-auto h-16 hover:scale-105 ease-in duration-200 invert-0"
                         src="https://rs.school/images/rs_school_js.svg" alt="rs school logo"/>
                 </a>
-                <div class="font-bold text-blue-gray-700 justify-self-center dark:text-white">Winter 2023</div>
+                <div class="font-bold text-blue-gray-700 justify-self-center dark:text-white" localization-key="winter">Winter 2023</div>
                 <div class="authors-links flex flex-col gap-1 justify-self-end">
                     <a href="https://github.com/NikFreeman"
                         class="link font-bold text-blue-gray-700 hover:text-violet-900  active:text-violet-700 ease-in duration-200 hover:drop-shadow-md dark:text-white dark:hover:text-violet-400">NikFreeman</a>
