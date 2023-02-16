@@ -1,11 +1,12 @@
 import { Mood } from '../../models/types';
 import SoundPlayer from '../player';
-import ambienceCollection from '../../audio/ambience/index';
-// import defaultSounds from '../../audio/audio-moods/default/index';
+import { defaultSoundsLinks } from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
 
-let player = new SoundPlayer(ambienceCollection);
+const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
+const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
+let player = new SoundPlayer(defaultMood);
 
 const volumes = document.querySelectorAll('.sound-volume');
 let isPlay = false;
@@ -15,6 +16,14 @@ function changeVolume(this: HTMLInputElement) {
     const index = +this.id.slice(7);
     player.setVolumeId(index, +this.value);
 }
+
+volumes.forEach((input, ind) => {
+    if (input instanceof HTMLInputElement) {
+        const title = defaultNames[ind];
+        input.setAttribute('title', title);
+        input.addEventListener('input', changeVolume);
+    }
+});
 
 function applyPreset(currentMood: Mood, selectPreset: string) {
     if (currentMood.presets.some((preset) => preset.presetName === selectPreset)) {
@@ -42,14 +51,14 @@ function applyMood(target: HTMLElement) {
         player.stopAll();
         isPlay = false;
         (playButton as HTMLButtonElement).textContent = 'Play';
-        player = new SoundPlayer(moodObj.soundsDirect);
-        // player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
+        // player = new SoundPlayer(moodObj.soundsDirect);
+        player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
         player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
-                const filePath = moodObj.soundsDirect[ind];
-                const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
-                // const title = moodObj.soundsLinks[ind].soundName;
+                // const filePath = moodObj.soundsDirect[ind];
+                // const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
+                const title = moodObj.soundsLinks[ind].soundName;
                 input.setAttribute('title', title);
                 input.addEventListener('input', changeVolume);
             }

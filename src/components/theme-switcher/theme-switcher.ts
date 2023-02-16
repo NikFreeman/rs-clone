@@ -8,7 +8,7 @@ const rsLogo = getNullCheckedElement(document, '.footer-logo');
 function invertLogoColor(activeTheme: string): void {
     if (activeTheme === ThemeName.light && rsLogo.classList.contains('invert')) {
         rsLogo.classList.remove('invert');
-    } else {
+    } else if (activeTheme === ThemeName.dark && !rsLogo.classList.contains('invert')) {
         rsLogo.classList.add('invert');
     }
 }

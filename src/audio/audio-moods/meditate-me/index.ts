@@ -19,31 +19,34 @@ const meditationSounds: string[] = [
 const meditationSoundsLinks = [
     {
         soundName: 'Calm melody',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1uWnsIsiouhLNvUie5-rAgKNITHdRgWXs',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/calm-melody.mp3',
     },
     {
         soundName: 'Deep Chakra',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1XJTg_otyNFxO3dWibr0D6RO4GTl-R31w',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/deep-chakra.mp3',
     },
     {
         soundName: 'Distant sky',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1lJArVQya34XEf_8XFzFuMaBqGfua-heh',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/distant-sky.mp3',
     },
     {
         soundName: 'Heart of gold',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1Am0rqd8XoPq_ESdeDkgxSMsSUNK8M2-B',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/heart-of-gold.mp3',
     },
     {
         soundName: 'Hope still here',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1adtRZeWa5rXVlZn5QNXMiICTwRjKxFv0',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/hope-still-here.mp3',
     },
     {
         soundName: 'Marimba',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=16izgTNzmtb5nL73Ti8Bm0coetX1ICtHi',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/marimba.mp3',
     },
     {
         soundName: 'Mind Cleaner',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1f3gEHWC1mtJOIgWHhEC2gyrCFaiWSYKY',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/meditate-me/mind-cleaner.mp3',
     },
 ];
 
