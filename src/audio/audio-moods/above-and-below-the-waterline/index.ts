@@ -1,12 +1,4 @@
-import ocean from './Ocean.mp3';
-import riverAndBirds from './River and Birds.mp3';
-import riverHeavy from './River Heavy.mp3';
-import riverLight from './River Light.mp3';
-import riverMedium from './River Medium.mp3';
-import waterfall from './Waterfall.mp3';
-import waves from './Waves.mp3';
-
-const waterSounds: string[] = [ocean, riverAndBirds, riverHeavy, riverLight, riverMedium, waterfall, waves];
+const waterSounds: string[] = [];
 
 const waterSoundsLinks = [
     {

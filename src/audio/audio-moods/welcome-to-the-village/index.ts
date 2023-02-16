@@ -1,12 +1,4 @@
-import chickens from './Chickens.mp3';
-import countryRoad from './Country Road.mp3';
-import farmLife from './Farm Life.mp3';
-import goats from './Goats.mp3';
-import littleOne from './Little one with instrument.mp3';
-import windchimesSoft from './Windchimes Soft.mp3';
-import windmill from './Windmill.mp3';
-
-const villageSounds: string[] = [chickens, countryRoad, farmLife, goats, littleOne, windchimesSoft, windmill];
+const villageSounds: string[] = [];
 
 const villageSoundsLinks = [
     {

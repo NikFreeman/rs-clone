@@ -1,12 +1,4 @@
-import campfire from './Campfire.mp3';
-import birds from './Cute Birds.mp3';
-import leaves from './Feel the Leaves.mp3';
-import forest from './Forest Light.mp3';
-import bard from './Lonely Bard.mp3';
-import tree from './Tree Soul.mp3';
-import wind from './Wind inside my head.mp3';
-
-const natureSounds: string[] = [campfire, birds, leaves, forest, bard, tree, wind];
+const natureSounds: string[] = [];
 
 const natureSoundsLinks = [
     {
