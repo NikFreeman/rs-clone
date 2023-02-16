@@ -9,7 +9,7 @@ export enum ThemeName {
     light = 'Light',
 }
 
-export enum SelectedLangugage {
+export enum SelectedLanguage {
     english = 'ENG',
     russian = 'RU',
 }

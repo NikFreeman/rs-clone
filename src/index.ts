@@ -7,6 +7,7 @@ import playMusic from './components/start-page/music';
 import './components/piano/piano';
 import './components/burger-menu/burger';
 import './components/theme-switcher/theme-switcher';
+import './components/localization/language-switcher';
 
 getRandomWallpaper();
 categoryArray.forEach((_, i) => renderCard(i));
