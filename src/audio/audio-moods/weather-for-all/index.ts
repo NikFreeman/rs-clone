@@ -11,31 +11,37 @@ const weatherSounds: string[] = [rainLight, rainMedium, rainMuffled, thunderClos
 const weatherSoundsLinks = [
     {
         soundName: 'Rain Light',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1hCCtQ87uX-hPrZNgiREEiVE7Rny4PW3J',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/rain-light.mp3',
     },
     {
         soundName: 'Rain Medium',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1D85I2A2MVmwRAI4gHQSdIl10xfIKE1C0',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/rain-medium.mp3',
     },
     {
         soundName: 'Rain Muffled',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1ViiWV6n3QXeCm-bnksOwy9SOydLeOUSl',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/rain-muffled.mp3',
     },
     {
         soundName: 'Thunder Close',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1z-0WJUPjzltQDYKt-UbQ0affF6FhDFNF',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/thunder-close.mp3',
     },
     {
         soundName: 'Thunder Distant',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1nD7pR1mtGFMglHja4vo2YOFowlpLNcQj',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/thunder-distant.mp3',
     },
     {
         soundName: 'Wind',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=194qkOSXb-_Q9rtQw0aBizXKepa6o6XCx',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/wind.mp3',
     },
     {
         soundName: 'Windchimes',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=17_uSIVr2pNY5qGIDgTeDUD17Bb72CbZ_',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/weather-for-all/windchime.mp3',
     },
 ];
 

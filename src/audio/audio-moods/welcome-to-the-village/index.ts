@@ -11,31 +11,38 @@ const villageSounds: string[] = [chickens, countryRoad, farmLife, goats, littleO
 const villageSoundsLinks = [
     {
         soundName: 'Chickens',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1EuIWfkcD9EGId8tUFlQdjpZFRryjLOB7',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/chickens.mp3',
     },
     {
         soundName: 'Country Road',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1-BwqSZPgr6Uhcq-TXT5hqYerknqUZQAz',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/country-road.mp3',
     },
     {
         soundName: 'Farm Life',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1GEZ68V-MfFjScnciBEFxzQka_CY0m3oA',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/farm-life.mp3',
     },
     {
         soundName: 'Goats',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=19wC_eSOs9QViuhNfWVncAhPVMHxxoYfJ',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/goats.mp3',
     },
     {
         soundName: 'Little one with instrument',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=11BRWIvOOsl7A0mp0dFn4irlZxUYuwjqE',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/little-one-with-instrument.mp3',
     },
     {
-        soundName: 'Windchimes',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1ttt6X0FGtE265LwUZ9ytRozPdnjz-7ZK',
+        soundName: 'Windchimes Soft',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/windchimes-soft.mp3',
     },
     {
         soundName: 'Windmill',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1bGoJkBL8rF0ZDZEmK81eSx_gNchXFZdl',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/welcome-to-the-village/windmill.mp3',
     },
 ];
 
