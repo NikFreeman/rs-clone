@@ -11,11 +11,32 @@
       @apply py-2 px-6 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
     .slider {
-      @apply relative appearance-none -mx-18 w-52 h-2 bg-gray-300 opacity-40 rounded outline-none rotate-270;
+      @apply relative appearance-none -mx-18 w-52 h-2 bg-gray-300 opacity-60 rounded outline-none rotate-270 dark:opacity-40;
     }
     .slider:hover {
-      @apply opacity-60;
-    }    
+      @apply opacity-80 dark:opacity-60;
+    }
+    .key-white.pressed + .key-black {
+      @apply shadow-outer-press-sib-l;
+    }
+    .key-white {
+      @apply select-none cursor-pointer relative w-[4.375rem] h-56 rounded-b-lg bg-gradient-to-b from-white to-gray-50 border border-solid border-white text-gray-500 dark:border-black;
+    }
+    .key-white.pressed {
+      @apply shadow-inner-x bg-gradient-to-b from-gray-50 to-gray-200 last:shadow-inner-r first:shadow-inner-l;
+    }
+    .key-black {
+      @apply select-none cursor-pointer relative h-36 w-12 -mx-6 z-10 rounded-b-md bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 shadow-outer;
+    }
+    .key-black.pressed {
+      @apply shadow-outer-press from-gray-900 to-gray-800;
+    }
+    .key-text {
+      @apply absolute bottom-2 w-full text-center uppercase;
+    }
+    .key-note {
+      @apply absolute bottom-10 w-full text-center uppercase;
+    }
   }
 
   @layer utilities {

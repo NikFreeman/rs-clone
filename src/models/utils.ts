@@ -17,5 +17,7 @@ export function addRemoveDomClass(element: Element, classToManipulate: string, a
         element.classList.add(classToManipulate);
     } else if (action === DomClassManipulation.remove) {
         element.classList.remove(classToManipulate);
+    } else if (action === DomClassManipulation.toggle) {
+        element.classList.toggle(classToManipulate);
     }
 }

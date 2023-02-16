@@ -8,8 +8,7 @@ const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
 let player = new SoundPlayer(defaultMood);
 
-const volumes = document.querySelectorAll('.slider');
-
+const volumes = document.querySelectorAll('.sound-volume');
 let isPlay = false;
 const playButton = document.querySelector('.play');
 
@@ -85,17 +84,18 @@ function applyMood(target: HTMLElement) {
 }
 
 function playMusic(this: HTMLButtonElement) {
-    if (isPlay) {
-        player.stopAll();
-        this.textContent = 'Play';
-    } else {
-        player.playAll();
-        this.textContent = 'Stop';
-    }
     renderVisualization(player);
     player.getHowl().forEach((aud, index) => {
         aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
+    if (isPlay) {
+        player.stopAll();
+        this.textContent = 'Play';
+    } else {
+        player.loadAll();
+        player.playAll();
+        this.textContent = 'Stop';
+    }
     isPlay = !isPlay;
 }
 
