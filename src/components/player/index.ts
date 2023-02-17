@@ -16,7 +16,7 @@ class SoundPlayer {
                 src: [src],
                 loop: true,
                 preload: false,
-                onload: () => loadedSound(src, i, arr),
+                onload: () => loadedSound(i, arr),
             });
             this.players.push(howl);
         });
