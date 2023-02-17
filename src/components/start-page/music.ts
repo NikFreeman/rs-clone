@@ -88,19 +88,27 @@ function applyMood(target: HTMLElement) {
 }
 
 function playMusic(this: HTMLButtonElement) {
-    renderVisualization(player);
     player.getHowl().forEach((aud, index) => {
         aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
+    renderVisualization(player);
     if (isPlay) {
         player.stopAll();
         playText.textContent = 'Play';
+        isPlay = !isPlay;
+    } else if (!player.isLoaded()) {
+        player.loadAll();
+        playText.textContent = 'L';
+        restText.textContent = 'ading';
+        addRemoveDomClass(preloader, 'hidden', 'remove');
+        playButton.setAttribute('disabled', 'disabled');
     } else {
         player.loadAll();
         player.playAll();
         playText.textContent = 'Stop';
+        renderVisualization(player);
+        isPlay = !isPlay;
     }
-    isPlay = !isPlay;
 }
 
 function activateMoodCard(e: Event) {

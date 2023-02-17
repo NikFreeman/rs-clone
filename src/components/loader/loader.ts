@@ -5,9 +5,13 @@ const preloader = getNullCheckedElement(document, '.preloader');
 const playBtn = getNullCheckedElement(document, '.play');
 const playText = getNullCheckedElement(document, '.play-text');
 const restText = getNullCheckedElement(document, '.rest-text');
+const soundsAmount = document.querySelectorAll('.sound-volume').length;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function loadedSound(ind: number, arr: string[]) {
+    if (arr.length > soundsAmount) {
+        return;
+    }
     addRemoveDomClass(preloader, 'hidden', 'remove');
     if (indexes.includes(ind)) {
         indexes.length = 0;
