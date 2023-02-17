@@ -26,7 +26,7 @@ class SoundPlayer {
         this.loadSrc(soundSrc);
     }
 
-    private loadSrc(soundSrc: string[]) {
+    loadSrc(soundSrc: string[]) {
         soundSrc.forEach((src) => {
             const howl = new Howl({
                 src: [src],
