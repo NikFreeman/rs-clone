@@ -1,4 +1,5 @@
 import { Localization } from '../../models/types';
+import { categoryArray } from '../start-page/categories';
 
 export const localizationEng: Localization = {
     playerTab: 'Player',
@@ -24,18 +25,14 @@ export const localizationEng: Localization = {
     'Sci-fi': 'Sci-fi',
     'Weather for all': 'Weather for all',
     'Welcome to the village': 'Welcome to the village',
-    water: 'Sea waves, rain and beautiful birds - the perfect natural soundscape to block out a noisy office.',
-    city: 'Do you miss busy streets and noisy highways? Do you miss the atmosphere of a big city bustling with life? Then "City Vibes" is exactly what you need!',
-    nature: "From time to time, every last one of us feels something dark inside, something gloomy. That feeling does not let us sleep. It's time to reconcile with your dark side and recognize it as part of you.",
-    darkness:
-        "From time to time, every last one of us feels something dark inside, something gloomy. That feeling does not let us sleep. It's time to reconcile with your dark side and recognize it as part of you.",
-    meditation:
-        'Desires make people run in circles, just as mirages attract thirsty doe. When a new desire is born, it is based on the light of knowledge.',
-    'science fiction':
-        'Stuff your eyes with wonder, live as if you’d drop dead in 10 seconds. See the world. It’s more fantastic than any dream made or paid for in factories.',
-    weather: 'People only check the weather forecast to find out when the wind of change will finally come.',
-    village:
-        "It's time to relax and enjoy the countryside atmosphere. Move to a place where people are simpler, and mutual assistance still means something.",
+    water: categoryArray[0].description,
+    city: categoryArray[1].description,
+    nature: categoryArray[2].description,
+    darkness: categoryArray[3].description,
+    meditation: categoryArray[4].description,
+    'science fiction': categoryArray[5].description,
+    weather: categoryArray[6].description,
+    village: categoryArray[7].description,
 };
 
 export const localizationRu: Localization = {
@@ -62,16 +59,12 @@ export const localizationRu: Localization = {
     'Sci-fi': 'Научная фантастика',
     'Weather for all': 'Погода на любой вкус',
     'Welcome to the village': 'Добро пожаловать в деревню',
-    water: 'Волны, дождь и птицы — прекрасное звуковое сопровождение, которое поможет сосредоточиться и забыть об окружающем мире.',
-    city: 'Скучаете по шумным улицам и оживленным шоссе? Вам не достает атмосферы большого города в котором кипит жизнь? Тогда "City Vibes" именно то, что вам нужно!',
-    nature: 'Забудь про суету не стихающего города. Оставь позади давящие стены огромных небоскребов. Вернись к своим корням и почувствуй Мать-Природу.',
-    darkness:
-        'Время от времени каждый из нас ощущает внутри что-то темное, что-то мрачное, что не дает уснуть. Пришло время примириться со своей темной стороной и признать ее частью себя.',
-    meditation:
-        'Желания заставляют людей бегать по кругу, как миражи притягивают лань, изнывающую от жажды. Когда зарождается новое желание, в его основе лежит свет знания.',
-    'science fiction':
-        'Шире открой глаза, живи так жадно, как будто через десять секунд умрешь. Старайся увидеть мир. Он прекрасней любой мечты, созданной на фабрике и оплаченной деньгами.',
-    weather: 'Люди узнают прогноз погоды лишь для того, чтобы узнать, когда будет ветер перемен.',
-    village:
-        'Пора расслабиться и насладиться загородной атмосферой. Перенеситесь в место, где люди проще, а взаимопомощь еще что-то значит.',
+    water: categoryArray[0].descriptionRu,
+    city: categoryArray[1].descriptionRu,
+    nature: categoryArray[2].descriptionRu,
+    darkness: categoryArray[3].descriptionRu,
+    meditation: categoryArray[4].descriptionRu,
+    'science fiction': categoryArray[5].descriptionRu,
+    weather: categoryArray[6].descriptionRu,
+    village: categoryArray[7].descriptionRu,
 };

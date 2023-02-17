@@ -26,7 +26,7 @@ export async function getLinkToImage(e: Event) {
         if (card) {
             const categoryName = card.querySelector('.category-name');
             if (categoryName?.textContent) {
-                const style = findCategory(categoryName.textContent);
+                const style = findCategory(categoryName.getAttribute('localization-key') as string);
                 document.body.style.transition = 'background 1s ease-in-out';
                 const url = `https://pixabay.com/api/?key=${API_KEY}&q=${style}&image_type=photo&orientation=horizontal`;
                 const res = await fetch(url);
