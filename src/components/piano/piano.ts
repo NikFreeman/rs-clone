@@ -141,10 +141,10 @@ higher.addEventListener('click', moveOctaveHigher);
 
 // volume piano
 const volumeRange = getNullCheckedElement(piano, '.piano-volume') as HTMLInputElement;
-pianoNotes.setVolume(+volumeRange.value);
+pianoNotes.setVolumeList(+volumeRange.value);
 
 volumeRange.addEventListener('input', () => {
-    pianoNotes.setVolume(+volumeRange.value);
+    pianoNotes.setVolumeList(+volumeRange.value);
 });
 
 // keypress listeners

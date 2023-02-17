@@ -67,6 +67,10 @@ class SoundPlayer {
         this.players[id].volume(value);
     }
 
+    setVolumeList(value: number) {
+        this.players.forEach((note) => note.volume(value));
+    }
+
     setVolume(value: number) {
         Howler.volume(value);
     }
