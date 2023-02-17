@@ -3,7 +3,8 @@ import SoundPlayer from '../player';
 import { defaultSoundsLinks } from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
-import { SelectedLanguage } from '../../models/enums';
+// import { SelectedLanguage } from '../../models/enums';
+import { choseTranslation } from '../../models/utils';
 
 const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
@@ -43,8 +44,8 @@ let isTheSameMood = false;
 
 function applyMood(target: HTMLElement) {
     const rangeArea = document.querySelector('.preset-name');
-    // const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
-    const mood = target.closest('.category-card')?.querySelector('.category-name')?.getAttribute('localization-key');
+    const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
+    // const mood = target.closest('.category-card')?.querySelector('.category-name')?.getAttribute('localization-key');
 
     isTheSameMood = rangeArea?.textContent?.split(' /')[0] === mood;
     const moodObj = categoryArray.find((obj) => obj.mood === mood);
@@ -52,10 +53,7 @@ function applyMood(target: HTMLElement) {
     if (moodObj && !isTheSameMood) {
         player.stopAll();
         isPlay = false;
-        (playButton as HTMLButtonElement).textContent =
-            JSON.parse(localStorage.getItem('Active Language') as string) === SelectedLanguage.english
-                ? 'Play'
-                : 'Играть';
+        (playButton as HTMLButtonElement).textContent = choseTranslation('Play', 'Играть');
         // player = new SoundPlayer(moodObj.soundsDirect);
         player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
         player.loadAll();
