@@ -54,12 +54,15 @@ function applyMood(target: HTMLElement) {
     if (moodObj && !isTheSameMood) {
         player.stopAll();
         isPlay = false;
-        addRemoveDomClass(preloader, 'hidden', 'remove');
-        playText.textContent = 'L';
-        restText.textContent = 'ading';
-        playButton.setAttribute('disabled', 'disabled');
         player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
-        player.loadAll();
+        if (!player.isLoaded()) {
+            playText.textContent = 'L';
+            restText.textContent = 'ading';
+            addRemoveDomClass(preloader, 'hidden', 'remove');
+            playButton.setAttribute('disabled', 'disabled');
+            player.loadAll();
+        }
+        // player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
                 const title = moodObj.soundsLinks[ind].soundName;
@@ -97,13 +100,13 @@ function playMusic(this: HTMLButtonElement) {
         playText.textContent = 'Play';
         isPlay = !isPlay;
     } else if (!player.isLoaded()) {
-        player.loadAll();
         playText.textContent = 'L';
         restText.textContent = 'ading';
         addRemoveDomClass(preloader, 'hidden', 'remove');
         playButton.setAttribute('disabled', 'disabled');
-    } else {
         player.loadAll();
+    } else {
+        // player.loadAll();
         player.playAll();
         playText.textContent = 'Stop';
         renderVisualization(player);

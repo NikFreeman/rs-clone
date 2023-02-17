@@ -12,7 +12,6 @@ function loadedSound(ind: number, arr: string[]) {
     if (arr.length > soundsAmount) {
         return;
     }
-    addRemoveDomClass(preloader, 'hidden', 'remove');
     if (indexes.includes(ind)) {
         indexes.length = 0;
         indexes.push(ind);
