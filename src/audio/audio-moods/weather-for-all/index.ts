@@ -1,13 +1,3 @@
-import rainLight from './Rain Light.mp3';
-import rainMedium from './Rain Medium.mp3';
-import rainMuffled from './Rain Muffled.mp3';
-import thunderClose from './Thunder Close.mp3';
-import thunderDistant from './Thunder Distant.mp3';
-import wind from './Wind.mp3';
-import windchime from './Windchime.mp3';
-
-const weatherSounds: string[] = [rainLight, rainMedium, rainMuffled, thunderClose, thunderDistant, wind, windchime];
-
 const weatherSoundsLinks = [
     {
         soundName: 'Rain Light',
@@ -78,7 +68,6 @@ const weatherSoundsPack = {
             presetValues: [0, 0.3, 0.45, 0, 0.75, 0.3, 0.9],
         },
     ],
-    soundsDirect: weatherSounds,
     soundsLinks: weatherSoundsLinks,
 };
 

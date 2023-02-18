@@ -1,8 +1,9 @@
 import { Mood } from '../../models/types';
 import SoundPlayer from '../player';
-import { defaultSoundsLinks } from '../../audio/audio-moods/default/index';
+import defaultSoundsLinks from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
+import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
 
 const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
@@ -10,7 +11,7 @@ let player = new SoundPlayer(defaultMood);
 
 const volumes = document.querySelectorAll('.sound-volume');
 let isPlay = false;
-const playButton = document.querySelector('.play');
+const playButton = getNullCheckedElement(document, '.play');
 
 function changeVolume(this: HTMLInputElement) {
     const index = +this.id.slice(7);
@@ -39,6 +40,9 @@ function applyPreset(currentMood: Mood, selectPreset: string) {
 }
 
 let isTheSameMood = false;
+const preloader = getNullCheckedElement(document, '.preloader');
+const playText = getNullCheckedElement(document, '.play-text');
+const restText = getNullCheckedElement(document, '.rest-text');
 
 function applyMood(target: HTMLElement) {
     const rangeArea = document.querySelector('.preset-name');
@@ -50,14 +54,17 @@ function applyMood(target: HTMLElement) {
     if (moodObj && !isTheSameMood) {
         player.stopAll();
         isPlay = false;
-        (playButton as HTMLButtonElement).textContent = 'Play';
-        // player = new SoundPlayer(moodObj.soundsDirect);
         player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
-        player.loadAll();
+        if (!player.isLoaded()) {
+            playText.textContent = 'L';
+            restText.textContent = 'ading';
+            addRemoveDomClass(preloader, 'hidden', 'remove');
+            playButton.setAttribute('disabled', 'disabled');
+            player.loadAll();
+        }
+        // player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
-                // const filePath = moodObj.soundsDirect[ind];
-                // const title = filePath.slice(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
                 const title = moodObj.soundsLinks[ind].soundName;
                 input.setAttribute('title', title);
                 input.addEventListener('input', changeVolume);
@@ -84,19 +91,27 @@ function applyMood(target: HTMLElement) {
 }
 
 function playMusic(this: HTMLButtonElement) {
-    renderVisualization(player);
     player.getHowl().forEach((aud, index) => {
         aud.volume(+(document.getElementById(`volume-${index}`) as HTMLInputElement).value);
     });
+    renderVisualization(player);
     if (isPlay) {
         player.stopAll();
-        this.textContent = 'Play';
-    } else {
+        playText.textContent = 'Play';
+        isPlay = !isPlay;
+    } else if (!player.isLoaded()) {
+        playText.textContent = 'L';
+        restText.textContent = 'ading';
+        addRemoveDomClass(preloader, 'hidden', 'remove');
+        playButton.setAttribute('disabled', 'disabled');
         player.loadAll();
+    } else {
+        // player.loadAll();
         player.playAll();
-        this.textContent = 'Stop';
+        playText.textContent = 'Stop';
+        renderVisualization(player);
+        isPlay = !isPlay;
     }
-    isPlay = !isPlay;
 }
 
 function activateMoodCard(e: Event) {

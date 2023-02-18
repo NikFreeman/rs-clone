@@ -16,7 +16,6 @@ export interface Mood {
     description: string;
     descriptionRu: string;
     presets: Preset[];
-    soundsDirect: string[];
     soundsLinks: SLink[];
 }
 
