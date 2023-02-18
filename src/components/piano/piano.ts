@@ -78,19 +78,23 @@ document.addEventListener('pointerup', () => {
 });
 
 const pianoKeys: NodeListOf<PianoKey> = document.querySelectorAll('.key');
-let firstNoteNumber = 4;
+let firstNoteNumber = 28;
+let previousFirstNoteNumber = firstNoteNumber;
 let pianoNotes = new SoundPlayer(notes.slice(firstNoteNumber - 1, firstNoteNumber + pianoKeys.length));
 pianoNotes.loadAll();
 let notesArr = pianoNotes.getHowl();
 notesArr.forEach((note) => note.loop(false));
+
 const keyNotes = piano.querySelectorAll('.key-note');
 
 function applyNotes(first: number) {
     const pathArr = notes.slice(first - 1, first + pianoKeys.length);
-    pianoNotes = new SoundPlayer(pathArr);
-    pianoNotes.loadAll();
-    notesArr = pianoNotes.getHowl();
-    notesArr.forEach((note) => note.loop(false));
+    if (first !== previousFirstNoteNumber) {
+        pianoNotes = new SoundPlayer(pathArr);
+        pianoNotes.loadAll();
+        notesArr = pianoNotes.getHowl();
+        notesArr.forEach((note) => note.loop(false));
+    }
     keyNotes.forEach((note, ind) => {
         if (note instanceof HTMLSpanElement) {
             const filePath = pathArr[ind];
@@ -98,6 +102,7 @@ function applyNotes(first: number) {
             note.textContent = filePath.slice(filePath.indexOf('_') + 1, filePath.lastIndexOf('.')).replace('_', '#');
         }
     });
+    previousFirstNoteNumber = first;
 }
 
 applyNotes(firstNoteNumber);
@@ -136,10 +141,10 @@ higher.addEventListener('click', moveOctaveHigher);
 
 // volume piano
 const volumeRange = getNullCheckedElement(piano, '.piano-volume') as HTMLInputElement;
-pianoNotes.setVolume(+volumeRange.value);
+pianoNotes.setVolumeList(+volumeRange.value);
 
 volumeRange.addEventListener('input', () => {
-    pianoNotes.setVolume(+volumeRange.value);
+    pianoNotes.setVolumeList(+volumeRange.value);
 });
 
 // keypress listeners

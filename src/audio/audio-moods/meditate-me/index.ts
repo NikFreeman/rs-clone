@@ -1,21 +1,3 @@
-import calmMelody from './Calm melody.mp3';
-import deepChakra from './Deep Chakra.mp3';
-import distantSky from './Distant sky.mp3';
-import heartOfGold from './Heart of gold.mp3';
-import hopeStillHere from './Hope still here.mp3';
-import marimba from './Marimba.mp3';
-import mindCleaner from './Mind Cleaner.mp3';
-
-const meditationSounds: string[] = [
-    calmMelody,
-    deepChakra,
-    distantSky,
-    heartOfGold,
-    hopeStillHere,
-    marimba,
-    mindCleaner,
-];
-
 const meditationSoundsLinks = [
     {
         soundName: 'Calm melody',
@@ -85,7 +67,6 @@ const meditationSoundsPack = {
             presetValues: [0, 0, 0.75, 0.95, 0.75, 0, 0],
         },
     ],
-    soundsDirect: meditationSounds,
     soundsLinks: meditationSoundsLinks,
 };
 

@@ -1,13 +1,3 @@
-import ocean from './Ocean.mp3';
-import riverAndBirds from './River and Birds.mp3';
-import riverHeavy from './River Heavy.mp3';
-import riverLight from './River Light.mp3';
-import riverMedium from './River Medium.mp3';
-import waterfall from './Waterfall.mp3';
-import waves from './Waves.mp3';
-
-const waterSounds: string[] = [ocean, riverAndBirds, riverHeavy, riverLight, riverMedium, waterfall, waves];
-
 const waterSoundsLinks = [
     {
         soundName: 'Ocean',
@@ -80,7 +70,6 @@ const waterSoundsPack = {
             presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
         },
     ],
-    soundsDirect: waterSounds,
     soundsLinks: waterSoundsLinks,
 };
 
