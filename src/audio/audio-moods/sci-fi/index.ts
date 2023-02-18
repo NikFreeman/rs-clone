@@ -1,5 +1,3 @@
-const sciFiSounds: string[] = [];
-
 const sciFiSoundsLinks = [
     {
         soundName: 'Deep Dark Times',
@@ -66,7 +64,6 @@ const sciFiSoundsPack = {
             presetValues: [0, 0.8, 0, 1, 0.7, 0.9, 0.9],
         },
     ],
-    soundsDirect: sciFiSounds,
     soundsLinks: sciFiSoundsLinks,
 };
 

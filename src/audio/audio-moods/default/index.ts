@@ -1,6 +1,4 @@
-export const defaultSounds: string[] = [];
-
-export const defaultSoundsLinks = [
+const defaultSoundsLinks = [
     {
         soundName: 'Forest',
         soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/default/forest.mp3',
@@ -30,3 +28,5 @@ export const defaultSoundsLinks = [
         soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/default/river.mp3',
     },
 ];
+
+export default defaultSoundsLinks;

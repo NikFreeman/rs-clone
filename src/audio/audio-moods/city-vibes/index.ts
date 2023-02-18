@@ -1,5 +1,3 @@
-const citySounds: string[] = [];
-
 const citySoundsLinks = [
     {
         soundName: 'Beltline',
@@ -56,7 +54,6 @@ const citySoundsPack = {
             presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
         },
     ],
-    soundsDirect: citySounds,
     soundsLinks: citySoundsLinks,
 };
 

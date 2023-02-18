@@ -1,5 +1,3 @@
-const weatherSounds: string[] = [];
-
 const weatherSoundsLinks = [
     {
         soundName: 'Rain Light',
@@ -70,7 +68,6 @@ const weatherSoundsPack = {
             presetValues: [0, 0.3, 0.45, 0, 0.75, 0.3, 0.9],
         },
     ],
-    soundsDirect: weatherSounds,
     soundsLinks: weatherSoundsLinks,
 };
 

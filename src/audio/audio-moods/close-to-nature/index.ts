@@ -1,5 +1,3 @@
-const natureSounds: string[] = [];
-
 const natureSoundsLinks = [
     {
         soundName: 'Campfire',
@@ -72,7 +70,6 @@ const natureSoundsPack = {
             presetValues: [0.7, 0, 0, 0.7, 0.25, 0.3, 0.35],
         },
     ],
-    soundsDirect: natureSounds,
     soundsLinks: natureSoundsLinks,
 };
 

@@ -1,5 +1,3 @@
-const waterSounds: string[] = [];
-
 const waterSoundsLinks = [
     {
         soundName: 'Ocean',
@@ -72,7 +70,6 @@ const waterSoundsPack = {
             presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
         },
     ],
-    soundsDirect: waterSounds,
     soundsLinks: waterSoundsLinks,
 };
 

@@ -1,6 +1,6 @@
 import { Mood } from '../../models/types';
 import SoundPlayer from '../player';
-import { defaultSoundsLinks } from '../../audio/audio-moods/default/index';
+import defaultSoundsLinks from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
 import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';

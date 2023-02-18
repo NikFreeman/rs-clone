@@ -1,5 +1,3 @@
-const darknessSounds: string[] = [];
-
 const darknessSoundsLinks = [
     {
         soundName: 'Abyss',
@@ -71,7 +69,6 @@ const darknessSoundsPack = {
             presetValues: [0.7, 0.95, 0, 0, 0, 0.9, 0],
         },
     ],
-    soundsDirect: darknessSounds,
     soundsLinks: darknessSoundsLinks,
 };
 

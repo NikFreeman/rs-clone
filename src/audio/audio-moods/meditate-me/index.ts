@@ -1,5 +1,3 @@
-const meditationSounds: string[] = [];
-
 const meditationSoundsLinks = [
     {
         soundName: 'Calm melody',
@@ -69,7 +67,6 @@ const meditationSoundsPack = {
             presetValues: [0, 0, 0.75, 0.95, 0.75, 0, 0],
         },
     ],
-    soundsDirect: meditationSounds,
     soundsLinks: meditationSoundsLinks,
 };
 

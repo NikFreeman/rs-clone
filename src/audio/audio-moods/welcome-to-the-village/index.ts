@@ -1,5 +1,3 @@
-const villageSounds: string[] = [];
-
 const villageSoundsLinks = [
     {
         soundName: 'Chickens',
@@ -73,7 +71,6 @@ const villageSoundsPack = {
             presetValues: [0, 0.6, 0.5, 0, 0, 0, 0.8],
         },
     ],
-    soundsDirect: villageSounds,
     soundsLinks: villageSoundsLinks,
 };
 
