@@ -3,9 +3,8 @@ import SoundPlayer from '../player';
 import defaultSoundsLinks from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
-import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
+import { getNullCheckedElement, addRemoveDomClass, choseTranslation } from '../../models/utils';
 // import { SelectedLanguage } from '../../models/enums';
-import { choseTranslation } from '../../models/utils';
 
 const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
@@ -30,7 +29,9 @@ volumes.forEach((input, ind) => {
 
 function applyPreset(currentMood: Mood, selectPreset: string) {
     if (currentMood.presets.some((preset) => preset.presetName === selectPreset)) {
-        const currPreset = currentMood.presets.find((preset) => preset.presetName === selectPreset);
+        const currPreset = currentMood.presets.find(
+            (preset) => preset.presetName === selectPreset || preset.presetNameRu === selectPreset
+        );
         volumes.forEach((slider, ind) => {
             if (slider instanceof HTMLInputElement && currPreset) {
                 // eslint-disable-next-line no-param-reassign
@@ -48,21 +49,24 @@ const restText = getNullCheckedElement(document, '.rest-text');
 
 function applyMood(target: HTMLElement) {
     const rangeArea = document.querySelector('.preset-name');
+
     const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
     // const mood = target.closest('.category-card')?.querySelector('.category-name')?.getAttribute('localization-key');
 
     isTheSameMood = rangeArea?.textContent?.split(' /')[0] === mood;
-    const moodObj = categoryArray.find((obj) => obj.mood === mood);
+    const moodObj = categoryArray.find((obj) => obj.mood === mood || obj.moodRu === mood);
+
+    // console.log([mood, moodObj])
 
     if (moodObj && !isTheSameMood) {
         player.stopAll();
         isPlay = false;
-        (playButton as HTMLButtonElement).textContent = choseTranslation('Play', 'Играть');
+        // (playButton as HTMLButtonElement).textContent = choseTranslation('Play', 'Играть');
         // player = new SoundPlayer(moodObj.soundsDirect);
         player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
         if (!player.isLoaded()) {
-            playText.textContent = 'L';
-            restText.textContent = 'ading';
+            playText.textContent = choseTranslation('L', '');
+            restText.textContent = choseTranslation('ading', 'жидайте');
             addRemoveDomClass(preloader, 'hidden', 'remove');
             playButton.setAttribute('disabled', 'disabled');
             player.loadAll();
@@ -78,12 +82,14 @@ function applyMood(target: HTMLElement) {
     }
 
     const preset = target.classList.contains('preset') ? ` / ${target.textContent}` : '';
+    const indexedPreset = target.classList.contains('preset') ? moodObj?.presets[+target.id].presetName : '';
+
     if (rangeArea && mood) {
         rangeArea.textContent = mood + preset;
     }
 
-    if (preset && moodObj) {
-        applyPreset(moodObj, preset.slice(3));
+    if (indexedPreset && moodObj) {
+        applyPreset(moodObj, indexedPreset);
     } else {
         volumes.forEach((slider, ind) => {
             if (slider instanceof HTMLInputElement) {
@@ -93,6 +99,7 @@ function applyMood(target: HTMLElement) {
             }
         });
     }
+    localStorage.setItem('Tagline Content', JSON.stringify(`${rangeArea?.textContent}`));
 }
 
 function playMusic(this: HTMLButtonElement) {
@@ -102,18 +109,18 @@ function playMusic(this: HTMLButtonElement) {
     renderVisualization(player);
     if (isPlay) {
         player.stopAll();
-        playText.textContent = 'Play';
+        playText.textContent = choseTranslation('Play', 'Играть');
         isPlay = !isPlay;
     } else if (!player.isLoaded()) {
-        playText.textContent = 'L';
-        restText.textContent = 'ading';
+        playText.textContent = choseTranslation('L', '');
+        restText.textContent = choseTranslation('ading', 'жидайте');
         addRemoveDomClass(preloader, 'hidden', 'remove');
         playButton.setAttribute('disabled', 'disabled');
         player.loadAll();
     } else {
         // player.loadAll();
         player.playAll();
-        playText.textContent = 'Stop';
+        playText.textContent = choseTranslation('Stop', 'Остановить');
         renderVisualization(player);
         isPlay = !isPlay;
     }

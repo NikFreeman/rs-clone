@@ -1,4 +1,4 @@
-import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
+import { getNullCheckedElement, addRemoveDomClass, choseTranslation } from '../../models/utils';
 
 const indexes: number[] = [];
 const preloader = getNullCheckedElement(document, '.preloader');
@@ -21,7 +21,7 @@ function loadedSound(ind: number, arr: string[]) {
     // eslint-disable-next-line no-plusplus
     if (indexes.length === arr.length) {
         addRemoveDomClass(preloader, 'hidden', 'add');
-        playText.textContent = 'Play';
+        playText.textContent = choseTranslation('Play', 'Играть');
         restText.textContent = '';
         playBtn.removeAttribute('disabled');
     }

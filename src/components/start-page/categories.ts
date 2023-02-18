@@ -40,10 +40,11 @@ function getPresetTags(index: number) {
     const presets = categoryArray[index].presets.map((preset) =>
         choseTranslation(preset.presetName, preset.presetNameRu)
     );
+    const presetsEng = categoryArray[index].presets.map((preset) => preset.presetName);
     if (presets) {
         const tags = presets.map(
             (preset, ind) =>
-                `<span class="preset preset-${ind} text-base rounded px-1 hover:bg-sky-600 hover:text-stone-200 ease-in duration-100">${preset}</span>`
+                `<span class="preset preset-${ind} text-base rounded px-1 hover:bg-sky-600 hover:text-stone-200 ease-in duration-100" id="${ind}" localization-key="${presetsEng[ind]}">${preset}</span>`
         );
         return tags.join(' • ');
     }

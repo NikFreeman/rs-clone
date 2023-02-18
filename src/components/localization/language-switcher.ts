@@ -4,8 +4,11 @@ import { Localization } from '../../models/types';
 import { localizationEng, localizationRu } from './vocabulary';
 
 const languageButton = getNullCheckedElement(document, '.language-button');
+const rangeArea = getNullCheckedElement(document, '.preset-name');
 
-function translatePage(language: string) {
+localStorage.setItem('Tagline Content', JSON.stringify(`${rangeArea?.textContent}`));
+
+function translatePage(language: string): void {
     let translation: Localization;
     if (language === SelectedLanguage.russian) {
         translation = localizationRu;
