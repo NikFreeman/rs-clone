@@ -1,7 +1,8 @@
 import SoundPlayer from '../src/components/player';
 
 jest.mock('howler', () => {
-    return { Howler: { ctx: { createAnalyser: jest.fn() } } };
+    const original = jest.requireActual('howler');
+    return { ...original, Howler: { ctx: { createAnalyser: jest.fn() } } };
 });
 
 test('create player', () => {
