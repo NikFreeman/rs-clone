@@ -15,9 +15,22 @@ test('create player', () => {
     expect(sound.players.length).toBe(1);
     expect(sound.played).toBeFalsy();
 });
-// describe('create player', function testCreate() {
-//     it('test ', () => {
-//         const sound = new SoundPlayer(['', '']);
-//         expect(sound.players.length).toBe(2);
-//     });
-// });
+test('create player', () => {
+    const sound = new SoundPlayer(['audio.mp3','sound.mp3']);
+    expect(sound.players.length).toBe(1);
+    expect(sound.played).toBeFalsy();
+});
+test('unload player', () => {
+    const sound = new SoundPlayer(['audio.mp3','sound.mp3']);
+    expect(sound.players.length).toBe(2);
+    expect(sound.isLoaded()).toBeFalsy();
+});
+
+describe ('load another src', ()=> {
+    test ('create src', ()=> {
+        const sound = new SoundPlayer(['audio.mp3','sound.mp3']);
+    expect(sound.players.length).toBe(2);
+    sound.setSrc(['sound0.mp3', 'sound1.mp3','sound2.mp3'])
+    expect(sound.players.length).toBe(3)
+    })
+})

@@ -54,7 +54,7 @@ class SoundPlayer {
     playAll() {
         if (this.players.length > 0) {
             if (this.isLoaded()) {
-                this.players.forEach((song) => song.play());
+                this.players.forEach((sound) => sound.play());
             }
             this.played = true;
         }
@@ -62,7 +62,7 @@ class SoundPlayer {
 
     stopAll() {
         if (this.isPlayed()) {
-            this.players.forEach((song) => song.stop());
+            this.players.forEach((sound) => sound.stop());
             this.played = false;
         }
     }
