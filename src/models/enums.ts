@@ -21,6 +21,13 @@ export enum ThemeState {
     lightRu = 'Тема: Светлая',
 }
 
+export enum PlayButtonStates {
+    loadEng = 'Load',
+    loadRu = 'Загрузить',
+    playEng = 'Play',
+    playRu = 'Играть',
+}
+
 export enum Tagline {
     english = 'Keep Calm & Listen To Music',
     russian = 'Расслабься и насладись звуком',

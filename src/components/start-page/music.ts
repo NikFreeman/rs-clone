@@ -10,6 +10,8 @@ const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
 let player = new SoundPlayer(defaultMood);
 
+const languageButton = getNullCheckedElement(document, '.language-button');
+
 const volumes = document.querySelectorAll('.sound-volume');
 let isPlay = false;
 const playButton = getNullCheckedElement(document, '.play');
@@ -69,6 +71,7 @@ function applyMood(target: HTMLElement) {
             restText.textContent = choseTranslation('ading', 'жидайте');
             addRemoveDomClass(preloader, 'hidden', 'remove');
             playButton.setAttribute('disabled', 'disabled');
+            languageButton.setAttribute('disabled', 'disabled');
             player.loadAll();
         }
         // player.loadAll();
@@ -117,6 +120,7 @@ function playMusic(this: HTMLButtonElement) {
         restText.textContent = choseTranslation('ading', 'жидайте');
         addRemoveDomClass(preloader, 'hidden', 'remove');
         playButton.setAttribute('disabled', 'disabled');
+        languageButton.setAttribute('disabled', 'disabled');
         player.loadAll();
     } else {
         // player.loadAll();

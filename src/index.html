@@ -50,7 +50,7 @@
                 class="themeButton border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700 dark:text-white" tabindex="-1">Theme:
                 Light</button>
             <button
-                class="language-button border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700 dark:text-white" tabindex="-1">Language:
+                class="language-button border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 text-lg font-medium duration-100 ease-in hover:text-xl hover:shadow-inner active:text-violet-700 dark:text-white disabled:pointer-events-none disabled:opacity-60" tabindex="-1">Language:
                 Eng</button>
         </div>
         <div
@@ -78,10 +78,10 @@
         </div>
         <div class="flex mx-auto my-2 gap-4">
             <button
-                class="play flex justify-center items-baseline border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events:pointer-events-none"
+                class="play flex justify-center items-baseline border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events-none"
                 data-ripple-light="true" localization-key="play-button"><span class="play-text">Load</span><div class="preloader hidden inline-block shrink-0 align-middle w-3 h-3 inset-auto border-2 rounded-full border-black/40 border-t-black/90 dark:border-white/40 dark:border-t-white animate-spin"></div><span class="rest-text"></span></button>
             <button
-                class="load random border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events:pointer-events-none"
+                class="load random border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-75 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events-none disabled:border-black"
                 data-ripple-light="true" localization-key="random-button" disabled>Random</button>
             <button
                 class="save border-grey-dark text-grey-darkest rounded-lg border px-1 py-2 w-28 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
@@ -95,7 +95,7 @@
     <div class="piano absolute hidden z-50 top-1/2 left-24 cursor-grab p-6 rounded-2xl w-min backdrop-blur-md bg-white/70 dark:bg-black/80">
         <div class="flex items-center justify-between mb-3 text-grey-darkest dark:text-gray-200">
             <button
-            class="octave-left border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            class="octave-left border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events-none"
             data-ripple-light="true" localization-key="piano-lower">lower</button>
             <div class="flex items-center volume-slider">
                 <label
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <button
-            class="octave-right border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10"
+            class="octave-right border-grey-dark text-grey-darkest rounded-lg border px-4 py-2 w-24 text-lg font-medium duration-100 ease-in bg-white/30 backdrop-blur disabled:opacity-50 disabled:shadow-none hover:bg-white/50 hover:shadow-inner active:text-violet-700 dark:text-white dark:bg-black/40 dark:hover:bg-black/10 disabled:pointer-events-none"
             data-ripple-light="true" localization-key="piano-higher">higher</button>
         </div>
         <ul class="piano-keys flex mt-3xl list-none">

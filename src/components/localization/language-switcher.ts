@@ -1,13 +1,25 @@
 import { getNullCheckedElement, choseTranslation } from '../../models/utils';
-import { SelectedLanguage, ThemeName, ThemeState, Tagline } from '../../models/enums';
+import { SelectedLanguage, ThemeName, ThemeState, Tagline, PlayButtonStates } from '../../models/enums';
 import { Localization } from '../../models/types';
 import { localizationEng, localizationRu } from './vocabulary';
 
 const languageButton = getNullCheckedElement(document, '.language-button');
 const rangeArea = getNullCheckedElement(document, '.preset-name');
 const themeButton = getNullCheckedElement(document, '.themeButton');
+const playButton = getNullCheckedElement(document, '.play-text');
 
 localStorage.setItem('Tagline Content', JSON.stringify(`${rangeArea?.textContent}`));
+
+function translatePlayButton() {
+    if (playButton.textContent === PlayButtonStates.loadEng || playButton.textContent === PlayButtonStates.loadRu) {
+        playButton.textContent = choseTranslation(PlayButtonStates.loadEng, PlayButtonStates.loadRu);
+    } else if (
+        playButton.textContent === PlayButtonStates.playEng ||
+        playButton.textContent === PlayButtonStates.playRu
+    ) {
+        playButton.textContent = choseTranslation(PlayButtonStates.playEng, PlayButtonStates.playRu);
+    }
+}
 
 function translateThemeButton() {
     const currentTheme = localStorage.getItem('Active Theme');
@@ -48,6 +60,7 @@ function translatePage(language: string): void {
     }
     translateThemeButton();
     translateRangeArea();
+    translatePlayButton();
     document.querySelectorAll('[localization-key]').forEach((element) => {
         const key = element.getAttribute('localization-key');
         if (key && translation[key]) {
