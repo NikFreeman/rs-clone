@@ -26,6 +26,8 @@ export enum PlayButtonStates {
     loadRu = 'Загрузить',
     playEng = 'Play',
     playRu = 'Играть',
+    stopEng = 'Stop',
+    stopRu = 'Остановить',
 }
 
 export enum Tagline {

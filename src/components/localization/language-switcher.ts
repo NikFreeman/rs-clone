@@ -18,6 +18,11 @@ function translatePlayButton() {
         playButton.textContent === PlayButtonStates.playRu
     ) {
         playButton.textContent = choseTranslation(PlayButtonStates.playEng, PlayButtonStates.playRu);
+    } else if (
+        playButton.textContent === PlayButtonStates.stopEng ||
+        playButton.textContent === PlayButtonStates.stopRu
+    ) {
+        playButton.textContent = choseTranslation(PlayButtonStates.stopEng, PlayButtonStates.stopRu);
     }
 }
 
