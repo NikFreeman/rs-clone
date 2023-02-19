@@ -89,6 +89,7 @@ function applyMood(target: HTMLElement) {
     }
 
     if (indexedPreset && moodObj) {
+        localStorage.setItem('Current Preset', JSON.stringify({ mood: moodObj, preset: +target.id }));
         applyPreset(moodObj, indexedPreset);
     } else {
         volumes.forEach((slider, ind) => {

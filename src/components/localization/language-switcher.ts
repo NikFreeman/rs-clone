@@ -1,12 +1,43 @@
-import { getNullCheckedElement } from '../../models/utils';
-import { SelectedLanguage } from '../../models/enums';
+import { getNullCheckedElement, choseTranslation } from '../../models/utils';
+import { SelectedLanguage, ThemeName, ThemeState, Tagline } from '../../models/enums';
 import { Localization } from '../../models/types';
 import { localizationEng, localizationRu } from './vocabulary';
 
 const languageButton = getNullCheckedElement(document, '.language-button');
 const rangeArea = getNullCheckedElement(document, '.preset-name');
+const themeButton = getNullCheckedElement(document, '.themeButton');
 
 localStorage.setItem('Tagline Content', JSON.stringify(`${rangeArea?.textContent}`));
+
+function translateThemeButton() {
+    const currentTheme = localStorage.getItem('Active Theme');
+    if (currentTheme) {
+        const activeTheme = JSON.parse(currentTheme);
+        if (activeTheme === ThemeName.dark) {
+            themeButton.textContent = choseTranslation(ThemeState.darkEng, ThemeState.darkRu);
+        } else if (activeTheme === ThemeName.light) {
+            themeButton.textContent = choseTranslation(ThemeState.lightEng, ThemeState.lightRu);
+        }
+    }
+}
+
+function translateRangeArea() {
+    const currentTaglineContent = localStorage.getItem('Tagline Content');
+    const currentPreset = localStorage.getItem('Current Preset');
+    if (
+        (currentTaglineContent && JSON.parse(currentTaglineContent) === Tagline.english) ||
+        (currentTaglineContent && JSON.parse(currentTaglineContent) === Tagline.russian)
+    ) {
+        rangeArea.textContent = choseTranslation(Tagline.english, Tagline.russian);
+    } else if (currentPreset) {
+        const currentMood = JSON.parse(currentPreset).mood;
+        const currentPresetIndex = JSON.parse(currentPreset).preset;
+        rangeArea.textContent = `${choseTranslation(currentMood.mood, currentMood.moodRu)} / ${choseTranslation(
+            currentMood.presets[currentPresetIndex].presetName,
+            currentMood.presets[currentPresetIndex].presetNameRu
+        )}`;
+    }
+}
 
 function translatePage(language: string): void {
     let translation: Localization;
@@ -15,6 +46,8 @@ function translatePage(language: string): void {
     } else if (language === SelectedLanguage.english) {
         translation = localizationEng;
     }
+    translateThemeButton();
+    translateRangeArea();
     document.querySelectorAll('[localization-key]').forEach((element) => {
         const key = element.getAttribute('localization-key');
         if (key && translation[key]) {

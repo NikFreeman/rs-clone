@@ -1,5 +1,5 @@
 import { getNullCheckedElement, choseTranslation } from '../../models/utils';
-import { ThemeName } from '../../models/enums';
+import { ThemeName, ThemeState } from '../../models/enums';
 
 const themeButton = getNullCheckedElement(document, '.themeButton');
 const html = document.getElementById('theme-switcher') as Element;
@@ -27,13 +27,13 @@ function switchThemeOnClick(): void {
         const activeTheme = JSON.parse(currentTheme);
         if (activeTheme === ThemeName.light) {
             localStorage.setItem('Active Theme', JSON.stringify(`${ThemeName.dark}`));
-            themeButton.textContent = choseTranslation('Theme: Dark', 'Тема: Темная');
+            themeButton.textContent = choseTranslation(ThemeState.darkEng, ThemeState.darkRu);
             currentTheme = localStorage.getItem('Active Theme') as string;
             switchHtmlTheme(JSON.parse(currentTheme));
             invertLogoColor(JSON.parse(currentTheme));
         } else if (activeTheme === ThemeName.dark) {
             localStorage.setItem('Active Theme', JSON.stringify(`${ThemeName.light}`));
-            themeButton.textContent = choseTranslation('Theme: Light', 'Тема: Светлая');
+            themeButton.textContent = choseTranslation(ThemeState.lightEng, ThemeState.lightRu);
             currentTheme = localStorage.getItem('Active Theme') as string;
             switchHtmlTheme(JSON.parse(currentTheme));
             invertLogoColor(JSON.parse(currentTheme));
