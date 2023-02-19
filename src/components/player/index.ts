@@ -32,6 +32,12 @@ class SoundPlayer {
                 src: [src],
                 loop: true,
                 preload: false,
+                onload: (id) => {
+                    console.log(id, 'loaded');
+                },
+                onloaderror: (id) => {
+                    console.log(id, 'unloaded');
+                },
             });
             this.players.push(howl);
         });
