@@ -10,7 +10,7 @@ const playButton = getNullCheckedElement(document, '.play-text');
 
 localStorage.setItem('Tagline Content', JSON.stringify(`${rangeArea?.textContent}`));
 
-function translatePlayButton() {
+function translatePlayButton(): void {
     if (playButton.textContent === PlayButtonStates.loadEng || playButton.textContent === PlayButtonStates.loadRu) {
         playButton.textContent = choseTranslation(PlayButtonStates.loadEng, PlayButtonStates.loadRu);
     } else if (
@@ -26,10 +26,10 @@ function translatePlayButton() {
     }
 }
 
-function translateThemeButton() {
-    const currentTheme = localStorage.getItem('Active Theme');
-    if (currentTheme) {
-        const activeTheme = JSON.parse(currentTheme);
+function translateThemeButton(): void {
+    const activeThemeJson = localStorage.getItem('Active Theme');
+    if (activeThemeJson) {
+        const activeTheme = JSON.parse(activeThemeJson);
         if (activeTheme === ThemeName.dark) {
             themeButton.textContent = choseTranslation(ThemeState.darkEng, ThemeState.darkRu);
         } else if (activeTheme === ThemeName.light) {
@@ -38,12 +38,12 @@ function translateThemeButton() {
     }
 }
 
-function translateRangeArea() {
+function translateRangeArea(): void {
     const currentTaglineContent = localStorage.getItem('Tagline Content');
     const currentPreset = localStorage.getItem('Current Preset');
     if (
-        (currentTaglineContent && JSON.parse(currentTaglineContent) === Tagline.english) ||
-        (currentTaglineContent && JSON.parse(currentTaglineContent) === Tagline.russian)
+        currentTaglineContent &&
+        (JSON.parse(currentTaglineContent) === Tagline.english || JSON.parse(currentTaglineContent) === Tagline.russian)
     ) {
         rangeArea.textContent = choseTranslation(Tagline.english, Tagline.russian);
     } else if (currentPreset) {

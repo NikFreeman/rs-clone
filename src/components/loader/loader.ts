@@ -9,7 +9,7 @@ const soundsAmount = document.querySelectorAll('.sound-volume').length;
 const languageButton = getNullCheckedElement(document, '.language-button');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function loadedSound(ind: number, arr: string[]) {
+function loadedSound(ind: number, arr: string[]): void {
     if (arr.length > soundsAmount) {
         return;
     }
