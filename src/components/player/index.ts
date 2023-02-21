@@ -1,4 +1,5 @@
 import { Howl, Howler } from 'howler';
+import loadedSound from '../loader/loader';
 
 class SoundPlayer {
     players: Howl[] = [];
@@ -9,6 +10,8 @@ class SoundPlayer {
 
     bufferLength: number;
 
+    constructor(songSrc: string[]) {
+        songSrc.forEach((src, i, arr) => {
     constructor(soundSrc: string[]) {
         this.played = false;
         this.bufferLength = 0;
@@ -32,10 +35,7 @@ class SoundPlayer {
                 src: [src],
                 loop: true,
                 preload: false,
-
-                onloaderror: () => {
-                    throw new Error(`Error load`);
-                },
+                onload: () => loadedSound(i, arr),
             });
             this.players.push(howl);
         });
@@ -81,6 +81,10 @@ class SoundPlayer {
 
     setVolumeId(id: number, value: number) {
         this.players[id].volume(value);
+    }
+
+    setVolumeList(value: number) {
+        this.players.forEach((note) => note.volume(value));
     }
 
     setVolume(value: number) {

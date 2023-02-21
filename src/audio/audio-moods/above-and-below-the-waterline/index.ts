@@ -1,41 +1,38 @@
-import ocean from './Ocean.mp3';
-import riverAndBirds from './River and Birds.mp3';
-import riverHeavy from './River Heavy.mp3';
-import riverLight from './River Light.mp3';
-import riverMedium from './River Medium.mp3';
-import waterfall from './Waterfall.mp3';
-import waves from './Waves.mp3';
-
-const waterSounds: string[] = [ocean, riverAndBirds, riverHeavy, riverLight, riverMedium, waterfall, waves];
-
 const waterSoundsLinks = [
     {
         soundName: 'Ocean',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1TwdACjpAdWWetCMEnxFtSkrWBRRYoFvn',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/ocean.mp3',
     },
     {
         soundName: 'River and Birds',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1L89OiGD_dvClLZAihSgY9cl69YhLIMRQ',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-and-birds.mp3',
     },
     {
         soundName: 'River Heavy',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1GT0UALxqcbR7iOwHAQ1zL6PBOLy9vMKA',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-heavy.mp3',
     },
     {
         soundName: 'River Light',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1D64Bunz6tNuZJsbup74pRdxNoGsSWpDK',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-light.mp3',
     },
     {
         soundName: 'River Medium',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1PWXJ1psDgV5huXF-JroDZH2qLhm6x1pi',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/river-medium.mp3',
     },
     {
         soundName: 'Waterfall',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1woENw77DWFg3tCHxIRUXHNp8K0bevcm3',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waterfall.mp3',
     },
     {
         soundName: 'Waves',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1bPoe5lurguDIlI7Vx_E4yvTwWp12hktV',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/above-and-below-the-waterline/waves.mp3',
     },
 ];
 
@@ -73,7 +70,6 @@ const waterSoundsPack = {
             presetValues: [0.4, 0.5, 0.3, 0, 0, 0, 0.85],
         },
     ],
-    soundsDirect: waterSounds,
     soundsLinks: waterSoundsLinks,
 };
 

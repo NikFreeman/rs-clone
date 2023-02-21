@@ -1,6 +1,7 @@
 export enum DomClassManipulation {
     add = 'add',
     remove = 'remove',
+    toggle = 'toggle',
 }
 
 export enum ThemeName {
@@ -9,6 +10,6 @@ export enum ThemeName {
 }
 
 export enum SelectedLangugage {
-    eng = 'english',
-    rus = 'русский',
+    english = 'ENG',
+    russian = 'RU',
 }

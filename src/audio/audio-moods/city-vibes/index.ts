@@ -1,41 +1,31 @@
-import beltline from './Beltline.mp3';
-import market from './Market.mp3';
-import musicLounge from './Music Lounge.mp3';
-import park from './Park.mp3';
-import playground from './Playground.mp3';
-import traffic from './Traffic.mp3';
-import walking from './Walking.mp3';
-
-const citySounds: string[] = [beltline, market, musicLounge, park, playground, traffic, walking];
-
 const citySoundsLinks = [
     {
         soundName: 'Beltline',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1-u2l-9azxXtJhYDxrY1ZCqaY6gzdQIe6',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/beltline.mp3',
     },
     {
         soundName: 'Market',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1HQp3yPedU-eE1aYAOqG1fjjm6HNpLpHk',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/market.mp3',
     },
     {
         soundName: 'Music Lounge',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1ya2lEaoIcuPYouqWIip9GkiGMzJleVWJ',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/music-lounge.mp3',
     },
     {
         soundName: 'Park',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1xr38yii-V2-8YConjPpgANtV4oo1Ac3M',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/park.mp3',
     },
     {
         soundName: 'Playground',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=160jjfFUx8QRz2rdcPRQASNXpTb1R80IH',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/playground.mp3',
     },
     {
         soundName: 'Traffic',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1QffwQ4jMjgFHjl7bjVacoFeYWXH9bL1h',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/traffic.mp3',
     },
     {
         soundName: 'Walking',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1Cno0GrtPIvOe0YNnx1bbGPWrHtwleglP',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/city-vibes/walking.mp3',
     },
 ];
 
@@ -64,7 +54,6 @@ const citySoundsPack = {
             presetValues: [0.45, 0.5, 0.95, 0, 0, 0.5, 0.3],
         },
     ],
-    soundsDirect: citySounds,
     soundsLinks: citySoundsLinks,
 };
 

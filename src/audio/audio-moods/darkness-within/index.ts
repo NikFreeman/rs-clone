@@ -1,41 +1,36 @@
-import abyss from './Abyss.mp3';
-import darkSide from './Dark Side.mp3';
-import drone from './Drone.mp3';
-import lastViolin from './Last Violin in hell.mp3';
-import nothingHere from './Nothing Here.mp3';
-import somethingBig from './Something Big.mp3';
-import syntheticEvil from './Synthetic Evil.mp3';
-
-const darknessSounds: string[] = [abyss, darkSide, drone, lastViolin, nothingHere, somethingBig, syntheticEvil];
-
 const darknessSoundsLinks = [
     {
         soundName: 'Abyss',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1acPr8SKu77_h4HNvj4wegYpaoDv-5tq_',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/abyss.mp3',
     },
     {
         soundName: 'Dark Side',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1WaCW71QKrVhFD9y2HrmvtJRbOBRwBbdz',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/dark-side.mp3',
     },
     {
         soundName: 'Drone',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1bi85kFFAOQsQdlq7oyX7oyezCz8t-LYl',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/drone.mp3',
     },
     {
         soundName: 'Last Violin in hell',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1F2k5XBJRzku_Q0IV2C_QT1To5GEkBsZT',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/last-violin-in-hell.mp3',
     },
     {
         soundName: 'Nothing Here',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=173G9iyV2SZE0JDbYmER8_xo-JnEtNqCs',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/nothing-here.mp3',
     },
     {
         soundName: 'Something Big',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1qnKB4fzy0K3KR-dHmsW_YNd-dwXcOWXI',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/something-big.mp3',
     },
     {
         soundName: 'Synthetic Evil',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=13gtuLJr_p_R5BTntEXsgoJo2V9XBouxr',
+        soundSrc:
+            'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/darkness-within/synthetic-evil.mp3',
     },
 ];
 
@@ -74,7 +69,6 @@ const darknessSoundsPack = {
             presetValues: [0.7, 0.95, 0, 0, 0, 0.9, 0],
         },
     ],
-    soundsDirect: darknessSounds,
     soundsLinks: darknessSoundsLinks,
 };
 

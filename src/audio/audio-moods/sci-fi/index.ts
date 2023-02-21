@@ -1,41 +1,31 @@
-import deepDarkTimes from './Deep Dark Times.mp3';
-import futureAmbience from './Future ambience.mp3';
-import itFollowsMe from './It follows me.mp3';
-import lostDreams from './Lost Dreams.mp3';
-import oldVhs from './Old VHS.mp3';
-import retroFuture from './RetroFuture.mp3';
-import retroWave from './RetroWave.mp3';
-
-const sciFiSounds: string[] = [deepDarkTimes, futureAmbience, itFollowsMe, lostDreams, oldVhs, retroFuture, retroWave];
-
 const sciFiSoundsLinks = [
     {
         soundName: 'Deep Dark Times',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=12Y1p6jDcChNQ66sWsOb9r3VBsP2JIZpa',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/deep-dark-times.mp3',
     },
     {
         soundName: 'Future ambience',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=13LOxujim4TrGHVwCAy7bKGXiFtqeZxxk',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/future-ambience.mp3',
     },
     {
         soundName: 'It follows me',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1IIolmdiEk96rp4g_fm5evPMHCe7rpmXm',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/it-follows-me.mp3',
     },
     {
         soundName: 'Lost Dreams',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1gNIcTeAoBMJIcyC0jLfB1k12PSzMuDlv',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/lost-dreams.mp3',
     },
     {
         soundName: 'Old VHS',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1i8UlOIaujRwWrX9uGG8vM2WZUfpmEqtJ',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/old-vhs.mp3',
     },
     {
         soundName: 'RetroFuture',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=11DZ4OdEXmdtzh9aLCJVmsZG1HBWZty-D',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/retrofuture.mp3',
     },
     {
         soundName: 'RetroWave',
-        soundSrc: 'https://docs.google.com/uc?export=download&id=1PYANFZ-CiEb_EZmRY1u7abWUutAHAx4F',
+        soundSrc: 'https://rockmonolit.github.io/rs-clone-audio/rs-clone-audio/audio-moods/sci-fi/retrowave.mp3',
     },
 ];
 
@@ -74,7 +64,6 @@ const sciFiSoundsPack = {
             presetValues: [0, 0.8, 0, 1, 0.7, 0.9, 0.9],
         },
     ],
-    soundsDirect: sciFiSounds,
     soundsLinks: sciFiSoundsLinks,
 };
 
