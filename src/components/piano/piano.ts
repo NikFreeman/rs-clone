@@ -1,5 +1,5 @@
 import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
-import notes from '../../audio/audio-piano-notes/index';
+import { notes } from '../../audio/audio-piano-notes/index';
 import SoundPlayer from '../player';
 import { PianoKey } from '../../models/types';
 

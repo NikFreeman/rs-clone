@@ -1,5 +1,5 @@
-import { getNullCheckedElement } from '../../models/utils';
-import { ThemeName } from '../../models/enums';
+import { getNullCheckedElement, choseTranslation } from '../../models/utils';
+import { ThemeName, ThemeState } from '../../models/enums';
 
 const themeButton = getNullCheckedElement(document, '.themeButton');
 const html = document.getElementById('theme-switcher') as Element;
@@ -27,13 +27,13 @@ function switchThemeOnClick(): void {
         const activeTheme = JSON.parse(currentTheme);
         if (activeTheme === ThemeName.light) {
             localStorage.setItem('Active Theme', JSON.stringify(`${ThemeName.dark}`));
-            themeButton.innerHTML = `Theme: ${ThemeName.dark}`;
+            themeButton.textContent = choseTranslation(ThemeState.darkEng, ThemeState.darkRu);
             currentTheme = localStorage.getItem('Active Theme') as string;
             switchHtmlTheme(JSON.parse(currentTheme));
             invertLogoColor(JSON.parse(currentTheme));
         } else if (activeTheme === ThemeName.dark) {
             localStorage.setItem('Active Theme', JSON.stringify(`${ThemeName.light}`));
-            themeButton.innerHTML = `Theme: ${ThemeName.light}`;
+            themeButton.textContent = choseTranslation(ThemeState.lightEng, ThemeState.lightRu);
             currentTheme = localStorage.getItem('Active Theme') as string;
             switchHtmlTheme(JSON.parse(currentTheme));
             invertLogoColor(JSON.parse(currentTheme));
@@ -45,14 +45,14 @@ function initLocalStorage(): void {
     const storageContent = localStorage.getItem('Active Theme');
     if (!storageContent) {
         localStorage.setItem('Active Theme', JSON.stringify(`${ThemeName.light}`));
-        themeButton.innerHTML = `Theme: ${ThemeName.light}`;
+        themeButton.textContent = `Theme: ${ThemeName.light}`;
     } else {
         switchHtmlTheme(JSON.parse(storageContent));
         invertLogoColor(JSON.parse(storageContent));
         if (JSON.parse(storageContent) === ThemeName.light) {
-            themeButton.innerHTML = `Theme: ${ThemeName.light}`;
+            themeButton.textContent = choseTranslation('Theme: Light', 'Тема: Светлая');
         } else if (JSON.parse(storageContent) === ThemeName.dark) {
-            themeButton.innerHTML = `Theme: ${ThemeName.dark}`;
+            themeButton.textContent = choseTranslation('Theme: Dark', 'Тема: Темная');
         }
     }
 }

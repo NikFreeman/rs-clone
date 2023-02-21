@@ -61,7 +61,7 @@ const natureSoundsPack = {
         },
         {
             presetName: 'Rustling Leaves',
-            presetNameRu: '',
+            presetNameRu: 'Шелест листьев',
             presetValues: [0.55, 0.8, 0.9, 0.6, 0, 0, 0],
         },
         {
