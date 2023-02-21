@@ -77,13 +77,13 @@ function translatePage(language: string): void {
 function switchLanguageOnClick(): void {
     let currentLanguage = localStorage.getItem('Active Language');
     if (currentLanguage) {
-        const activeTheme = JSON.parse(currentLanguage);
-        if (activeTheme === SelectedLanguage.english) {
+        const activeLanguage = JSON.parse(currentLanguage);
+        if (activeLanguage === SelectedLanguage.english) {
             localStorage.setItem('Active Language', JSON.stringify(`${SelectedLanguage.russian}`));
             languageButton.textContent = `Язык: ${SelectedLanguage.russian}`;
             currentLanguage = localStorage.getItem('Active Language') as string;
             translatePage(SelectedLanguage.russian);
-        } else if (activeTheme === SelectedLanguage.russian) {
+        } else if (activeLanguage === SelectedLanguage.russian) {
             localStorage.setItem('Active Language', JSON.stringify(`${SelectedLanguage.english}`));
             languageButton.textContent = `Language: ${SelectedLanguage.english}`;
             currentLanguage = localStorage.getItem('Active Language') as string;
