@@ -6,7 +6,7 @@ const line3 = getNullCheckedElement(document, '.line3');
 const burgerContainer = getNullCheckedElement(document, '.burger-container');
 const burgerModal = getNullCheckedElement(document, '.burger-modal');
 
-function animateBurger(): void {
+function animateBurger() {
     if (!burgerContainer.classList.contains('clicked')) {
         burgerContainer.classList.add('clicked');
         line1.classList.add('rotate-45', 'translate-y-2.5');
