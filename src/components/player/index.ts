@@ -32,11 +32,9 @@ class SoundPlayer {
                 src: [src],
                 loop: true,
                 preload: false,
-                onload: (id) => {
-                    console.log(id, 'loaded');
-                },
-                onloaderror: (id) => {
-                    console.log(id, 'unloaded');
+
+                onloaderror: () => {
+                    throw new Error(`Error load`);
                 },
             });
             this.players.push(howl);
