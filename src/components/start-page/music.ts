@@ -147,6 +147,20 @@ function activateMoodCard(e: Event) {
     }
 }
 
+function randomPreset() {
+    volumes.forEach((slider, ind) => {
+        if (slider instanceof HTMLInputElement) {
+            // eslint-disable-next-line no-param-reassign
+            slider.value = Math.random().toString();
+            player.setVolumeId(ind, +slider.value);
+        }
+    });
+}
+
+const randomBtn = document.querySelector('.random');
+
+randomBtn?.addEventListener('click', randomPreset);
+
 const wrapper = document.querySelector('.card-wrapper');
 wrapper?.addEventListener('click', activateMoodCard);
 

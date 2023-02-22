@@ -1,5 +1,5 @@
 import { getNullCheckedElement, addRemoveDomClass } from '../../models/utils';
-import { notes } from '../../audio/audio-piano-notes/index';
+import notesLinks from '../../audio/audio-piano-notes/index';
 import SoundPlayer from '../player';
 import { PianoKey } from '../../models/types';
 
@@ -7,11 +7,6 @@ const piano = getNullCheckedElement(document, '.piano') as HTMLDivElement;
 
 const pianoButton = getNullCheckedElement(document, '.piano-btn') as HTMLButtonElement;
 let isPianoVisible = false;
-
-pianoButton.addEventListener('click', () => {
-    addRemoveDomClass(piano, 'hidden', 'toggle');
-    isPianoVisible = !isPianoVisible;
-});
 
 // drag and drop
 piano.onmousedown = function takePiano(event: MouseEvent) {
@@ -80,15 +75,25 @@ document.addEventListener('pointerup', () => {
 const pianoKeys: NodeListOf<PianoKey> = document.querySelectorAll('.key');
 let firstNoteNumber = 28;
 let previousFirstNoteNumber = firstNoteNumber;
-let pianoNotes = new SoundPlayer(notes.slice(firstNoteNumber - 1, firstNoteNumber + pianoKeys.length));
-pianoNotes.loadAll();
+let pianoNotes = new SoundPlayer(notesLinks.slice(firstNoteNumber - 1, firstNoteNumber - 1 + pianoKeys.length));
+if (isPianoVisible) {
+    pianoNotes.loadAll();
+}
 let notesArr = pianoNotes.getHowl();
 notesArr.forEach((note) => note.loop(false));
+
+pianoButton.addEventListener('click', () => {
+    addRemoveDomClass(piano, 'hidden', 'toggle');
+    isPianoVisible = !isPianoVisible;
+    if (isPianoVisible) {
+        pianoNotes.loadAll();
+    }
+});
 
 const keyNotes = piano.querySelectorAll('.key-note');
 
 function applyNotes(first: number) {
-    const pathArr = notes.slice(first - 1, first + pianoKeys.length);
+    const pathArr = notesLinks.slice(first - 1, first - 1 + pianoKeys.length);
     if (first !== previousFirstNoteNumber) {
         pianoNotes = new SoundPlayer(pathArr);
         pianoNotes.loadAll();
