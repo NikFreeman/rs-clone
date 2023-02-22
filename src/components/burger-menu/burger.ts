@@ -27,5 +27,4 @@ function animateBurger() {
         }
     }
 }
-
-burgerContainer.addEventListener('click', animateBurger);
+export default animateBurger;

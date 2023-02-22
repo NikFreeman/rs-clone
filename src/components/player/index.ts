@@ -34,7 +34,7 @@ class SoundPlayer {
                 preload: false,
                 onload: () => {
                     if (this.isLoaded()) {
-                        const event = new CustomEvent('load-src');
+                        const event = new CustomEvent('load-src', { detail: soundSrc.length });
                         document.dispatchEvent(event);
                     }
                 },
