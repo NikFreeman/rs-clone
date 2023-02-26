@@ -10,7 +10,6 @@ import loadedSound from './components/loader/loader';
 import animateBurger from './components/burger-menu/burger';
 import './components/localization/language-switcher';
 
-
 getRandomWallpaper();
 categoryArray.forEach((_, i) => renderCard(i));
 
