@@ -1,4 +1,4 @@
-import { DomClassManipulation } from './enums';
+import { DomClassManipulation, SelectedLanguage } from './enums';
 
 export function getRandomDigit(max: number) {
     return Math.floor(Math.random() * max);
@@ -20,4 +20,15 @@ export function addRemoveDomClass(element: Element, classToManipulate: string, a
     } else if (action === DomClassManipulation.toggle) {
         element.classList.toggle(classToManipulate);
     }
+}
+
+export function isEnglishLanguage(): boolean {
+    return JSON.parse(localStorage.getItem('Active Language') as string) === SelectedLanguage.english;
+}
+
+export function choseTranslation(englishWord: string, russianWord: string): string {
+    if (JSON.parse(localStorage.getItem('Active Language') as string) === SelectedLanguage.english) {
+        return englishWord;
+    }
+    return russianWord;
 }
