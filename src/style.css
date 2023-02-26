@@ -20,7 +20,7 @@
       @apply shadow-outer-press-sib-l;
     }
     .key-white {
-      @apply select-none cursor-pointer relative w-[4.375rem] h-56 rounded-b-lg bg-gradient-to-b from-white to-gray-50 border border-solid border-white text-gray-500 dark:border-black;
+      @apply select-none cursor-pointer relative md:w-[4.375rem] w-[3.375rem] h-56 rounded-b-lg bg-gradient-to-b from-white to-gray-50 border border-solid border-white text-gray-500 dark:border-black;
     }
     .key-white.pressed {
       @apply shadow-inner-x bg-gradient-to-b from-gray-50 to-gray-200 last:shadow-inner-r first:shadow-inner-l;
