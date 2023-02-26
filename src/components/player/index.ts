@@ -53,9 +53,9 @@ class SoundPlayer {
 
     loadAll() {
         if (this.players.length > 0) {
-            this.players.forEach((song) => {
-                if (song.state() === 'unloaded') {
-                    song.load();
+            this.players.forEach((sound) => {
+                if (sound.state() === 'unloaded') {
+                    sound.load();
                 }
             });
         }
