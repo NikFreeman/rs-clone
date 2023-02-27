@@ -63,6 +63,15 @@ piano.ondragstart = function startDrag() {
     return false;
 };
 
+function moveWithRightEdge() {
+    const isRightEdge = piano.getBoundingClientRect().left + piano.offsetWidth > document.documentElement.clientWidth;
+    if (isRightEdge) {
+        piano.style.left = `${document.documentElement.clientWidth - piano.offsetWidth}px`;
+    }
+}
+
+window.addEventListener('resize', moveWithRightEdge);
+
 // play
 let isMouseDown = false;
 document.addEventListener('pointerdown', () => {
