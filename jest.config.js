@@ -9,7 +9,7 @@ module.exports = {
     clearMocks: true,
 
     // Indicates whether the coverage information should be collected while executing the test
-    collectCoverage: true,
+    collectCoverage: false,
 
     
 
@@ -135,7 +135,7 @@ module.exports = {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    testEnvironment: "jest-environment-jsdom",
+    testEnvironment: "jest-environment-jsdom",                      
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
