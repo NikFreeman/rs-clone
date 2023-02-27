@@ -32,7 +32,7 @@ const citySoundsLinks = [
 const citySoundsPack = {
     categoryName: 'city',
     mood: 'City Vibes',
-    moodRu: 'Дух города',
+    moodRu: 'В ритме города',
     description:
         'Do you miss busy streets and noisy highways? Do you miss the atmosphere of a big city bustling with life? Then "City Vibes" is exactly what you need!',
     descriptionRu:
