@@ -51,7 +51,7 @@ const baseConfig: Configuration = {
         path: path.resolve(__dirname, 'dist'),
         assetModuleFilename: 'images/[name][ext]',
         clean: true,
-        publicPath: '/',
+        publicPath: './',
     },
     plugins: [
         new HtmlWebpackPlugin({
