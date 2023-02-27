@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+    /* Language and Environment */
+    "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    /* Modules */
+    "module": "CommonJS",                                /* Specify what module code is generated. */
+    "rootDir": "./",                                    /* Specify the root folder within your source files. */
+    "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,  
+    "allowSyntheticDefaultImports": true,          /* Ensure that casing is correct in imports. */
+
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "include": ["./src/**/*", "./test/**/*"],
+  "exclude": ["node_module", "tsconfig.json", "**/*.config.js"],  
+}
