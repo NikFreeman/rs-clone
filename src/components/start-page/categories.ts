@@ -8,7 +8,6 @@ import meditationSoundsPack from '../../audio/audio-moods/meditate-me/index';
 import sciFiSoundsPack from '../../audio/audio-moods/sci-fi/index';
 import weatherSoundsPack from '../../audio/audio-moods/weather-for-all/index';
 import villageSoundsPack from '../../audio/audio-moods/welcome-to-the-village/index';
-// import { SelectedLanguage } from '../../models/enums';
 
 export const categoryArray = [
     waterSoundsPack,

@@ -4,7 +4,6 @@ import defaultSoundsLinks from '../../audio/audio-moods/default/index';
 import { categoryArray } from './categories';
 import renderVisualization from '../visualization';
 import { getNullCheckedElement, addRemoveDomClass, choseTranslation } from '../../models/utils';
-// import { SelectedLanguage } from '../../models/enums';
 
 const defaultMood = defaultSoundsLinks.map((link) => link.soundSrc);
 const defaultNames = defaultSoundsLinks.map((link) => link.soundName);
@@ -53,18 +52,13 @@ function applyMood(target: HTMLElement) {
     const rangeArea = document.querySelector('.preset-name');
 
     const mood = target.closest('.category-card')?.querySelector('.category-name')?.textContent;
-    // const mood = target.closest('.category-card')?.querySelector('.category-name')?.getAttribute('localization-key');
 
     isTheSameMood = rangeArea?.textContent?.split(' /')[0] === mood;
     const moodObj = categoryArray.find((obj) => obj.mood === mood || obj.moodRu === mood);
 
-    // console.log([mood, moodObj])
-
     if (moodObj && !isTheSameMood) {
         player.stopAll();
         isPlay = false;
-        // (playButton as HTMLButtonElement).textContent = choseTranslation('Play', 'Играть');
-        // player = new SoundPlayer(moodObj.soundsDirect);
         player = new SoundPlayer(moodObj.soundsLinks.map((linkObj) => linkObj.soundSrc));
         if (!player.isLoaded()) {
             playText.textContent = choseTranslation('L', '');
@@ -74,7 +68,6 @@ function applyMood(target: HTMLElement) {
             languageButton.setAttribute('disabled', 'disabled');
             player.loadAll();
         }
-        // player.loadAll();
         volumes.forEach((input, ind) => {
             if (input instanceof HTMLInputElement) {
                 const title = moodObj.soundsLinks[ind].soundName;
