@@ -1,0 +1,67 @@
+{
+  "name": "rs-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --open --config ./webpack.config.ts --env mode=dev",
+    "build": "webpack --config ./webpack.config.ts --env mode=prod",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint ./src --ext .ts --fix",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikFreeman/RS-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikFreeman/RS-Clone/issues"
+  },
+  "homepage": "https://github.com/NikFreeman/RS-Clone#readme",
+  "devDependencies": {
+    "@jest/globals": "^29.4.3",
+    "@material-tailwind/html": "^2.0.0",
+    "@testing-library/dom": "^9.0.0",
+    "@types/howler": "^2.2.7",
+    "@types/jest": "^29.4.0",
+    "@types/jsdom": "^21.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "autoprefixer": "^10.4.13",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "jest-html-loader": "^1.0.0",
+    "jsdom": "^21.1.0",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.0.2",
+    "prettier": "^2.8.3",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.2.4",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "howler": "^2.2.3"
+  }
+}
